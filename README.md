@@ -34,6 +34,7 @@ Example app listening at http://localhost:3000
 - eslint
 - express
 - mongodb
+- mongoose
 - node-sass
 - nodemon
 - nunjucks

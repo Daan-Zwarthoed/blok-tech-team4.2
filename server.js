@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use("/", router);
 
-nunjucks.configure("src/views", {
+nunjucks.configure("src/views/", {
     autoescape: true,
     express: app,
 });

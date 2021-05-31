@@ -9,5 +9,9 @@ module.exports = (function () {
     res.render("index.njk");
   });
 
+  routes.get("/chat", (req, res) => {
+    res.render("pages/chat/chat.njk");
+  });
+
   return routes;
 })();

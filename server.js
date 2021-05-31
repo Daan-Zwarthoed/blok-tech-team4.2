@@ -1,13 +1,13 @@
 const express = require("express");
 const nunjucks = require("nunjucks");
 const mongoose = require("mongoose");
-const router = require("src/routes/router.js");
+const router = require("./src/routes/router.js");
+require("dotenv").config();
 
 const app = express();
 const port = process.env.PORT || 3000;
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.CLUSTER}/${process.env.DB_NAME}?retryWrites=true&w=majority`
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_CLUSTER}/${process.env.DB_NAME}?retryWrites=true&w=majority`
 
-// Static files
 app.use(express.static("static/public"));
 
 app.use(express.json());

@@ -17,9 +17,11 @@
 
     <body>
         <!-- Content -->
+        {% include "partials/header.njk"%}
         <main>
             {% block content %}{% endblock %}
         </main>
+        {% include "partials/footer.njk"%}
     </body>
     {% block scripts %}{% endblock %}
 </html>

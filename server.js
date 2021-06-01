@@ -1,5 +1,6 @@
 const express = require("express");
 const nunjucks = require("nunjucks");
+const router = require("./src/routes/router.js");
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -11,11 +12,11 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use("/", router);
 
-nunjucks.configure("views", {
-    autoescape: true,
-    express: app,
+nunjucks.configure("src/views", {
+  autoescape: true,
+  express: app,
 });
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`Example app listening at http://localhost:${port}`);
 });

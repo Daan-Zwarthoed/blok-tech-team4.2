@@ -1,17 +1,9 @@
 // Router
+const router = require("express").Router();
+const RegisterController = require('../controllers/RegisterController');
 
-module.exports = (function () {
-  "use strict";
+router.get("/register", RegisterController.getRegister);
 
-  var routes = require("express").Router();
+router.post("/register", RegisterController.registerUser);
 
-  routes.get("/", (req, res) => {
-    res.render("index.njk");
-  });
-
-  routes.get("/chat", (req, res) => {
-    res.render("pages/chat/chat.njk");
-  });
-
-  return routes;
-})();
+module.exports = router;

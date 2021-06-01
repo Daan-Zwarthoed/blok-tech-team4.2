@@ -1,0 +1,15 @@
+.chatList {
+  form {
+    display: flex;
+    flex-direction: column;
+    button {
+      width: 100%;
+      height: 50px;
+      margin: 0;
+      padding: 0;
+      background-color: white;
+      border: none;
+      border-bottom: solid black 1px;
+    }
+  }
+}

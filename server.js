@@ -11,18 +11,64 @@ if (process.env.DB_USER) {
   uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_CLUSTER}/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 }
 
+const http = require("http");
+const server = http.createServer(app);
+const { Server } = require("socket.io");
+const io = new Server(server);
+
+let sortAlphabets = function (text) {
+  return text.split("").sort().join("");
+};
+
 app.use(express.static("static/public"));
 
 app.use(express.json());
 app.use(express.urlencoded());
 app.use("/", router);
 
+let backendMessages = [
+  {
+    message: "hey Henk",
+    userOther: "Henk",
+    userSelf: "Daan",
+  },
+  {
+    message: "hallo Daan",
+    userOther: "Daan",
+    userSelf: "Henk",
+  },
+];
+io.on("connection", (socket) => {
+  socket.on("join room", (message) => {
+    socket.join(sortAlphabets(`${message.userSelf}${message.userOther}`));
+
+    if (
+      "DHaaeknn" === sortAlphabets(`${message.userSelf}${message.userOther}`)
+    ) {
+      backendMessages.forEach((backendMessage) =>
+        socket.emit("chat message", {
+          message: backendMessage.message,
+          userOther: backendMessage.userOther,
+          userSelf: backendMessage.userSelf,
+        })
+      );
+    }
+  });
+
+  socket.on("chat message", (message) => {
+    io.to(sortAlphabets(`${message.userSelf}${message.userOther}`)).emit(
+      "chat message",
+      { message: message.message, userSelf: message.userSelf }
+    );
+  });
+});
+
 nunjucks.configure("src/views/", {
   autoescape: true,
   express: app,
 });
 
-app.listen(port, () => {
+server.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
 

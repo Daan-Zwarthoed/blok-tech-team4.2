@@ -12,4 +12,8 @@ router.post("/register", RegisterController.registerUser);
 
 router.get("/chat", ChatController.chatHome);
 
+router.get("/chat/chatSelf", ChatController.chatSelf);
+
+router.post("/chat/chatSelf", ChatController.chatSelf);
+
 module.exports = router;

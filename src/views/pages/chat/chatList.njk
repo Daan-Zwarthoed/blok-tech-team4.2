@@ -1,0 +1,15 @@
+{% extends "layouts/layout.njk" %}
+{% block title %}
+    Chat
+{% endblock %}
+{% block content %}
+    <div class="chatList">
+        <form action="chat/chatSelf" method="post">
+            <label name="userSelf">Your name</label>
+            <input type="text" name="userSelf" required/>
+            {% for user in users %}
+                <button name="user" value={{ user }}>{{ user }}</button>
+            {% endfor %}
+        </form>
+    </div>
+{% endblock %}

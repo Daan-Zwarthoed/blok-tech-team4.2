@@ -1,10 +1,8 @@
-<<<<<<< HEAD
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
 const getRegister = (req, res) => {
-    console.log("test");
     res.render("register.njk");
 };
 
@@ -32,16 +30,5 @@ const registerUser = (req, res) => {
     });
     console.log(req.body);
 };
-=======
-const User = require('../models/User');
-
-const getRegister = (req, res) => {
-    res.render("register.njk");
-}
-
-const registerUser = (req, res) => {
-    res.render("register.njk")
-}
->>>>>>> 6d660cfb92befd0c70b99049ef3ae0acfe71f845
 
 module.exports = { getRegister, registerUser };

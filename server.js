@@ -7,6 +7,7 @@ const session = require("express-session");
 // Routes
 const homeRoutes = require("./src/routes/homeRoutes.js");
 const chatRoutes = require("./src/routes/chatRoutes.js");
+const profileRoutes = require("./src/routes/profileRoutes");
 
 // Configuration
 const connectToDB = require("./src/config/mongoose.js");
@@ -36,7 +37,7 @@ app.use(express.json());
 app.use(express.urlencoded());
 
 app.use(session({
-	secret: "secret",
+	secret: process.env.SECRET,
 	resave: false,
 	saveUninitialized: false
 }));
@@ -49,6 +50,7 @@ checkUser();
 
 app.use("/", homeRoutes); 
 app.use("/chat", chatRoutes);
+app.use("/profiles", profileRoutes);
 
 let backendMessages = [
   {

@@ -1,6 +1,6 @@
 // Home Controller
 const getHome = (req, res) => {
-  res.render("index.njk");
+  res.render("pages/home/index.njk");
 };
 
 module.exports = { getHome };

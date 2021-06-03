@@ -1,7 +1,6 @@
-// Controllers will go in this folder.
+// Home Controller
+const getHome = (req, res) => {
+  res.render("index.njk");
+};
 
-// const homePage = (req, res) => {
-//   res.render("login.njk");
-// };
-
-// module.exports = { homePage };
+module.exports = { getHome };

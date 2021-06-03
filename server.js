@@ -2,20 +2,15 @@
 const express = require("express");
 const nunjucks = require("nunjucks");
 const passport = require("passport");
-const localStrategy = require("passport-local").Strategy;
 const session = require("express-session");
-const bcrypt = require("bcrypt");
 
 // Routes
 const homeRoutes = require("./src/routes/homeRoutes.js");
 const chatRoutes = require("./src/routes/chatRoutes.js");
 
-
-// Models
-const User = require("./src/models/User");
-
 // Configuration
 const connectToDB = require("./src/config/mongoose.js");
+const checkUser = require("./src/config/passport.js")
 
 require("dotenv").config();
 
@@ -31,6 +26,11 @@ let sortAlphabets = function (text) {
   return text.split("").sort().join("");
 };
 
+nunjucks.configure("src/views/", {
+  autoescape: true,
+  express: app,
+});
+
 app.use(express.static("static/public"));
 app.use(express.json());
 app.use(express.urlencoded());
@@ -45,59 +45,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.serializeUser((user, done) => {
-	done(null, user.id);
-});
-
-passport.deserializeUser((id, done) => {
-	User.findById(id, (err, user) => {
-		done(err, user);
-	});
-});
-
-passport.use(new localStrategy((username, password, done) => {
-	User.findOne({ username: username }, (err, user) => {
-		if (err) return done(err);
-		if (!user) return done(null, false, { message: 'Incorrect username.' });
-
-		bcrypt.compare(password, user.password, (err, res) => {
-			if (err) return done(err);
-			if (res === false) return done(null, false, { message: 'Incorrect password.' });
-			
-			return done(null, user);
-		});
-	});
-}));
-
-const isLoggedIn = (req, res, next) => {
-	if (req.isAuthenticated()) return next();
-	res.redirect('/login');
-}
-
-const isLoggedOut = (req, res, next) => {
-	if (!req.isAuthenticated()) return next();
-	res.redirect('/');
-}
-
-// ROUTES
-app.get('/', isLoggedIn, (req, res) => {
-	res.render("index.njk");
-});
-
-app.get('/login', isLoggedOut, (req, res) => {
-	res.render("login.njk");
-});
-
-app.post('/login', passport.authenticate('local', {
-	successRedirect: '/',
-	failureRedirect: '/login?error=true'
-}));
-
-app.get('/logout', function (req, res) {
-	req.logout();
-	res.redirect('/');
-});
-
+checkUser();
 
 app.use("/", homeRoutes); 
 app.use("/chat", chatRoutes);
@@ -137,11 +85,6 @@ io.on("connection", (socket) => {
       { message: message.message, userSelf: message.userSelf }
     );
   });
-});
-
-nunjucks.configure("src/views/", {
-  autoescape: true,
-  express: app,
 });
 
 server.listen(port, () => {

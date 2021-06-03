@@ -9,17 +9,15 @@
       <div>{{ userOther }}</div>
     </div>
     <ul id="messages">
-      {% if messages %}
-        {% if messages[0].length === 1 %}
-          <li>{{ messages }}</li>
+      {% for message in messages %}
+        {% if message.userSender === userSelf %}
+          <li class="messageSelf">{{ message.message }}</li>
         {% else %}
-          {% for message in messages %}
-            <li class={{ userSelf }}>{{ message }}</li>
-          {% endfor %}
+          <li>{{ message.message }}</li>
         {% endif %}
-      {% endif %}
+      {% endfor %}
     </ul>
-    <form id="form" method="post">
+    <form id="form" method="post" action="/chat/chatMessageReceived">
       <input id="userSelf" class="hidden" name="userSelf" value={{ userSelf }} readonly/>
       <input id="userOther" class="hidden" name="userOther" value={{ userOther }} readonly/>
       <input id="input" name="message" autocomplete="off"/>
@@ -29,6 +27,6 @@
 {% endblock %}
 {% block scripts %}
   <script src="/socket.io/socket.io.js"></script>
-  <script>
+  <script type="module">
     {% include "pages/chat/chatSelf/chatSelf.js" %}</script>
 {% endblock %}

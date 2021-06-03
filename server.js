@@ -30,40 +30,15 @@ app.use(express.urlencoded());
 app.use("/", homeRoutes);
 app.use("/chat", chatRoutes);
 
-let backendMessages = [
-  {
-    message: "hey Henk",
-    userOther: "Henk",
-    userSelf: "Daan",
-  },
-  {
-    message: "hallo Daan",
-    userOther: "Daan",
-    userSelf: "Henk",
-  },
-];
-
 io.on("connection", (socket) => {
   socket.on("join room", (message) => {
     socket.join(sortAlphabets(`${message.userSelf}${message.userOther}`));
-
-    if (
-      "DHaaeknn" === sortAlphabets(`${message.userSelf}${message.userOther}`)
-    ) {
-      backendMessages.forEach((backendMessage) =>
-        socket.emit("chat message", {
-          message: backendMessage.message,
-          userOther: backendMessage.userOther,
-          userSelf: backendMessage.userSelf,
-        })
-      );
-    }
   });
 
   socket.on("chat message", (message) => {
     io.to(sortAlphabets(`${message.userSelf}${message.userOther}`)).emit(
       "chat message",
-      { message: message.message, userSelf: message.userSelf }
+      { message: message.message, userSender: message.userSelf }
     );
   });
 });

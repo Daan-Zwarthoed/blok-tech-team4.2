@@ -1,6 +1,8 @@
 // Dependencies
 const express = require("express");
 const nunjucks = require("nunjucks");
+const passport = require("passport");
+const session = require("express-session");
 
 // Routes
 const homeRoutes = require("./src/routes/homeRoutes.js");
@@ -8,6 +10,7 @@ const chatRoutes = require("./src/routes/chatRoutes.js");
 
 // Configuration
 const connectToDB = require("./src/config/mongoose.js");
+const checkUser = require("./src/config/passport.js")
 
 require("dotenv").config();
 
@@ -23,11 +26,28 @@ let sortAlphabets = function (text) {
   return text.split("").sort().join("");
 };
 
-app.use(express.static("static/public"));
+nunjucks.configure("src/views/", {
+  autoescape: true,
+  express: app,
+});
 
+app.use(express.static("static/public"));
 app.use(express.json());
 app.use(express.urlencoded());
-app.use("/", homeRoutes);
+
+app.use(session({
+	secret: "secret",
+	resave: false,
+	saveUninitialized: false
+}));
+
+// Passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+checkUser();
+
+app.use("/", homeRoutes); 
 app.use("/chat", chatRoutes);
 
 let backendMessages = [
@@ -65,11 +85,6 @@ io.on("connection", (socket) => {
       { message: message.message, userSelf: message.userSelf }
     );
   });
-});
-
-nunjucks.configure("src/views/", {
-  autoescape: true,
-  express: app,
 });
 
 server.listen(port, () => {

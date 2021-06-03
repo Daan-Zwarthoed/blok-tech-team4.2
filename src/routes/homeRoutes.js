@@ -1,9 +1,9 @@
 // Router
 const router = require("express").Router();
-const HomeController = require("../controllers/HomeController")
+// const HomeController = require("../controllers/HomeController")
 const RegisterController = require("../controllers/RegisterController");
 
-router.get("/", HomeController.homePage);
+// router.get("/", HomeController.homePage);
 
 router.get("/register", RegisterController.getRegister);
 

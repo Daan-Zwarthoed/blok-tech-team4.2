@@ -1,7 +1,12 @@
+// Dependencies
 const express = require("express");
 const nunjucks = require("nunjucks");
+
+// Routes
 const homeRoutes = require("./src/routes/homeRoutes.js");
 const chatRoutes = require("./src/routes/chatRoutes.js");
+
+// Configuration
 const connectToDB = require("./src/config/mongoose.js");
 
 require("dotenv").config();

@@ -8,14 +8,14 @@ const getRegister = (req, res) => {
 
 const registerUser = (req, res) => {
     // Look if the email is already registered
-    const { name, email, password } = req.body;
-    User.findOne({ name: name }).then((result) => {
-        // If name is already registered
+    const { username, email, password } = req.body;
+    User.findOne({ username: username }).then((result) => {
+        // If username is already registered
         if (result) {
             res.render("register.njk");
         } else {
             const addUser = new User({
-                name,
+                username,
                 email,
                 password,
             });

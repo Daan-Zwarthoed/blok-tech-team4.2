@@ -1,0 +1,15 @@
+{% extends "layouts/layout.njk" %}
+{% block title %}
+    {{ user.username }} / updaten
+{% endblock %}
+{% block content %}
+    <section>
+        <div class='settings-text settings-name'>
+            <label for='username'>Username</label>
+            <input id='username' type='text' name='username' required maxlength='20' value='{{user.username}}'>
+
+            <button type='submit'>Opslaan</button>
+        </form>
+    </section>
+
+{% endblock %}

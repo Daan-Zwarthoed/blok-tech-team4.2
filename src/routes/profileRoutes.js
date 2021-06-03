@@ -1,7 +1,10 @@
 // Home Routes
 const router = require("express").Router();
 const ProfileController = require("../controllers/ProfileController")
+const auth = require("../config/auth")
 
-router.get("/:userId", ProfileController.getProfile);
+router.get("/:userId", auth.isLoggedIn, ProfileController.getProfile);
+
+router.get("/:userId/update", auth.isLoggedIn, auth.isntSameUser, ProfileController.getUpdateProfile);
 
 module.exports = router;

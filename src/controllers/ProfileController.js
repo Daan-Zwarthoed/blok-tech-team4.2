@@ -8,4 +8,12 @@ const getProfile = (req, res) => {
     });
 };
 
-module.exports = { getProfile };
+const getUpdateProfile = (req, res) => {
+    User.findById(req.params.userId, (err, user) => {
+        if (err) throw err;
+        res.render("pages/profiles/updateProfile.njk", { user });
+    });
+}
+
+
+module.exports = { getProfile, getUpdateProfile };

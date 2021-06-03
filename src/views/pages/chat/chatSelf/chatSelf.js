@@ -2,12 +2,8 @@ let socket = io();
 
 let form = document.getElementById("form");
 let input = document.getElementById("input");
-let userSelf = document.getElementById("userSelf").innerHTML;
-let userOther = document.getElementById("userOther").innerHTML;
-
-let sortAlphabets = function (text) {
-  return text.split("").sort().join("");
-};
+let userSelf = document.getElementById("userSelf").value;
+let userOther = document.getElementById("userOther").value;
 
 socket.emit("join room", { userOther: userOther, userSelf: userSelf });
 

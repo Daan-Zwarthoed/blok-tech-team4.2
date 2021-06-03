@@ -6,12 +6,23 @@
   <div class="chatSelf">
     <div class="chatHeader">
       <a href="/chat">&#8592;</a>
-      <div id="userSelf" style="display: none;">{{ userSelf }}</div>
-      <div id="userOther">{{ userOther }}</div>
+      <div>{{ userOther }}</div>
     </div>
-    <ul id="messages"></ul>
-    <form id="form" action="">
-      <input id="input" autocomplete="off"/>
+    <ul id="messages">
+      {% if messages %}
+        {% if messages[0].length === 1 %}
+          <li>{{ messages }}</li>
+        {% else %}
+          {% for message in messages %}
+            <li class={{ userSelf }}>{{ message }}</li>
+          {% endfor %}
+        {% endif %}
+      {% endif %}
+    </ul>
+    <form id="form" method="post">
+      <input id="userSelf" class="hidden" name="userSelf" value={{ userSelf }} readonly/>
+      <input id="userOther" class="hidden" name="userOther" value={{ userOther }} readonly/>
+      <input id="input" name="message" autocomplete="off"/>
       <button>Send</button>
     </form>
   </div>

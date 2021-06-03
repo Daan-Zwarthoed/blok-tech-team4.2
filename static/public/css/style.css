@@ -1,5 +1,8 @@
 /* Imports */
 /* Variables */
+.hidden {
+  display: none; }
+
 .chatList form {
   display: flex;
   flex-direction: column; }

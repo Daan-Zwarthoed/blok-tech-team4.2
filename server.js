@@ -38,6 +38,7 @@ let backendMessages = [
     userSelf: "Henk",
   },
 ];
+
 io.on("connection", (socket) => {
   socket.on("join room", (message) => {
     socket.join(sortAlphabets(`${message.userSelf}${message.userOther}`));

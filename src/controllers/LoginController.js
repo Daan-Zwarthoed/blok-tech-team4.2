@@ -2,7 +2,7 @@
 const passport = require("passport");
 
 const getLogin = (req, res) => {
-    res.render("login.njk");
+    res.render("pages/home/login.njk");
 };
 
 const getLogout = (req, res) => {

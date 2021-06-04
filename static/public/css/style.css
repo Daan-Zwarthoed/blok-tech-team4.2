@@ -1,5 +1,8 @@
 /* Imports */
 /* Variables */
+.hidden {
+  display: none; }
+
 .chatList form {
   display: flex;
   flex-direction: column; }
@@ -59,16 +62,20 @@
   .chatSelf #messages {
     list-style-type: none;
     margin: 0;
+    margin-bottom: 2em;
     padding: 0; }
   .chatSelf #messages > li {
     padding: 0.5rem 1rem;
     margin-bottom: 0.3em;
     width: fit-content;
-    display: flex;
     background-color: grey;
     color: white;
     border-radius: 10px;
-    flex-direction: row; }
+    max-width: 60%;
+    height: fit-content;
+    display: flex;
+    word-wrap: break-word;
+    word-break: break-all; }
   .chatSelf .messageSelf {
     margin-left: auto;
     background-color: #343480 !important; }

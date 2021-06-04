@@ -1,4 +1,4 @@
-// Router
+// Home Routes
 const router = require("express").Router();
 const HomeController = require("../controllers/HomeController")
 const LoginController = require("../controllers/LoginController");
@@ -13,9 +13,8 @@ router.post("/login", LoginController.loginUser);
 
 router.get("/logout", LoginController.getLogout);
 
-router.get("/register", RegisterController.getRegister);
+router.get("/register", auth.isLoggedOut, RegisterController.getRegister);
 
 router.post("/register", RegisterController.registerUser);
 
 module.exports = router;
-

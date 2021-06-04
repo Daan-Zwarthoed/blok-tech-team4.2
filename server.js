@@ -30,16 +30,37 @@ app.use(express.urlencoded());
 app.use("/", homeRoutes);
 app.use("/chat", chatRoutes);
 
+const Conversation = require("./src/models/Conversation");
+
 io.on("connection", (socket) => {
   socket.on("join room", (message) => {
     socket.join(sortAlphabets(`${message.userSelf}${message.userOther}`));
   });
 
   socket.on("chat message", (message) => {
-    io.to(sortAlphabets(`${message.userSelf}${message.userOther}`)).emit(
-      "chat message",
-      { message: message.message, userSender: message.userSelf }
-    );
+    Conversation.findOneAndUpdate(
+      {
+        conversationName: sortAlphabets(
+          `${message.userSelf}${message.userOther}`
+        ),
+      },
+      {
+        $push: {
+          messages: {
+            userSender: message.userSelf,
+            message: message.message,
+          },
+        },
+      },
+      {
+        upsert: true,
+      }
+    ).then(() => {
+      io.to(sortAlphabets(`${message.userSelf}${message.userOther}`)).emit(
+        "chat message",
+        { message: message.message, userSender: message.userSelf }
+      );
+    });
   });
 });
 

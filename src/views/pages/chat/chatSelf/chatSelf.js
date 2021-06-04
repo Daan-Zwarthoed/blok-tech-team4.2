@@ -2,14 +2,15 @@ let socket = io();
 
 let form = document.getElementById("form");
 let input = document.getElementById("input");
-let userSelf = document.getElementById("userSelf").value;
 let userOther = document.getElementById("userOther").value;
+let userSelf = document.getElementById("userSelf").value;
 
 window.scrollTo(0, document.body.scrollHeight);
 
 socket.emit("join room", { userOther: userOther, userSelf: userSelf });
 
-form.addEventListener("submit", function (e) {
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
   if (input.value) {
     socket.emit("chat message", {
       message: input.value,
@@ -17,6 +18,7 @@ form.addEventListener("submit", function (e) {
       userSelf: userSelf,
     });
   }
+  input.value = "";
 });
 
 socket.on("chat message", function (message) {

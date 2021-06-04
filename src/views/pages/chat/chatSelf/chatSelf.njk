@@ -10,17 +10,13 @@
     </div>
     <ul id="messages">
       {% for message in messages %}
-        {% if message.userSender === userSelf %}
-          <li class="messageSelf">{{ message.message }}</li>
-        {% else %}
-          <li>{{ message.message }}</li>
-        {% endif %}
+        <li class={{ "messageSelf" if message.userSender === userSelf }}>{{ message.message }}</li>
       {% endfor %}
     </ul>
     <form id="form" method="post" action="/chat/chatMessageReceived">
       <input id="userSelf" class="hidden" name="userSelf" value={{ userSelf }} readonly/>
       <input id="userOther" class="hidden" name="userOther" value={{ userOther }} readonly/>
-      <input id="input" name="message" autocomplete="off"/>
+      <input id="input" name="message" autocomplete="off" required/>
       <button>Send</button>
     </form>
   </div>

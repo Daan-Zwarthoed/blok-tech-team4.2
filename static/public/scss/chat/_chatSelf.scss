@@ -62,11 +62,14 @@
     padding: 0.5rem 1rem;
     margin-bottom: 0.3em;
     width: fit-content;
-    display: flex;
     background-color: grey;
     color: white;
     border-radius: 10px;
-    flex-direction: row;
+    max-width: 90%;
+    height: fit-content;
+    display: flex;
+    word-wrap: break-word;
+    word-break: break-all;
   }
 
   .messageSelf {

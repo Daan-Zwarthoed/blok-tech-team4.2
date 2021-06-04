@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
 const getRegister = (req, res) => {
-    res.render("register.njk");
+    res.render("pages/home/register.njk");
 };
 
 const registerUser = (req, res) => {
@@ -12,7 +12,7 @@ const registerUser = (req, res) => {
     User.findOne({ username: username }).then((result) => {
         // If username is already registered
         if (result) {
-            res.render("register.njk");
+            res.render("pages/home/register.njk");
         } else {
             const addUser = new User({
                 username,

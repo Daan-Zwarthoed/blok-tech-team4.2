@@ -1,0 +1,10 @@
+{% extends "layouts/layout.njk" %}
+{% block title %}
+    {{ user.username }}
+{% endblock %}
+{% block content %}
+    <section>
+        <h2>{{user.username}}</h2>
+        <p>{{user.email}}</p>
+    </section>
+{% endblock %}

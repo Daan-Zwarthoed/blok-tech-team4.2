@@ -1,4 +1,4 @@
-// Router
+// Chat Routes
 const router = require("express").Router();
 const ChatController = require("../controllers/ChatController");
 

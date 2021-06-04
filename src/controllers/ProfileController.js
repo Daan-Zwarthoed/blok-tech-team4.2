@@ -1,4 +1,4 @@
-/*
+/**
  * Profile Controller
  */
 
@@ -35,4 +35,20 @@ const getUpdateProfile = (req, res) => {
     }
 };
 
-module.exports = { getProfile, getUpdateProfile };
+/**
+ * This function handles the updating of the user data.
+ */
+const updateProfile = (req, res) => {
+    const avatar = req.files.avatar[0].filename;
+    const banner = req.files.banner[0].filename;
+
+    // Update the user who matches the (unique) username. The user can update the avatar and banner.
+    User.updateOne({ username: req.user.username }, { $set: {avatar: avatar, banner: banner}}, (err) => {
+        if (err) throw err;
+    });
+
+    // Redirect the user back to their profile.
+    res.redirect(`/profiles/${req.params.userId}`);
+};
+
+module.exports = { getProfile, getUpdateProfile, updateProfile };

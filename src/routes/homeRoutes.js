@@ -1,4 +1,7 @@
-// Home Routes
+/**
+ * Home Routes
+ */
+
 const router = require("express").Router();
 const HomeController = require("../controllers/HomeController")
 const LoginController = require("../controllers/LoginController");

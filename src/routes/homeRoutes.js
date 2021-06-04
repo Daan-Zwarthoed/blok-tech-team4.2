@@ -4,6 +4,7 @@ const HomeController = require("../controllers/HomeController")
 const LoginController = require("../controllers/LoginController");
 const RegisterController = require("../controllers/RegisterController");
 const auth = require("../config/auth")
+const upload = require("../config/multer")
 
 router.get("/", auth.isLoggedIn, HomeController.getHome);
 
@@ -15,6 +16,6 @@ router.get("/logout", LoginController.getLogout);
 
 router.get("/register", auth.isLoggedOut, RegisterController.getRegister);
 
-router.post("/register", RegisterController.registerUser);
+router.post("/register", upload.profileUpload, RegisterController.registerUser);
 
 module.exports = router;

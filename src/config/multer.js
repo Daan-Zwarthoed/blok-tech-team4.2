@@ -12,4 +12,9 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-module.exports = { upload }
+const profileUpload = upload.fields([
+    { name: "banner", maxCount: 1 },
+    { name: "avatar", maxCount: 1 },
+]);
+
+module.exports = { profileUpload };

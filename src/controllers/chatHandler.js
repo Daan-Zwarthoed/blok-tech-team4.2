@@ -2,7 +2,7 @@ let sortAlphabets = function (text) {
   return text.split("").sort().join("");
 };
 
-const Conversation = require("./src/models/Conversation");
+const Conversation = require("../models/Conversation");
 
 module.exports = {
   joinRoom: function (socket, message) {

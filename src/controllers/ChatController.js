@@ -1,4 +1,7 @@
 const users = ["Henk", "Sam", "Daan"];
+let userSelf = "";
+let userOther = "";
+let message = "";
 
 const Conversation = require("../models/Conversation");
 
@@ -9,10 +12,6 @@ let sortAlphabets = function (text) {
 const chatHome = (req, res) => {
   res.render("pages/chat/chatList.njk", { users: users });
 };
-
-let userSelf = "";
-let userOther = "";
-let message = "";
 
 const chatSelf = async (req, res) => {
   if (req.body.userSelf) userSelf = req.body.userSelf;

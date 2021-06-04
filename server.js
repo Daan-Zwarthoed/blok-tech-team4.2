@@ -26,7 +26,7 @@ app.use(express.urlencoded());
 app.use("/", homeRoutes);
 app.use("/chat", chatRoutes);
 
-const chatHandler = require("./chatHandler");
+const chatHandler = require("./src/controllers/chatHandler.js");
 
 io.on("connection", (socket) => {
   socket.on("join room", (message) => {

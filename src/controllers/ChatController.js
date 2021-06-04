@@ -15,11 +15,9 @@ let userOther = "";
 let message = "";
 
 const chatSelf = async (req, res) => {
-  userSelf = req.body.userSelf ? req.body.userSelf : userSelf;
-  userOther = req.body.userOther ? req.body.userOther : userOther;
-  if (req.body.message) {
-    messsage = req.body.messsage ? req.body.messsage : messsage;
-  }
+  if (req.body.userSelf) userSelf = req.body.userSelf;
+  if (req.body.userOther) userOther = req.body.userOther;
+  if (req.body.message) message = req.body.message;
 
   Conversation.find({
     conversationName: sortAlphabets(`${userSelf}${userOther}`),
@@ -38,12 +36,8 @@ const chatSelf = async (req, res) => {
       Conversation.find({
         conversationName: sortAlphabets(`${userSelf}${userOther}`),
       }).then((results) => {
-        let messages;
-        if (results[0]) {
-          messages = results[0].messages;
-        } else {
-          messages = [];
-        }
+        let messages = [];
+        if (results[0]) messages = results[0].messages;
 
         res.render("pages/chat/chatSelf/chatSelf.njk", {
           userSelf: userSelf,

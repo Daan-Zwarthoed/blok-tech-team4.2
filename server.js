@@ -32,6 +32,7 @@ nunjucks.configure("src/views/", {
 app.use(express.static("static/public"));
 app.use(express.json());
 app.use(express.urlencoded());
+
 connectToDB();
 
 app.use(

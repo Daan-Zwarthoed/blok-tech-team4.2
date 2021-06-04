@@ -23,10 +23,6 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 
-let sortAlphabets = function (text) {
-  return text.split("").sort().join("");
-};
-
 nunjucks.configure("src/views/", {
   autoescape: true,
   express: app,
@@ -53,40 +49,15 @@ app.use("/", homeRoutes);
 app.use("/chat", chatRoutes);
 app.use("/profiles", profileRoutes);
 
-let backendMessages = [
-  {
-    message: "hey Henk",
-    userOther: "Henk",
-    userSelf: "Daan",
-  },
-  {
-    message: "hallo Daan",
-    userOther: "Daan",
-    userSelf: "Henk",
-  },
-];
+const chatHandler = require("./src/controllers/chatHandler.js");
+
 io.on("connection", (socket) => {
   socket.on("join room", (message) => {
-    socket.join(sortAlphabets(`${message.userSelf}${message.userOther}`));
-
-    if (
-      "DHaaeknn" === sortAlphabets(`${message.userSelf}${message.userOther}`)
-    ) {
-      backendMessages.forEach((backendMessage) =>
-        socket.emit("chat message", {
-          message: backendMessage.message,
-          userOther: backendMessage.userOther,
-          userSelf: backendMessage.userSelf,
-        })
-      );
-    }
+    chatHandler.joinRoom(socket, message);
   });
 
   socket.on("chat message", (message) => {
-    io.to(sortAlphabets(`${message.userSelf}${message.userOther}`)).emit(
-      "chat message",
-      { message: message.message, userSelf: message.userSelf }
-    );
+    chatHandler.messagesSend(io, message);
   });
 });
 

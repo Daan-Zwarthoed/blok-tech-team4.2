@@ -8,4 +8,6 @@ router.get("/chatSelf", ChatController.chatSelf);
 
 router.post("/chatSelf", ChatController.chatSelf);
 
+router.post("/chatMessageReceived", ChatController.chatMessageReceived);
+
 module.exports = router;

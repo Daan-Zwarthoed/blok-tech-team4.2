@@ -6,18 +6,23 @@
   <div class="chatSelf">
     <div class="chatHeader">
       <a href="/chat">&#8592;</a>
-      <div id="userSelf" style="display: none;">{{ userSelf }}</div>
-      <div id="userOther">{{ userOther }}</div>
+      <div>{{ userOther }}</div>
     </div>
-    <ul id="messages"></ul>
-    <form id="form" action="">
-      <input id="input" autocomplete="off"/>
+    <ul id="messages">
+      {% for message in messages %}
+        <li class={{ "messageSelf" if message.userSender === userSelf }}>{{ message.message }}</li>
+      {% endfor %}
+    </ul>
+    <form id="form" method="post" action="/chat/chatMessageReceived">
+      <input id="userSelf" class="hidden" name="userSelf" value={{ userSelf }} readonly/>
+      <input id="userOther" class="hidden" name="userOther" value={{ userOther }} readonly/>
+      <input id="input" name="message" autocomplete="off" required/>
       <button>Send</button>
     </form>
   </div>
 {% endblock %}
 {% block scripts %}
   <script src="/socket.io/socket.io.js"></script>
-  <script>
+  <script type="module">
     {% include "pages/chat/chatSelf/chatSelf.js" %}</script>
 {% endblock %}

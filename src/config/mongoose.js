@@ -16,6 +16,7 @@ const connectToDB = () => {
                 throw err;
             });
     }
+
 };
 
 module.exports = connectToDB;

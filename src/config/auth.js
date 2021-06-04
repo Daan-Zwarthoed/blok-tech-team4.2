@@ -8,15 +8,4 @@ const isLoggedOut = (req, res, next) => {
     res.redirect("/");
 };
 
-const isntSameUser = (req, res ) => {
-    console.log("Current login: " + req.user._id);
-    console.log("Visting user profile: " + req.params.userId);
-
-    if (req.user._id === req.params.userId) {
-		console.log("equal")
-	} else if (req.user._id !== req.params.userId) {
-		console.log("not equal")
-	}
-};
-
-module.exports = { isLoggedIn, isLoggedOut, isntSameUser };
+module.exports = { isLoggedIn, isLoggedOut };

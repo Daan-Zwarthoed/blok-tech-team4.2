@@ -3,6 +3,8 @@
  */
 
 const User = require("../models/User");
+const Game = require("../models/Game");
+const { shuffle } = require("../tools/shuffle");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
@@ -10,7 +12,10 @@ const saltRounds = 10;
  * This function renders the register page.
  */
 const getRegister = (req, res) => {
-    res.render("pages/home/register.njk");
+    Game.find({}).then((games) => {
+        shuffle(games);
+        res.render("pages/home/register.njk", { games });
+    });
 };
 
 /**
@@ -18,9 +23,10 @@ const getRegister = (req, res) => {
  */
 const registerUser = (req, res) => {
     const { username, email, password } = req.body;
+    const displayname = req.body.username;
     const avatar = req.files.avatar[0].filename;
     const banner = req.files.banner[0].filename;
-    
+
     User.findOne({ username: username }).then((result) => {
         // If username is already registered redirect back to register
         if (result) {
@@ -29,6 +35,7 @@ const registerUser = (req, res) => {
             // Otherwise create a new User with the user input.
             const addUser = new User({
                 username,
+                displayname,
                 email,
                 password,
                 avatar,

@@ -3,6 +3,8 @@
  */
 
 const User = require("../models/User");
+const Game = require("../models/Game");
+const { shuffle } = require("../tools/shuffle");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
@@ -18,9 +20,10 @@ const getRegister = (req, res) => {
  */
 const registerUser = (req, res) => {
     const { username, email, password } = req.body;
+    const displayname = req.body.username;
     const avatar = req.files.avatar[0].filename;
     const banner = req.files.banner[0].filename;
-    
+
     User.findOne({ username: username }).then((result) => {
         // If username is already registered redirect back to register
         if (result) {
@@ -29,6 +32,7 @@ const registerUser = (req, res) => {
             // Otherwise create a new User with the user input.
             const addUser = new User({
                 username,
+                displayname,
                 email,
                 password,
                 avatar,
@@ -45,11 +49,35 @@ const registerUser = (req, res) => {
                 // https://www.passportjs.org/docs/login/
                 req.login(addUser, (err) => {
                     if (err) throw err;
-                    res.redirect("/");
+                    res.redirect("/onboarding");
                 });
             });
         }
     });
 };
 
-module.exports = { getRegister, registerUser };
+const getOnboarding = (req, res) => {
+    Game.find({}).then((games) => {
+        shuffle(games);
+        res.render("pages/profiles/addGames.njk", { games });
+    });
+};
+
+const onboardUser = (req, res) => {
+    Game.find({}).then((games) => {
+        games.forEach((game) => {
+            if (req.body[game.titleSlug]) {
+                Game.updateOne(
+                    { title: game.title },
+                    { $push: { likedBy: req.user._id } },
+                    (err) => {
+                        if (err) throw err;
+                    }
+                );
+            }
+        });
+    });
+    res.redirect("/")
+};
+
+module.exports = { getRegister, registerUser, getOnboarding, onboardUser };

@@ -7,6 +7,10 @@ const UserSchema = mongoose.Schema({
         required: true,
         unique: true
     },
+    displayname: {
+        type: String,
+        required: true,
+    },
     email: {
         type: String,
         required: true,
@@ -22,6 +26,9 @@ const UserSchema = mongoose.Schema({
     banner: {
         type: String,
         required: true,
+    },
+    description: {
+        type: String,
     },
 });
 

@@ -15,18 +15,18 @@
  * @param {*} arr = the array which needs to be shuffled
  */
 const shuffle = (arr) => {
-    for (let i = 0; i < arr.length; i++) {
-        // Randomize the value of j
-        const j = Math.floor(Math.random() * (arr.length - i) + i);
+      for (let i = 0; i < arr.length; i++) {
+            // Randomize the value of j
+            const j = Math.floor(Math.random() * (arr.length - i) + i);
 
-        // Assign indexes to a variable
-        const currentItem = arr[i];
-        const randomItem = arr[j];
+            // Assign indexes to a variable
+            const currentItem = arr[i];
+            const randomItem = arr[j];
 
-        // Exchange the arrays
-        arr[j] = currentItem;
-        arr[i] = randomItem;
-    }
+            // Exchange the arrays
+            arr[j] = currentItem;
+            arr[i] = randomItem;
+      }
 };
 
 module.exports = { shuffle };

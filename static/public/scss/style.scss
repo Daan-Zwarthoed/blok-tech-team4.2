@@ -1,4 +1,10 @@
 @charset "UTF-8";
 
 /* Imports */
-@import "1-settings/_variables.scss", "chat/_chatList.scss", "chat/_chatSelf.scss", "partials/_footer.scss";
+@import 
+    "chat/_chatList.scss", 
+    "chat/_chatSelf.scss", 
+    "profiles/_profile.scss", 
+    "home/_form.scss",
+    "home/_onboarding.scss",
+    "global/_global.scss";

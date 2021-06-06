@@ -1,0 +1,18 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    text-decoration: none;
+    list-style: none;
+}
+
+img {
+    object-fit: cover;
+}
+
+.wrapper {
+    display: flex;
+}

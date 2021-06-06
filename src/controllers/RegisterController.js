@@ -12,10 +12,7 @@ const saltRounds = 10;
  * This function renders the register page.
  */
 const getRegister = (req, res) => {
-    Game.find({}).then((games) => {
-        shuffle(games);
-        res.render("pages/home/register.njk", { games });
-    });
+    res.render("pages/home/register.njk");
 };
 
 /**
@@ -52,11 +49,35 @@ const registerUser = (req, res) => {
                 // https://www.passportjs.org/docs/login/
                 req.login(addUser, (err) => {
                     if (err) throw err;
-                    res.redirect("/");
+                    res.redirect("/onboarding");
                 });
             });
         }
     });
 };
 
-module.exports = { getRegister, registerUser };
+const getOnboarding = (req, res) => {
+    Game.find({}).then((games) => {
+        shuffle(games);
+        res.render("pages/profiles/addGames.njk", { games });
+    });
+};
+
+const onboardUser = (req, res) => {
+    Game.find({}).then((games) => {
+        games.forEach((game) => {
+            if (req.body[game.titleSlug]) {
+                Game.updateOne(
+                    { title: game.title },
+                    { $push: { likedBy: req.user._id } },
+                    (err) => {
+                        if (err) throw err;
+                    }
+                );
+            }
+        });
+    });
+    res.redirect("/")
+};
+
+module.exports = { getRegister, registerUser, getOnboarding, onboardUser };

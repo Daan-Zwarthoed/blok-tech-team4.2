@@ -1,0 +1,35 @@
+.register, .login {
+    .wrapper, button, h1 {
+        margin: 1rem 1rem 0;
+        flex-direction: column;
+    }
+    .information {
+        height: 100vh;
+
+        form {
+            margin-bottom: 1rem;
+
+            .wrapper {
+                border: 0.0625rem solid lightsteelblue;
+                border-radius: 0.25rem;
+                padding: 0.5rem;
+
+                label {
+                    margin-bottom: 0.25rem;
+                    font-size: 0.825rem;
+                    color: lightsteelblue;
+                }
+
+                input {
+                    font-size: 1rem;
+                    border: none;
+                    padding: 0.25rem 0;
+                }
+            }
+        }
+    }
+
+    a {
+        margin: 0 1rem;
+    }
+}

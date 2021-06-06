@@ -177,7 +177,7 @@
   border: 0.1875rem solid white;
 }
 
-.register .wrapper, .register button, .register h1 {
+.register .wrapper, .register button, .register h1, .login .wrapper, .login button, .login h1 {
   margin: 1rem 1rem 0;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -185,22 +185,73 @@
           flex-direction: column;
 }
 
-.register .wrapper {
+.register .information, .login .information {
+  height: 100vh;
+}
+
+.register .information form, .login .information form {
+  margin-bottom: 1rem;
+}
+
+.register .information form .wrapper, .login .information form .wrapper {
   border: 0.0625rem solid lightsteelblue;
   border-radius: 0.25rem;
   padding: 0.5rem;
 }
 
-.register .wrapper label {
+.register .information form .wrapper label, .login .information form .wrapper label {
   margin-bottom: 0.25rem;
   font-size: 0.825rem;
   color: lightsteelblue;
 }
 
-.register .wrapper input {
+.register .information form .wrapper input, .login .information form .wrapper input {
   font-size: 1rem;
   border: none;
   padding: 0.25rem 0;
+}
+
+.register a, .login a {
+  margin: 0 1rem;
+}
+
+.onboarding {
+  max-height: 100vh;
+  height: 100vh;
+}
+
+.onboarding {
+  margin-left: 1rem;
+}
+
+.onboarding h1 {
+  position: -webkit-sticky;
+  position: sticky;
+  margin: 1rem 0;
+}
+
+.onboarding form {
+  overflow-x: scroll;
+}
+
+.onboarding form > ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  gap: 2rem 1rem;
+  padding-right: 1rem;
+}
+
+.onboarding form > ul > li {
+  width: 12rem;
+}
+
+.onboarding form > ul > li img {
+  height: 20rem;
+  width: 100%;
 }
 
 *,

@@ -27,7 +27,7 @@ const getProfile = (req, res) => {
 const getUpdateProfile = (req, res) => {
     const userId = req.params.userId;
     // Check if the session user is equal to the requested user (this way other users can't access this page).
-    if (userId == req.params.userId) {
+    if (userId == req.user._id) {
         User.findById(req.params.userId, (err, user) => {
             if (err) throw err;
             res.render("pages/profiles/updateProfile.njk", { user });

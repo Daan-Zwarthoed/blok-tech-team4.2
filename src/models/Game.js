@@ -8,6 +8,11 @@ const GameSchema = mongoose.Schema({
         required: true,
         unique: true
     },
+    titleSlug: {
+        type: String,
+        required: true,
+        unique: true,
+    },
     genres: {
         type: [String],
         required: true,
@@ -18,6 +23,7 @@ const GameSchema = mongoose.Schema({
     },
     likedBy: {
         type: [ObjectId],
+        unique: true,
     },
 });
 

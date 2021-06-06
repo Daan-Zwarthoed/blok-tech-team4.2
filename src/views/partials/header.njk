@@ -1,7 +1,7 @@
 <!-- Navbar -->
-<header>
-    <div>This is the header</div>
-    {% if user %}
+{% if user %}
+    <header>
+        <div>This is the header</div>
         <a href='/profiles/{{user._id}}'>Welkom, {{user.username}}</a>
-    {% endif %}
-</header>
+    </header>
+{% endif %}

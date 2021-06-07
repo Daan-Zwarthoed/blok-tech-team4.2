@@ -26,8 +26,8 @@ const server = http.createServer(app);
 const io = new Server(server);
 
 nunjucks.configure('src/views/', {
-      autoescape: true,
-      express: app,
+    autoescape: true,
+    express: app,
 });
 
 app.use(express.static('static/public'));
@@ -37,15 +37,15 @@ app.use(express.urlencoded());
 connectToDB();
 
 app.use(
-      session({
-            secret: process.env.SECRET,
-            maxAge: new Date(Date.now() + 3600000),
-            store: new MongoStore({
-                  mongoUrl: `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_CLUSTER}/${process.env.DB_NAME}?retryWrites=true&w=majority`,
-            }),
-            resave: true,
-            saveUninitialized: false,
-      })
+    session({
+        secret: process.env.SECRET,
+        maxAge: new Date(Date.now() + 3600000),
+        store: new MongoStore({
+            mongoUrl: `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_CLUSTER}/${process.env.DB_NAME}?retryWrites=true&w=majority`,
+        }),
+        resave: true,
+        saveUninitialized: false,
+    })
 );
 
 // Passport
@@ -61,15 +61,15 @@ app.use('/profiles', profileRoutes);
 const chatHandler = require('./src/controllers/chatHandler.js');
 
 io.on('connection', (socket) => {
-      socket.on('join room', (message) => {
-            chatHandler.joinRoom(socket, message);
-      });
+    socket.on('join room', (message) => {
+        chatHandler.joinRoom(socket, message);
+    });
 
-      socket.on('chat message', (message) => {
-            chatHandler.messagesSend(io, message);
-      });
+    socket.on('chat message', (message) => {
+        chatHandler.messagesSend(io, message);
+    });
 });
 
 server.listen(port, () => {
-      console.log(`Example app listening at http://localhost:${port}`);
+    console.log(`Example app listening at http://localhost:${port}`);
 });

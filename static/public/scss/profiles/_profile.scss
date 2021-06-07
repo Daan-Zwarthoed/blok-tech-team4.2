@@ -1,4 +1,6 @@
 .profile {
+    padding-bottom: 4rem;
+
     .profile-banner {
         width: 100%;
         height: 8rem;
@@ -6,27 +8,34 @@
 
     .profile-info {
         margin-top: -2rem;
-        padding: 0 1rem 1rem;
-        border-bottom: 0.0625rem solid lightsteelblue;
+        padding: 0 1rem 2rem;
+        border-bottom: 0.0625rem solid #6E767D;
 
         h2 {
             display: flex;
             flex-direction: column;
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
 
             span {
-                color: lightsteelblue;
-                font-size: 1.125rem;
+                color: #6E767D;
+                font-size: 0.9375rem;
                 font-weight: 400;
             }
         }
 
+        p {
+            font-size: 0.9375rem;
+            letter-spacing: 0.025rem;
+            line-height: 1.1875rem;
+        }
+
         .wrapper {
             align-items: flex-end;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
 
             a {
-                margin: 0 0  0.25rem auto;
+                margin: 0 0 0.25rem auto;
                 padding: 0.5625rem 1.125rem;
                 background: dodgerblue;
                 color: white;
@@ -39,7 +48,33 @@
             width: 5.5rem;
             height: 5.5rem;
             border-radius: 50%;
-            border: 0.1875rem solid white;
+            border: 0.1875rem solid #0F0F11;
+        }
+    }
+
+    .profile-extra {
+        overflow-x: scroll;
+        margin: 1rem;
+
+        h2 {
+            position: sticky;
+            margin: 1rem 0;
+            left: 0;
+        }
+
+        &>ul {
+            display: flex;
+            width: fit-content;
+            gap: 2rem 1rem;
+
+            &>li {
+                width: 8rem;
+
+                img {
+                    height: 14rem;
+                    width: 100%;
+                }
+            }
         }
     }
 }

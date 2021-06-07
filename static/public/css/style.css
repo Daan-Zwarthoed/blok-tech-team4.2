@@ -127,6 +127,10 @@
   background-color: #343480 !important;
 }
 
+.profile {
+  padding-bottom: 4rem;
+}
+
 .profile .profile-banner {
   width: 100%;
   height: 8rem;
@@ -134,8 +138,8 @@
 
 .profile .profile-info {
   margin-top: -2rem;
-  padding: 0 1rem 1rem;
-  border-bottom: 0.0625rem solid lightsteelblue;
+  padding: 0 1rem 2rem;
+  border-bottom: 0.0625rem solid #6E767D;
 }
 
 .profile .profile-info h2 {
@@ -146,24 +150,31 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
 }
 
 .profile .profile-info h2 span {
-  color: lightsteelblue;
-  font-size: 1.125rem;
+  color: #6E767D;
+  font-size: 0.9375rem;
   font-weight: 400;
+}
+
+.profile .profile-info p {
+  font-size: 0.9375rem;
+  letter-spacing: 0.025rem;
+  line-height: 1.1875rem;
 }
 
 .profile .profile-info .wrapper {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .profile .profile-info .wrapper a {
-  margin: 0 0  0.25rem auto;
+  margin: 0 0 0.25rem auto;
   padding: 0.5625rem 1.125rem;
   background: dodgerblue;
   color: white;
@@ -175,45 +186,92 @@
   width: 5.5rem;
   height: 5.5rem;
   border-radius: 50%;
-  border: 0.1875rem solid white;
+  border: 0.1875rem solid #0F0F11;
 }
 
-.register .wrapper, .register button, .register h1, .login .wrapper, .login button, .login h1 {
-  margin: 1rem 1rem 0;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+.profile .profile-extra {
+  overflow-x: scroll;
+  margin: 1rem;
+}
+
+.profile .profile-extra h2 {
+  position: -webkit-sticky;
+  position: sticky;
+  margin: 1rem 0;
+  left: 0;
+}
+
+.profile .profile-extra > ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  gap: 2rem 1rem;
+}
+
+.profile .profile-extra > ul > li {
+  width: 8rem;
+}
+
+.profile .profile-extra > ul > li img {
+  height: 14rem;
+  width: 100%;
 }
 
 .register .information, .login .information {
   height: 100vh;
 }
 
+.register .information h1, .login .information h1 {
+  font-size: 2rem;
+  margin: 5.75rem 2rem 1.5rem;
+}
+
 .register .information form, .login .information form {
-  margin-bottom: 1rem;
+  margin: 0 2rem 1rem;
 }
 
 .register .information form .wrapper, .login .information form .wrapper {
-  border: 0.0625rem solid lightsteelblue;
-  border-radius: 0.25rem;
-  padding: 0.5rem;
+  margin-bottom: 1.5rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .register .information form .wrapper label, .login .information form .wrapper label {
-  margin-bottom: 0.25rem;
-  font-size: 0.825rem;
-  color: lightsteelblue;
+  margin-bottom: 0.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.025rem;
+  color: #EFEFF1;
+  text-transform: uppercase;
+  font-weight: 500;
 }
 
 .register .information form .wrapper input, .login .information form .wrapper input {
   font-size: 1rem;
   border: none;
-  padding: 0.25rem 0;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+}
+
+.register .information form button, .login .information form button {
+  width: 100%;
+  border-radius: 0.25rem;
+  border: none;
+  background-color: dodgerblue;
+  font-weight: bold;
+  letter-spacing: 0.025rem;
+  font-size: 1rem;
+  color: #EFEFF1;
+  padding: 0.75rem 0;
 }
 
 .register a, .login a {
-  margin: 0 1rem;
+  margin: 0 2rem;
+  color: dodgerblue;
 }
 
 .onboarding {
@@ -251,7 +309,7 @@
 }
 
 .onboarding form > ul > li img {
-  height: 20rem;
+  height: 21rem;
   width: 100%;
 }
 
@@ -282,6 +340,40 @@ textarea {
   font-family: "Graphik", "segoe ui", tahoma, sans-serif;
 }
 
+body {
+  background-color: #0F0F11;
+  color: #EFEFF1;
+}
+
+input, textarea {
+  background-color: #464649;
+  color: #C1C1C1;
+}
+
+input::-webkit-input-placeholder, input::focus, textarea::-webkit-input-placeholder, textarea::focus {
+  color: #C1C1C1;
+  background-color: #464649;
+  font-weight: 500;
+}
+
+input:-ms-input-placeholder, input::focus, textarea:-ms-input-placeholder, textarea::focus {
+  color: #C1C1C1;
+  background-color: #464649;
+  font-weight: 500;
+}
+
+input::-ms-input-placeholder, input::focus, textarea::-ms-input-placeholder, textarea::focus {
+  color: #C1C1C1;
+  background-color: #464649;
+  font-weight: 500;
+}
+
+input::placeholder, input::focus, textarea::placeholder, textarea::focus {
+  color: #C1C1C1;
+  background-color: #464649;
+  font-weight: 500;
+}
+
 p {
   letter-spacing: 0.0125em;
 }
@@ -306,10 +398,11 @@ img {
       -ms-flex-align: center;
           align-items: center;
   margin: 0 1rem;
+  background-color: #0F0F11;
 }
 
 .header a {
-  color: black;
+  color: #EFEFF1;
 }
 
 .bottom-nav {
@@ -324,6 +417,7 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-color: #0F0F11;
 }
 
 .bottom-nav nav {
@@ -334,8 +428,9 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 .bottom-nav nav ul li a {
@@ -349,12 +444,12 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: black;
-  font-size: 0.9rem;
+  color: #EFEFF1;
+  font-size: 0.85rem;
 }
 
 .bottom-nav nav ul li a span {
   margin-bottom: 0.25rem;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
 }
 /*# sourceMappingURL=style.css.map */

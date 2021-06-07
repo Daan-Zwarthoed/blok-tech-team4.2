@@ -26,6 +26,22 @@ textarea {
     font-family: "Graphik", "segoe ui", tahoma, sans-serif;
 }
 
+body {
+    background-color: #0F0F11;
+    color: #EFEFF1;
+}
+
+input, textarea {
+    background-color: #464649;
+    color: #C1C1C1;
+
+    &::placeholder, &::focus {
+        color: #C1C1C1;
+        background-color: #464649;
+        font-weight: 500;
+    }
+}
+
 p {
     letter-spacing: 0.0125em;
 }

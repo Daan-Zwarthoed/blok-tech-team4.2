@@ -1,0 +1,32 @@
+{% extends "layouts/layout.njk" %}
+{% block title %}
+  Onboarding
+{% endblock %}
+{% block content %}
+    {% if games %}
+        <section class='onboarding'>
+            <h1>Onboarding</h1>
+            <form action="#" method="post">
+                <ul>
+                    {% for game in games %}
+                        <li class='onboard-games'>
+                            <input type='checkbox' id='{{game.titleSlug}}' name='{{game.titleSlug}}' value='liked'>
+                            <label for='{{game.titleSlug}}'>
+                                <img src='/images/games/{{game.image}}'>
+                                <h2>{{game.title}}</h2>
+                                {% if games.genres %}
+                                    <ul>
+                                        {% for genre in game.genres %}
+                                            <li>{{genre}}</li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            </label>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <button type='submit'>All done</button>
+            </form>
+        </section>
+    {% endif %}
+{% endblock %}

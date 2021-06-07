@@ -1,0 +1,39 @@
+@import url("./_fonts.scss");
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    text-decoration: none;
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+span,
+button,
+label,
+textarea {
+    font-family: "Graphik", "segoe ui", tahoma, sans-serif;
+}
+
+p {
+    letter-spacing: 0.0125em;
+}
+
+img {
+    object-fit: cover;
+}
+
+.wrapper {
+    display: flex;
+}

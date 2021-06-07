@@ -3,12 +3,21 @@
     {{ user.username }} / update profile
 {% endblock %}
 {% block content %}
-    <section>
-        <div class='settings-text settings-name'>
-            <label for='username'>Username</label>
-            <input id='username' type='text' name='username' required maxlength='20' value='{{user.username}}'>
+    <sectionclass='profile update-profile'>
+        <form action='#' method='post' enctype='multipart/form-data'>
+            <label for='avatar'>Avatar</label>
+            <input id='avatar' type='file' name='avatar' accept='image/*' required>
 
-            <button type='submit'>Opslaan</button>
+            <label for='banner'>Banner</label>
+            <input id='banner' type='file' name='banner' accept='image/*' required>
+
+            <label for='displayname'>Displayname</label>
+            <input id='displayname' type='text' name='displayname' required maxlength='20' placeholder='Your displayname...'>
+
+            <label for='description'>Beschrijving</label>
+            <textarea id='description' type='text' name='description' required maxlength='150' placeholder='Your description...'></textarea>
+
+            <button type='submit'>Save profile</button>
         </form>
     </section>
 

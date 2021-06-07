@@ -2,8 +2,8 @@ let socket = io();
 
 let form = document.getElementById("form");
 let input = document.getElementById("input");
-let userOther = document.getElementById("userOther").value;
-let userSelf = document.getElementById("userSelf").value;
+let userOther = document.getElementById("userOther").textContent;
+let userSelf = document.getElementById("userSelf").textContent;
 
 window.scrollTo(0, document.body.scrollHeight);
 

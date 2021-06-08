@@ -2,6 +2,7 @@ let userSelf = '';
 let userOther = '';
 let filteredUsers = [];
 let userObject = {};
+let messages = [];
 
 const sortAlphabets = function (text) {
     return text.sort();
@@ -38,24 +39,27 @@ const chatSelf = async (req, res) => {
     chatHandler.joinRoom({ userSelf, userOther });
     Conversation.findOne({
         users: sortAlphabets([userOther, userSelf]),
-    }).then((result) => {
-        let messages = [];
-        if (!result) {
-            const conversationData = new Conversation({
-                users: sortAlphabets([userOther, userSelf]),
+    })
+        .then((result) => {
+            messages = [];
+            if (!result) {
+                const conversationData = new Conversation({
+                    users: sortAlphabets([userOther, userSelf]),
+                });
+                conversationData.save();
+            } else {
+                messages = result.messages;
+            }
+        })
+        .then(() => {
+            res.render('pages/chat/chatSelf/chatSelf.njk', {
+                user: userObject,
+                userId: req.params.userId,
+                userSelf,
+                userOther,
+                messages,
             });
-            conversationData.save();
-        } else {
-            messages = result.messages;
-        }
-        res.render('pages/chat/chatSelf/chatSelf.njk', {
-            user: userObject,
-            userId: req.params.userId,
-            userSelf,
-            userOther,
-            messages,
         });
-    });
 };
 
 const chatMessageReceived = async (req, res) => {

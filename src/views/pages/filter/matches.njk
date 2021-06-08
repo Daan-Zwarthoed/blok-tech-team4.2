@@ -1,0 +1,11 @@
+{% extends "layouts/layout.njk" %} {% block title %} Games {% endblock %} {% block content %}
+<div class="matches">
+    {% for user in users %}
+    <article>
+        <p>Name: {{ name }}</p>
+        <p>Game: {{ game }}</p>
+        <p>Time: {{ time }}</p>
+    </article>
+    {% endfor %}
+</div>
+{% endblock %}

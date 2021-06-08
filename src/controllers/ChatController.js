@@ -9,7 +9,7 @@ const sortAlphabets = function (text) {
 
 const Conversation = require('../models/Conversation');
 const User = require('../models/User');
-const server = require('../../server');
+const chatHandler = require('./chatHandler');
 
 function updateUsers(req, res) {
     return User.findById(req.params.userId, (err, user) => {
@@ -35,17 +35,19 @@ const chatHome = async (req, res) => {
 const chatSelf = async (req, res) => {
     await updateUsers(req, res);
     if (!userOther || userOther === userSelf) return res.redirect(`/chat/${req.params.userId}`);
-    server.socket.joinRoomServer({ userSelf, userOther });
+    chatHandler.joinRoom({ userSelf, userOther });
     Conversation.findOne({
         users: sortAlphabets([userOther, userSelf]),
     }).then((result) => {
-        if (result.length === 0) {
+        let messages = [];
+        if (!result) {
             const conversationData = new Conversation({
                 users: sortAlphabets([userOther, userSelf]),
             });
             conversationData.save();
+        } else {
+            messages = result.messages;
         }
-        const messages = result[0] ? result[0].messages : [];
         res.render('pages/chat/chatSelf/chatSelf.njk', {
             user: userObject,
             userId: req.params.userId,
@@ -58,7 +60,7 @@ const chatSelf = async (req, res) => {
 
 const chatMessageReceived = async (req, res) => {
     await updateUsers(req, res);
-    server.socket.chatMessageServer({ userSelf, userOther, message: req.body.message });
+    chatHandler.messagesSend({ userSelf, userOther, message: req.body.message });
     res.redirect(`/chat/chatSelf/${req.params.userId}`);
 };
 

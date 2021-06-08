@@ -59,23 +59,15 @@ app.use('/profiles', profileRoutes);
 const chatHandler = require('./src/controllers/chatHandler.js');
 
 io.on('connection', (socket) => {
+    chatHandler.defineIoAndSocket(io, socket);
+
     socket.on('join room', (message) => {
-        chatHandler.joinRoom(socket, message);
+        chatHandler.joinRoom(message, socket);
     });
 
     socket.on('chat message', (message) => {
-        chatHandler.messagesSend(io, message);
+        chatHandler.messagesSend(message, io);
     });
-
-    function joinRoomServer(message) {
-        chatHandler.joinRoom(socket, message);
-    }
-
-    function chatMessageServer(message) {
-        chatHandler.messagesSend(io, message);
-    }
-
-    module.exports.socket = { joinRoomServer, chatMessageServer };
 });
 
 server.listen(port, () => {

@@ -1,7 +1,7 @@
-const users = ['milan', 'akshay'];
 let userSelf = '';
 let userOther = '';
 let message = '';
+let users = [];
 
 const sortAlphabets = function (text) {
     return text.sort();
@@ -11,9 +11,12 @@ const Conversation = require('../models/Conversation');
 const User = require('../models/User');
 
 const chatHome = (req, res) => {
+    User.find().then((results) => {
+        users = results;
+    });
     User.findById(req.params.userId, (err, results) => {
         if (err) throw err;
-        const filteredUsers = users.filter((user) => user !== results.username);
+        const filteredUsers = users.filter((user) => user.username !== results.username);
         res.render('pages/chat/chatList.njk', {
             user: results,
             userId: req.params.userId,

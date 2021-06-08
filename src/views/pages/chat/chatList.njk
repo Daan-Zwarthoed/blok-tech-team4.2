@@ -4,11 +4,12 @@
 {% endblock %}
 {% block content %}
     <div class="chatList">
-        <form action="chat/chatSelf" method="post">
-            <label name="userSelf">Your name</label>
-            <input type="text" name="userSelf" required/>
+        <form action="chatSelf/{{ userId }}" method="post">
             {% for user in users %}
-                <button name="userOther" value={{ user }}>{{ user }}</button>
+                <button name="userOther" value={{ user.username }}>
+                    <div class="imgDiv"><img src="/uploads/{{ user.avatar }}"/> </div>
+                    <p>{{ user.username }}</p>
+                </button>
             {% endfor %}
         </form>
     </div>

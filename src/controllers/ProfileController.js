@@ -13,6 +13,7 @@ const getProfile = (req, res) => {
     // Look for the user who matches the entered id.
     User.findById(userId, (err, profile) => {
         if (err) throw err;
+<<<<<<< HEAD
 
         // Find all games that are liked by the user that owns this profile.
         Game.find({ likedBy: userId }, (err, games) => {
@@ -34,6 +35,15 @@ const getProfile = (req, res) => {
 
 const getMyProfile = (req, res) => {
     res.redirect(`/profiles/${req.user._id}`);
+=======
+
+        // Look for the current session user. This is necessary for displaying the correct header data.
+        User.findById(req.user._id, (err, user) => {
+            if (err) throw err;
+            res.render('pages/profiles/profile.njk', { profile, user, userId });
+        });
+    });
+>>>>>>> edacfea8cd600aad18db6cade70528f818b61310
 };
 
 /**

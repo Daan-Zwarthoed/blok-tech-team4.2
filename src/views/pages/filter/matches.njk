@@ -1,11 +1,16 @@
-{% extends "layouts/layout.njk" %} {% block title %} Games {% endblock %} {% block content %}
-<div class="matches">
-    {% for user in users %}
-    <article>
-        <p>Name: {{ name }}</p>
-        <p>Game: {{ game }}</p>
-        <p>Time: {{ time }}</p>
-    </article>
-    {% endfor %}
-</div>
+{% extends "layouts/layout.njk" %}
+{% block title %}Filter {% endblock %}
+{% block content %}
+    <div class="matches">
+        {% for user in filteredUsers %}
+            <article>
+                <p>Username: {{ user.username }}</p>
+                <p>Displayname: {{ user.displayname }}</p>
+                <p>Email: {{ user.email }}</p>
+                <p>Top game: {{ user.topGame }}</p>
+                <p>Playstyle: {{ user.playstyle }}</p>
+                <p>Time: {{ user.time }}</p>
+            </article>
+        {% endfor %}
+    </div>
 {% endblock %}

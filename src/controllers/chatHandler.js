@@ -9,18 +9,15 @@ const sortAlphabetsString = function (text) {
 const Conversation = require('../models/Conversation');
 
 let ioCopy;
-let socketCopy;
 
 module.exports = {
-    defineIoAndSocket(io, socket) {
+    defineIo(io) {
         ioCopy = io;
-        socketCopy = socket;
     },
 
     joinRoom(message, socket) {
-        if (socket) socketCopy = socket;
-        if (socketCopy) {
-            socketCopy.join(sortAlphabetsString(`${message.userSelf}${message.userOther}`));
+        if (socket) {
+            socket.join(sortAlphabetsString(`${message.userSelf}${message.userOther}`));
         }
     },
 

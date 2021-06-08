@@ -36,7 +36,6 @@ const chatHome = async (req, res) => {
 const chatSelf = async (req, res) => {
     await updateUsers(req, res);
     if (!userOther || userOther === userSelf) return res.redirect(`/chat/${req.params.userId}`);
-    chatHandler.joinRoom({ userSelf, userOther });
     Conversation.findOne({
         users: sortAlphabets([userOther, userSelf]),
     })

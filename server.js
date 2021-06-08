@@ -59,7 +59,7 @@ app.use('/profiles', profileRoutes);
 const chatHandler = require('./src/controllers/chatHandler.js');
 
 io.on('connection', (socket) => {
-    chatHandler.defineIoAndSocket(io, socket);
+    chatHandler.defineIo(io);
 
     socket.on('join room', (message) => {
         chatHandler.joinRoom(message, socket);

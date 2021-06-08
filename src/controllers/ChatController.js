@@ -1,7 +1,7 @@
 let userSelf = '';
 let userOther = '';
-let message = '';
-let users = [];
+let filteredUsers = [];
+let userObject = {};
 
 const sortAlphabets = function (text) {
     return text.sort();
@@ -9,16 +9,23 @@ const sortAlphabets = function (text) {
 
 const Conversation = require('../models/Conversation');
 const User = require('../models/User');
+const server = require('../../server');
 
-const chatHome = (req, res) => {
-    User.find().then((results) => {
-        users = results;
-    });
-    User.findById(req.params.userId, (err, results) => {
+function updateUsers(req, res) {
+    return User.findById(req.params.userId, (err, user) => {
         if (err) throw err;
-        const filteredUsers = users.filter((user) => user.username !== results.username);
+        userObject = user;
+        userSelf = user.username;
+        if (req.body.userOther) userOther = req.body.userOther;
+    });
+}
+
+const chatHome = async (req, res) => {
+    await updateUsers(req, res);
+    User.find().then((results) => {
+        filteredUsers = results.filter((user) => user.id !== req.params.userId);
         res.render('pages/chat/chatList.njk', {
-            user: results,
+            user: userObject,
             userId: req.params.userId,
             users: filteredUsers,
         });
@@ -26,65 +33,33 @@ const chatHome = (req, res) => {
 };
 
 const chatSelf = async (req, res) => {
-    User.findById(req.params.userId, (err, user) => {
-        if (err) throw err;
-        userSelf = user.username;
-    }).then(() => {
-        if (req.body.userOther) userOther = req.body.userOther;
-
-        if (!userOther || userOther === userSelf) return res.redirect(`/chat/${req.params.userId}`);
-        Conversation.find({
-            users: sortAlphabets([userOther, userSelf]),
-        })
-            .then(async (results) => {
-                if (results.length === 0) {
-                    const conversationData = new Conversation({
-                        users: sortAlphabets([userOther, userSelf]),
-                    });
-                    conversationData.save();
-                }
-            })
-            .then(() => {
-                Conversation.find({
-                    users: sortAlphabets([userOther, userSelf]),
-                }).then((result) => {
-                    let messages = [];
-                    if (result[0]) messages = result[0].messages;
-                    User.findById(req.params.userId, (err, results) => {
-                        if (err) throw err;
-                        res.render('pages/chat/chatSelf/chatSelf.njk', {
-                            user: results,
-                            userId: req.params.userId,
-                            userSelf,
-                            userOther,
-                            messages,
-                        });
-                    });
-                });
+    await updateUsers(req, res);
+    if (!userOther || userOther === userSelf) return res.redirect(`/chat/${req.params.userId}`);
+    server.socket.joinRoomServer({ userSelf, userOther });
+    Conversation.findOne({
+        users: sortAlphabets([userOther, userSelf]),
+    }).then((result) => {
+        if (result.length === 0) {
+            const conversationData = new Conversation({
+                users: sortAlphabets([userOther, userSelf]),
             });
+            conversationData.save();
+        }
+        const messages = result[0] ? result[0].messages : [];
+        res.render('pages/chat/chatSelf/chatSelf.njk', {
+            user: userObject,
+            userId: req.params.userId,
+            userSelf,
+            userOther,
+            messages,
+        });
     });
 };
 
-const chatMessageReceived = (req, res) => {
-    message = req.body.message;
-    Conversation.findOneAndUpdate(
-        {
-            users: sortAlphabets([userOther, userSelf]),
-        },
-        {
-            $push: {
-                messages: {
-                    userSender: userSelf,
-                    message,
-                },
-            },
-        },
-        {
-            upsert: true,
-        }
-    ).then(() => {
-        res.redirect(`/chat/chatSelf/${req.params.userId}`);
-    });
+const chatMessageReceived = async (req, res) => {
+    await updateUsers(req, res);
+    server.socket.chatMessageServer({ userSelf, userOther, message: req.body.message });
+    res.redirect(`/chat/chatSelf/${req.params.userId}`);
 };
 
 module.exports = { chatHome, chatSelf, chatMessageReceived };

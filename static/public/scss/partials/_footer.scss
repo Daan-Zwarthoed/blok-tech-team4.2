@@ -7,26 +7,26 @@
     height: 4rem;
     display: flex;
     align-items: center;
-    background-color: white;
+    background-color: #0F0F11;
 
     nav {
         width: 100%;
 
         ul {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-evenly;
 
             li {
                 a {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
-                    color: black;
-                    font-size: 0.9rem;
+                    color: #EFEFF1;
+                    font-size: 0.85rem;
 
                     span {
                         margin-bottom: 0.25rem;
-                        font-size: 1.75rem;
+                        font-size: 1.5rem;
                     }
                 }
             }

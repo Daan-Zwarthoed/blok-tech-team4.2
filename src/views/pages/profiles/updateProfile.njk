@@ -3,22 +3,35 @@
     {{ user.username }} / update profile
 {% endblock %}
 {% block content %}
-    <sectionclass='profile update-profile'>
+    <section class='profile update-profile'>
         <form action='#' method='post' enctype='multipart/form-data'>
-            <label for='avatar'>Avatar</label>
-            <input id='avatar' type='file' name='avatar' accept='image/*' required>
-
-            <label for='banner'>Banner</label>
-            <input id='banner' type='file' name='banner' accept='image/*' required>
-
-            <label for='displayname'>Displayname</label>
-            <input id='displayname' type='text' name='displayname' required maxlength='20' placeholder='Your displayname...'>
-
-            <label for='description'>Beschrijving</label>
-            <textarea id='description' type='text' name='description' required maxlength='150' placeholder='Your description...'></textarea>
+            <div class='input-banner'>
+                <span class="material-icons-outlined">add</span>
+                <img class='profile-banner' src='/uploads/{{user.banner}}'></img>
+                <div class='overlay'></div>
+                <label for='banner'></label>
+                <input id='banner' type='file' name='banner' accept='image/*' required>
+            </div>
+            <div class='input-avatar'>
+                <span class="material-icons-outlined">add</span>
+                <img class='profile-avatar' src='/uploads/{{user.avatar}}'></img>
+                <div class='overlay'></div>
+                <label for='avatar'></label>
+                <input id='avatar' type='file' name='avatar' accept='image/*' required>
+            </div>
+            <div class='wrapper'>
+                <label for='displayname'>Displayname</label>
+                <input id='displayname' type='text' name='displayname' required maxlength='20' placeholder='Your displayname...'>
+            </div>
+            <div class='wrapper'>
+                <label for='description'>Beschrijving</label>
+                <textarea id='description' type='text' name='description' required maxlength='150' placeholder='Your description...'></textarea>
+            </div>
 
             <button type='submit'>Save profile</button>
         </form>
     </section>
-
+{% endblock %}
+{% block scripts %}
+    <script src='/js/show-input.js'></script>
 {% endblock %}

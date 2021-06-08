@@ -2,6 +2,7 @@
  * Profile Controller
  */
 
+const Game = require('../models/Game');
 const User = require('../models/User');
 
 /**
@@ -13,12 +14,26 @@ const getProfile = (req, res) => {
     User.findById(userId, (err, profile) => {
         if (err) throw err;
 
-        // Look for the current session user. This is necessary for displaying the correct header data.
-        User.findById(req.user._id, (err, user) => {
+        // Find all games that are liked by the user that owns this profile.
+        Game.find({ likedBy: userId }, (err, games) => {
             if (err) throw err;
-            res.render('pages/profiles/profile.njk', { profile, user, userId });
+
+            // Look for the current session user. This is necessary for displaying the correct header data.
+            User.findById(req.user._id, (err, user) => {
+                if (err) throw err;
+                res.render('pages/profiles/profile.njk', {
+                    profile,
+                    user,
+                    userId,
+                    games,
+                });
+            });
         });
     });
+};
+
+const getMyProfile = (req, res) => {
+    res.redirect(`/profiles/${req.user._id}`);
 };
 
 /**
@@ -55,4 +70,4 @@ const updateProfile = (req, res) => {
     res.redirect(`/profiles/${req.params.userId}`);
 };
 
-module.exports = { getProfile, getUpdateProfile, updateProfile };
+module.exports = { getProfile, getMyProfile, getUpdateProfile, updateProfile };

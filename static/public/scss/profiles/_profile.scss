@@ -1,15 +1,152 @@
 .profile {
     padding-bottom: 4rem;
 
+    header,
+    .input-banner {
+        position: relative;
+        height: 12rem;
+    }
+
+    .input-banner {
+        span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            color: white;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            border-radius: 50%;
+            padding: 0.5rem;
+        }
+
+        label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+        }
+    }
+
+    .input-avatar {
+        transform: translateY(-2rem);
+        margin: 0 1rem;
+        overflow: visible;
+        overflow: hidden;
+        width: 5.5rem;
+        height: 5.5rem;
+
+        img {
+            width: 5.5rem;
+            height: 5.5rem;
+            border-radius: 50%;
+            border: 0.1875rem solid #0f0f11;
+            z-index: 100;
+        }
+
+        .overlay {
+            width: 5.5rem;
+            height: 5.5rem;
+            background-color: #0f0f11;
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+
+        span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            color: white;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            border-radius: 50%;
+            padding: 0.5rem;
+        }
+
+        label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+        }
+    }
+
+    form {
+        .wrapper {
+            margin-bottom: 1.5rem;
+            margin: 0 1rem 1.5rem;
+            flex-direction: column;
+
+            label {
+                margin-bottom: 0.5rem;
+                font-size: 0.7rem;
+                letter-spacing: 0.025rem;
+                color: #efeff1;
+                text-transform: uppercase;
+                font-weight: 500;
+            }
+
+            input, textarea {
+                font-size: 1rem;
+                border: none;
+                padding: 0.75rem;
+                border-radius: 0.25rem;
+            }
+        }
+
+        button {
+            width: calc(100% - 2rem);
+            border-radius: 0.25rem;
+            border: none;
+            background-color: dodgerblue;
+            font-weight: bold;
+            letter-spacing: 0.025rem;
+            font-size: 1rem;
+            color: #EFEFF1;
+            padding: 0.75rem 0;
+            margin: 0 1rem;
+        }
+    }
+
+    .overlay {
+        background: linear-gradient(
+            0deg,
+            rgba(15, 15, 17, 1) 0%,
+            rgba(15, 15, 17, 0.8) 25%,
+            rgba(255, 255, 255, 0) 100%
+        );
+        width: 100%;
+        height: 12rem;
+        position: absolute;
+        bottom: 0;
+    }
+
     .profile-banner {
         width: 100%;
-        height: 8rem;
+        height: 12rem;
     }
 
     .profile-info {
         margin-top: -2rem;
         padding: 0 1rem 2rem;
-        border-bottom: 0.0625rem solid #6E767D;
+        border-bottom: 0.0625rem solid #6e767d;
 
         h2 {
             display: flex;
@@ -18,7 +155,7 @@
             font-size: 1.25rem;
 
             span {
-                color: #6E767D;
+                color: #6e767d;
                 font-size: 0.9375rem;
                 font-weight: 400;
             }
@@ -40,7 +177,7 @@
                 background: dodgerblue;
                 color: white;
                 font-size: 0.9rem;
-                border-radius: 2rem;
+                border-radius: 0.25rem;
             }
         }
 
@@ -48,7 +185,8 @@
             width: 5.5rem;
             height: 5.5rem;
             border-radius: 50%;
-            border: 0.1875rem solid #0F0F11;
+            border: 0.1875rem solid #0f0f11;
+            z-index: 100;
         }
     }
 
@@ -62,12 +200,12 @@
             left: 0;
         }
 
-        &>ul {
+        & > ul {
             display: flex;
             width: fit-content;
             gap: 2rem 1rem;
 
-            &>li {
+            & > li {
                 width: 8rem;
 
                 img {

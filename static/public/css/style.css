@@ -131,15 +131,150 @@
   padding-bottom: 4rem;
 }
 
+.profile header,
+.profile .input-banner {
+  position: relative;
+  height: 12rem;
+}
+
+.profile .input-banner span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: white;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 10;
+  border-radius: 50%;
+  padding: 0.5rem;
+}
+
+.profile .input-banner label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.profile .input-banner input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+}
+
+.profile .input-avatar {
+  -webkit-transform: translateY(-2rem);
+          transform: translateY(-2rem);
+  margin: 0 1rem;
+  overflow: visible;
+  overflow: hidden;
+  width: 5.5rem;
+  height: 5.5rem;
+}
+
+.profile .input-avatar img {
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: 50%;
+  border: 0.1875rem solid #0f0f11;
+  z-index: 100;
+}
+
+.profile .input-avatar .overlay {
+  width: 5.5rem;
+  height: 5.5rem;
+  background-color: #0f0f11;
+  border-radius: 50%;
+  opacity: 0.3;
+}
+
+.profile .input-avatar span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: white;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 10;
+  border-radius: 50%;
+  padding: 0.5rem;
+}
+
+.profile .input-avatar label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.profile .input-avatar input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+}
+
+.profile form .wrapper {
+  margin-bottom: 1.5rem;
+  margin: 0 1rem 1.5rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.profile form .wrapper label {
+  margin-bottom: 0.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.025rem;
+  color: #efeff1;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.profile form .wrapper input, .profile form .wrapper textarea {
+  font-size: 1rem;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+}
+
+.profile form button {
+  width: calc(100% - 2rem);
+  border-radius: 0.25rem;
+  border: none;
+  background-color: dodgerblue;
+  font-weight: bold;
+  letter-spacing: 0.025rem;
+  font-size: 1rem;
+  color: #EFEFF1;
+  padding: 0.75rem 0;
+  margin: 0 1rem;
+}
+
+.profile .overlay {
+  background: -webkit-gradient(linear, left bottom, left top, from(#0f0f11), color-stop(25%, rgba(15, 15, 17, 0.8)), to(rgba(255, 255, 255, 0)));
+  background: linear-gradient(0deg, #0f0f11 0%, rgba(15, 15, 17, 0.8) 25%, rgba(255, 255, 255, 0) 100%);
+  width: 100%;
+  height: 12rem;
+  position: absolute;
+  bottom: 0;
+}
+
 .profile .profile-banner {
   width: 100%;
-  height: 8rem;
+  height: 12rem;
 }
 
 .profile .profile-info {
   margin-top: -2rem;
   padding: 0 1rem 2rem;
-  border-bottom: 0.0625rem solid #6E767D;
+  border-bottom: 0.0625rem solid #6e767d;
 }
 
 .profile .profile-info h2 {
@@ -155,7 +290,7 @@
 }
 
 .profile .profile-info h2 span {
-  color: #6E767D;
+  color: #6e767d;
   font-size: 0.9375rem;
   font-weight: 400;
 }
@@ -179,14 +314,15 @@
   background: dodgerblue;
   color: white;
   font-size: 0.9rem;
-  border-radius: 2rem;
+  border-radius: 0.25rem;
 }
 
 .profile .profile-info .profile-avatar {
   width: 5.5rem;
   height: 5.5rem;
   border-radius: 50%;
-  border: 0.1875rem solid #0F0F11;
+  border: 0.1875rem solid #0f0f11;
+  z-index: 100;
 }
 
 .profile .profile-extra {

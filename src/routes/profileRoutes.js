@@ -7,6 +7,8 @@ const ProfileController = require('../controllers/ProfileController');
 const auth = require('../config/auth');
 const upload = require('../config/multer');
 
+router.get('/', auth.isLoggedIn, ProfileController.getMyProfile);
+
 router.get('/:userId', auth.isLoggedIn, ProfileController.getProfile);
 
 router.get('/:userId/update', auth.isLoggedIn, ProfileController.getUpdateProfile);

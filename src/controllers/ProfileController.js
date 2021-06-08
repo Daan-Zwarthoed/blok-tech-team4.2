@@ -32,6 +32,10 @@ const getProfile = (req, res) => {
     });
 };
 
+const getMyProfile = (req, res) => {
+    res.redirect(`/profiles/${req.user._id}`);
+};
+
 /**
  * This function renders the update profile page of the request user by checking the userId entered in the URL.
  */
@@ -66,4 +70,4 @@ const updateProfile = (req, res) => {
     res.redirect(`/profiles/${req.params.userId}`);
 };
 
-module.exports = { getProfile, getUpdateProfile, updateProfile };
+module.exports = { getProfile, getMyProfile, getUpdateProfile, updateProfile };

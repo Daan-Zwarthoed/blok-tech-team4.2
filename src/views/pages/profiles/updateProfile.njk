@@ -14,7 +14,7 @@
             </div>
             <div class='input-avatar'>
                 <span class="material-icons-outlined">add</span>
-                <img class='output-avatar' src='/uploads/{{user.avatar}}'></img>
+                <img class='profile-avatar' src='/uploads/{{user.avatar}}'></img>
                 <div class='overlay'></div>
                 <label for='avatar'></label>
                 <input id='avatar' type='file' name='avatar' accept='image/*' required>
@@ -31,5 +31,7 @@
             <button type='submit'>Save profile</button>
         </form>
     </section>
-
+{% endblock %}
+{% block scripts %}
+    <script src='/js/show-input.js'></script>
 {% endblock %}

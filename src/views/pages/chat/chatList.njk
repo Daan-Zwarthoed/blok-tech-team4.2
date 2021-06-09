@@ -7,10 +7,16 @@
         <form action="chatSelf/{{ userId }}" method="post">
             {% for user in users %}
                 <button name="userOther" value={{ user.username }}>
-                    <div class="imgDiv"><img src="/uploads/{{ user.avatar }}"/> </div>
+                    <div class="imgDiv"><img class="imgSelf" src="/uploads/{{ user.avatar }}"/>
+                    </div>
                     <p>{{ user.username }}</p>
                 </button>
             {% endfor %}
         </form>
     </div>
+{% endblock %}
+{% block scripts %}
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        {% include "pages/chat/chatList.js" %}</script>
 {% endblock %}

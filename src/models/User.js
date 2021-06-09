@@ -32,15 +32,12 @@ const UserSchema = mongoose.Schema({
     },
     topGame: {
         type: String,
-        required: true,
     },
     time: {
         type: String,
-        required: true,
     },
     playstyle: {
         type: String,
-        required: true,
     },
 });
 

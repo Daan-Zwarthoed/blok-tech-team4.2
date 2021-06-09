@@ -1,46 +1,49 @@
-{% extends "layouts/layout.njk" %} {% block title %} Filter games {% endblock %} {% block content %}
-<div class="filter">
-    <form action="/filter" method="post">
-        <fieldset>
-            <legend>What game would you like to play with others?</legend>
-            <select name="topGame" id="topGame"> {% for game in gameList %}
-            <option value="{{ game }}" name="topGame">
-                {{ game }}
-            </option>
-            {% endfor %}
-        </select>
-        </fieldset>
-        <fieldset>
-            <legend>What is your playstyle in this game</legend>
-            <label>
-                <input type="radio" name="playstyle" value="Competitive">
-                Competitive
-            </label>
-            <label>
-                <input type="radio" name="playstyle" value="Casual">
-                Casual
-            </label>
-        </fieldset>
-        <fieldset>
-            <legend>How often do you play this game</legend>
-            <label>
-                <input type="radio" name="time" value="5+ hours per day">
-                5+ hours per day
-            </label>
-            <label>
-                <input type="radio" name="time" value="-5 hours per day">
-                -5 hours per day
-            </label>
-            <label>
-                <input type="radio" name="time" value="A few times per week">
-                A few times per week
-            </label>
-            <label>
-                <input type="radio" name="time" value="Once per week">
-                Once per week
-            </label>
-        </fieldset>
-        <input type="submit" value="Match">
-    </form>
-</div>
+{% extends "layouts/layout.njk" %}
+{% block title %} Filter games {% endblock %}
+{% block content %}
+    <div class="filter">
+        <form action="/filter" method="post">
+            <fieldset>
+                <legend>What game would you like to play with others?</legend>
+                <select name="topGame" id="topGame">
+                    {% for game in gameList %}
+                        <option value="{{ game }}" name="topGame">
+                            {{ game }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </fieldset>
+            <fieldset>
+                <legend>What is your playstyle in this game</legend>
+                <label>
+                    <input type="radio" name="playstyle" value="Competitive">
+                    Competitive
+                </label>
+                <label>
+                    <input type="radio" name="playstyle" value="Casual">
+                    Casual
+                </label>
+            </fieldset>
+            <fieldset>
+                <legend>How often do you play this game</legend>
+                <label>
+                    <input type="radio" name="time" value="5+ hours per day">
+                    5+ hours per day
+                </label>
+                <label>
+                    <input type="radio" name="time" value="-5 hours per day">
+                    -5 hours per day
+                </label>
+                <label>
+                    <input type="radio" name="time" value="A few times per week">
+                    A few times per week
+                </label>
+                <label>
+                    <input type="radio" name="time" value="Once per week">
+                    Once per week
+                </label>
+            </fieldset>
+            <input type="submit" value="Match">
+        </form>
+    </div>
 {% endblock %}

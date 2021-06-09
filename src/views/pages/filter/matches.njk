@@ -3,14 +3,15 @@
 {% block content %}
     <div class="matches">
         {% for user in filteredUsers %}
-            <article>
-                <p>Username: {{ user.username }}</p>
-                <p>Displayname: {{ user.displayname }}</p>
-                <p>Email: {{ user.email }}</p>
-                <p>Top game: {{ user.topGame }}</p>
-                <p>Playstyle: {{ user.playstyle }}</p>
-                <p>Time: {{ user.time }}</p>
-            </article>
+            <section>
+                <article>
+                    <p>{{ user.username }}</p>
+                    <p>Top game: {{ user.topGame }}</p>
+                    <p>Playstyle: {{ user.playstyle }}</p>
+                    <p>Time: {{ user.time }}</p>
+                </article>
+                <a href="#" class="like">Like</a>
+            </section>
         {% endfor %}
     </div>
 {% endblock %}

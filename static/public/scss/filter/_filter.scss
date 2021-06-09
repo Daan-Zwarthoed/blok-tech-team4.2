@@ -1,0 +1,21 @@
+.filter {
+    form {
+        margin-top: 50px;
+    }
+    fieldset {
+        margin-bottom: 30px;
+        border: none;
+        padding-left: 0;
+        margin-left: 0;
+        select {
+            padding: 10px;
+            width: 40%;
+            margin-top: 10px;
+        }
+    }
+    fieldset:nth-of-type(2),
+    fieldset:nth-of-type(3) {
+        display: flex;
+        flex-direction: column;
+    }
+}

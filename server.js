@@ -11,6 +11,7 @@ const { Server } = require('socket.io');
 const homeRoutes = require('./src/routes/homeRoutes.js');
 const chatRoutes = require('./src/routes/chatRoutes.js');
 const profileRoutes = require('./src/routes/profileRoutes');
+const filterRoutes = require("./src/routes/filterRoutes.js");
 
 // Configuration
 const connectToDB = require('./src/config/mongoose.js');
@@ -55,6 +56,7 @@ checkUser();
 app.use('/', homeRoutes);
 app.use('/chat', chatRoutes);
 app.use('/profiles', profileRoutes);
+app.use("/filter", filterRoutes);
 
 const chatHandler = require('./src/controllers/chatHandler.js');
 

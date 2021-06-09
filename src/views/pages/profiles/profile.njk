@@ -5,6 +5,7 @@
 {% block content %}
     <section class='profile view-profile'>
         <header>
+            <div class='overlay'></div>
             <img src='/uploads/{{profile.banner}}' class='profile-banner'>
         </header>
         <section class='profile-info'>
@@ -19,6 +20,18 @@
                 <span>@{{profile.username}}</span></h2>
             {% if profile.description %}
                 <p>{{profile.description}}</p>
+            {% endif %}
+        </section>
+        <section class='profile-extra'>
+            {% if games %}
+                <h2>Liked Games</h2>
+                <ul>
+                    {% for game in games %}
+                        <li>
+                            <img src='/images/games/{{game.image}}'>
+                        </li>
+                    {% endfor %}
+                </ul>
             {% endif %}
         </section>
     </section>

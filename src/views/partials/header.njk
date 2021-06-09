@@ -1,5 +1,8 @@
 {% if user %}
     <header class="header">
-        <a href='/profiles/{{user._id}}'>Welkom, {{user.username}}</a>
+        <p>{{ user.username }}</p>
+        <a href='/profiles/{{ user._id }}'>
+            <span class="material-icons">settings</span>
+        </a>
     </header>
 {% endif %}

@@ -10,11 +10,7 @@ const getFilter = (req, res) => {
 
 //Apply filter to userlist
 const useFilter = async(req, res) => {
-    const form = req.body;
-    console.log(form);
-    const query = form;
-    const filteredUsers = await User.find(query);
-    console.log(filteredUsers);
+    const filteredUsers = await User.find(req.body);
     res.render("pages/filter/matches.njk", { title: "Matches", filteredUsers });
 };
 

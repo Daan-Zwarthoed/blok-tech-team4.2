@@ -21,9 +21,7 @@ require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 3000;
-
 const server = http.createServer(app);
-
 const io = new Server(server);
 
 nunjucks.configure('src/views/', {
@@ -63,12 +61,14 @@ app.use('/filter', filterRoutes);
 const chatHandler = require('./src/controllers/chatHandler.js');
 
 io.on('connection', (socket) => {
+    chatHandler.defineIo(io);
+
     socket.on('join room', (message) => {
-        chatHandler.joinRoom(socket, message);
+        chatHandler.joinRoom(message, socket);
     });
 
     socket.on('chat message', (message) => {
-        chatHandler.messagesSend(io, message);
+        chatHandler.messagesSend(message, io);
     });
 });
 

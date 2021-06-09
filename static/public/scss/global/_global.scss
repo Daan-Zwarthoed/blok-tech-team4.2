@@ -31,6 +31,17 @@ body {
     color: #EFEFF1;
 }
 
+.transition{
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -o-transition: .5s;
+    transition: .5s;
+}
+
+.bodyPaddingTop{
+    margin-top: 3em;
+}
+
 input, textarea {
     background-color: #464649;
     color: #C1C1C1;

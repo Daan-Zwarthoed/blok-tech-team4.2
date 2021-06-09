@@ -1,52 +1,64 @@
 {
-  "name": "blok-tech-team4.2",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon -e js,html,njk,scss,json server.js",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "build-sass": "node-sass static/public/scss/style.scss static/public/css/style.css",
-    "watch-sass": "node-sass -w static/public/scss/style.scss static/public/css/style.css"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Daan-Zwarthoed/blok-tech-team4.2.git"
-  },
-  "keywords": [
-    "matching-app",
-    "express",
-    "nunjucks",
-    "mongodb",
-    "mongoose",
-    "multer",
-    "sass"
-  ],
-  "author": "Akshay Kumar, Daan Zwarthoed, Maylinn Kwakman & Milan Steman",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Daan-Zwarthoed/blok-tech-team4.2/issues"
-  },
-  "homepage": "https://github.com/Daan-Zwarthoed/blok-tech-team4.2#readme",
-  "dependencies": {
-    "bcrypt": "^5.0.1",
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
-    "express-session": "^1.17.2",
-    "mongodb": "^3.6.9",
-    "mongoose": "^5.12.12",
-    "nunjucks": "^3.2.3",
-    "passport": "^0.4.1",
-    "passport-local": "^1.0.0",
-    "socket.io": "^4.1.2"
-  },
-  "devDependencies": {
-    "eslint": "^7.27.0",
-    "eslint-plugin-prettier": "^3.4.0",
-    "node-sass": "^6.0.0",
-    "nodemon": "^2.0.7",
-    "prettier": "^2.3.0"
-  }
+    "name": "blok-tech-team4.2",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "dev": "nodemon -e js,html,njk,scss,json server.js",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix",
+        "build-sass": "node-sass static/public/scss/style.scss static/public/css/style.css",
+        "watch-sass": "node-sass -w static/public/scss/style.scss static/public/css/style.css"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Daan-Zwarthoed/blok-tech-team4.2.git"
+    },
+    "keywords": [
+        "matching-app",
+        "express",
+        "nunjucks",
+        "mongodb",
+        "mongoose",
+        "multer",
+        "sass"
+    ],
+    "author": "Akshay Kumar, Daan Zwarthoed, Maylinn Kwakman & Milan Steman",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Daan-Zwarthoed/blok-tech-team4.2/issues"
+    },
+    "homepage": "https://github.com/Daan-Zwarthoed/blok-tech-team4.2#readme",
+    "dependencies": {
+        "bcrypt": "^5.0.1",
+        "bson": "^1.1.6",
+        "connect-mongo": "^4.4.1",
+        "dotenv": "^10.0.0",
+        "express": "^4.17.1",
+        "express-session": "^1.17.2",
+        "mongodb": "^3.6.9",
+        "mongoose": "^5.12.12",
+        "multer": "^1.4.2",
+        "nunjucks": "^3.2.3",
+        "passport": "^0.4.1",
+        "passport-local": "^1.0.0",
+        "socket.io": "^4.1.2"
+    },
+    "devDependencies": {
+        "babel-eslint": "^10.1.0",
+        "eslint": "^7.28.0",
+        "eslint-config-airbnb": "^18.2.1",
+        "eslint-config-prettier": "^6.15.0",
+        "eslint-config-wesbos": "^1.0.1",
+        "eslint-plugin-html": "^6.1.2",
+        "eslint-plugin-import": "^2.23.4",
+        "eslint-plugin-jsx-a11y": "^6.4.1",
+        "eslint-plugin-prettier": "^3.4.0",
+        "eslint-plugin-react": "^7.24.0",
+        "eslint-plugin-react-hooks": "^4.2.0",
+        "node-sass": "^6.0.0",
+        "nodemon": "^2.0.7",
+        "prettier": "^2.3.1"
+    }
 }

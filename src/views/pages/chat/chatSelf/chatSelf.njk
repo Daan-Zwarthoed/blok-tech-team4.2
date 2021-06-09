@@ -4,8 +4,10 @@
 {% endblock %}
 {% block content %}
   <div class="chatSelf">
+    <div id="userSelf" class="hidden">{{ userSelf }}</div>
+    <div id="userOther" class="hidden">{{ userOther }}</div>
     <div class="chatHeader">
-      <a href="/chat">&#8592;</a>
+      <a href="/chat/{{ userId }}">&#8592;</a>
       <div>{{ userOther }}</div>
     </div>
     <ul id="messages">
@@ -13,9 +15,7 @@
         <li class={{ "messageSelf" if message.userSender === userSelf }}>{{ message.message }}</li>
       {% endfor %}
     </ul>
-    <form id="form" method="post" action="/chat/chatMessageReceived">
-      <input id="userSelf" class="hidden" name="userSelf" value={{ userSelf }} readonly/>
-      <input id="userOther" class="hidden" name="userOther" value={{ userOther }} readonly/>
+    <form id="form" method="post" action="chatMessageReceived/{{ userId }}">
       <input id="input" name="message" autocomplete="off" required/>
       <button>Send</button>
     </form>
@@ -23,6 +23,6 @@
 {% endblock %}
 {% block scripts %}
   <script src="/socket.io/socket.io.js"></script>
-  <script type="module">
+  <script>
     {% include "pages/chat/chatSelf/chatSelf.js" %}</script>
 {% endblock %}

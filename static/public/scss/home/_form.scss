@@ -1,0 +1,52 @@
+.register, .login {
+    .information {
+        height: 100vh;
+
+        h1 {
+            font-size: 2rem;
+            margin: 5.75rem 2rem 1.5rem;
+        }
+
+        form {
+            margin: 0 2rem 1rem;
+            
+            .wrapper {
+                margin-bottom: 1.5rem;
+                flex-direction: column;
+
+                label {
+                    margin-bottom: 0.5rem;
+                    font-size: 0.7rem;
+                    letter-spacing: 0.025rem;
+                    color: #EFEFF1;
+                    text-transform: uppercase;
+                    font-weight: 500;
+                }
+
+                input {
+                    font-size: 1rem;
+                    border: none;
+                    padding: 0.75rem;
+                    border-radius: 0.25rem;
+                }
+            }
+
+            button {
+                width: 100%;
+                border-radius: 0.25rem;
+                border: none;
+                background-color: dodgerblue;
+                font-weight: bold;
+                letter-spacing: 0.025rem;
+                font-size: 1rem;
+                color: #EFEFF1;
+                padding: 0.75rem 0;
+            }
+        }
+    }
+
+    a {
+        margin: 0 2rem;
+        color: dodgerblue;
+    }
+}

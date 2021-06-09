@@ -1,10 +1,18 @@
-// Home Routes
-const router = require("express").Router();
-const ProfileController = require("../controllers/ProfileController")
-const auth = require("../config/auth")
+/**
+ * Profile Routes
+ */
 
-router.get("/:userId", auth.isLoggedIn, ProfileController.getProfile);
+const router = require('express').Router();
+const ProfileController = require('../controllers/ProfileController');
+const auth = require('../config/auth');
+const upload = require('../config/multer');
 
-router.get("/:userId/update", auth.isLoggedIn, ProfileController.getUpdateProfile);
+router.get('/', auth.isLoggedIn, ProfileController.getMyProfile);
+
+router.get('/:userId', auth.isLoggedIn, ProfileController.getProfile);
+
+router.get('/:userId/update', auth.isLoggedIn, ProfileController.getUpdateProfile);
+
+router.post('/:userId/update', auth.isLoggedIn, upload.profileUpload, ProfileController.updateProfile);
 
 module.exports = router;

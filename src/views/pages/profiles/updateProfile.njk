@@ -3,13 +3,35 @@
     {{ user.username }} / update profile
 {% endblock %}
 {% block content %}
-    <section>
-        <div class='settings-text settings-name'>
-            <label for='username'>Username</label>
-            <input id='username' type='text' name='username' required maxlength='20' value='{{user.username}}'>
+    <section class='profile update-profile'>
+        <form action='#' method='post' enctype='multipart/form-data'>
+            <div class='input-banner'>
+                <span class="material-icons-outlined">add</span>
+                <img class='profile-banner' src='/uploads/{{user.banner}}'></img>
+                <div class='overlay'></div>
+                <label for='banner'></label>
+                <input id='banner' type='file' name='banner' accept='image/*' required>
+            </div>
+            <div class='input-avatar'>
+                <span class="material-icons-outlined">add</span>
+                <img class='profile-avatar' src='/uploads/{{user.avatar}}'></img>
+                <div class='overlay'></div>
+                <label for='avatar'></label>
+                <input id='avatar' type='file' name='avatar' accept='image/*' required>
+            </div>
+            <div class='wrapper'>
+                <label for='displayname'>Displayname</label>
+                <input id='displayname' type='text' name='displayname' required maxlength='20' placeholder='Your displayname...'>
+            </div>
+            <div class='wrapper'>
+                <label for='description'>Beschrijving</label>
+                <textarea id='description' type='text' name='description' required maxlength='150' placeholder='Your description...'></textarea>
+            </div>
 
-            <button type='submit'>Opslaan</button>
+            <button type='submit'>Save profile</button>
         </form>
     </section>
-
+{% endblock %}
+{% block scripts %}
+    <script src='/js/show-input.js'></script>
 {% endblock %}

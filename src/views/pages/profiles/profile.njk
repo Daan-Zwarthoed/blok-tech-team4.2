@@ -3,8 +3,36 @@
     {{ user.username }}
 {% endblock %}
 {% block content %}
-    <section>
-        <h2>{{user.username}}</h2>
-        <p>{{user.email}}</p>
+    <section class='profile view-profile'>
+        <header>
+            <div class='overlay'></div>
+            <img src='/uploads/{{profile.banner}}' class='profile-banner'>
+        </header>
+        <section class='profile-info'>
+            <div class='wrapper'>
+                <img src='/uploads/{{profile.avatar}}' class='profile-avatar'>
+                {% if userId == user._id %}
+                    <a href='/profiles/{{profile._id}}/update'>Profiel bewerken</a>
+                {% endif %}
+            </div>
+
+            <h2>{{profile.displayname}}
+                <span>@{{profile.username}}</span></h2>
+            {% if profile.description %}
+                <p>{{profile.description}}</p>
+            {% endif %}
+        </section>
+        <section class='profile-extra'>
+            {% if games %}
+                <h2>Liked Games</h2>
+                <ul>
+                    {% for game in games %}
+                        <li>
+                            <img src='/images/games/{{game.image}}'>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </section>
     </section>
 {% endblock %}

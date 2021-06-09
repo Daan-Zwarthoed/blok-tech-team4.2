@@ -1,0 +1,33 @@
+.onboarding {
+    max-height: 100vh;
+    height: 100vh;
+}
+
+.onboarding {
+    margin-left: 1rem;
+
+    h1 {
+        position: sticky;
+        margin: 1rem 0;
+    }
+
+    form {
+        overflow-x: scroll;
+
+        &>ul {
+            display: flex;
+            width: fit-content;
+            gap: 2rem 1rem;
+            padding-right: 1rem;
+
+            &>li {
+                width: 12rem;
+
+                img {
+                    height: 21rem;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

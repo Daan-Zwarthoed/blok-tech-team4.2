@@ -1,79 +1,78 @@
 .chatSelf {
-  margin-top: 3.5em;
-
-  .chatHeader {
-    background-color: grey;
-    position: fixed;
-    top: 3em;
-    left: 0;
-    right: 0;
-    color: white;
-    display: flex;
-    flex-direction: row;
-    padding: 0.3em;
-    a {
-      text-decoration: none;
-      color: white;
+    margin-top: 3.5em;
+    .chatHeader {
+        background-color: grey;
+        position: fixed;
+        top: 3em;
+        left: 0;
+        right: 0;
+        color: white;
+        display: flex;
+        flex-direction: row;
+        padding: 0.3em;
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        div {
+            margin-left: 1em;
+        }
     }
-    div {
-      margin-left: 1em;
+    #form {
+        background: rgba(0, 0, 0, 0.15);
+        padding: 0.25rem;
+        position: fixed;
+        bottom: 4em;
+        left: 0;
+        right: 0;
+        display: flex;
+        height: 3rem;
+        box-sizing: border-box;
+        backdrop-filter: blur(10px);
     }
-  }
-
-  #form {
-    background: rgba(0, 0, 0, 0.15);
-    padding: 0.25rem;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    height: 3rem;
-    box-sizing: border-box;
-    backdrop-filter: blur(10px);
-  }
-  #input {
-    border: none;
-    padding: 0 1rem;
-    flex-grow: 1;
-    border-radius: 2rem;
-    margin: 0.25rem;
-  }
-  #input:focus {
-    outline: none;
-  }
-  #form > button {
-    background: #333;
-    border: none;
-    padding: 0 1rem;
-    margin: 0.25rem;
-    border-radius: 3px;
-    outline: none;
-    color: #fff;
-  }
-
-  #messages {
-    list-style-type: none;
-    margin: 0;
-    margin-bottom: 2em;
-    padding: 0;
-  }
-  #messages > li {
-    padding: 0.5rem 1rem;
-    margin-bottom: 0.3em;
-    width: fit-content;
-    background-color: grey;
-    color: white;
-    border-radius: 10px;
-    max-width: 60%;
-    height: fit-content;
-    display: flex;
-    word-wrap: break-word;
-    word-break: break-all;
-  }
-
-  .messageSelf {
-    margin-left: auto;
-    background-color: rgb(52, 52, 128) !important;
-  }
+    .hidden {
+        display: none;
+    }
+    #input {
+        border: none;
+        padding: 0 1rem;
+        flex-grow: 1;
+        border-radius: 2rem;
+        margin: 0.25rem;
+    }
+    #input:focus {
+        outline: none;
+    }
+    #form>button {
+        background: #333;
+        border: none;
+        padding: 0 1rem;
+        margin: 0.25rem;
+        border-radius: 3px;
+        outline: none;
+        color: #fff;
+    }
+    #messages {
+        list-style-type: none;
+        margin: 0;
+        margin-bottom: 2em;
+        padding: 0 1em 0 1em;
+    }
+    #messages>li {
+        padding: 0.5rem 1rem;
+        margin-bottom: 0.3em;
+        width: fit-content;
+        background-color: grey;
+        color: white;
+        border-radius: 10px;
+        max-width: 60%;
+        height: fit-content;
+        display: flex;
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+    .messageSelf {
+        margin-left: auto;
+        background-color: rgb(52, 52, 128) !important;
+    }
 }

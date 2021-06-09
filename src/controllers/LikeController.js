@@ -2,21 +2,22 @@
  * Match Controller
  */
 
- const Game = require('../models/Game');
- const User = require('../models/User');
+const Game = require('../models/Game');
+const User = require('../models/User');
 
 const getSimilarUsers = (req, res) => {
     const myUserId = req.user._id;
     Game.find({ likedBy: myUserId }, (err, games) => {
         if (err) throw err;
 
+    
         games.forEach(game => {
-            console.log(game.likedBy)
-
+            // Hoe kan ik hier bij de query meegeven dat het id niet gelijk moet zijn aan myUserId en OOK moet zoeken naar game.likedBy?
+            // Ik weet al dat een not equal query { $ne: myUserId } moet zijn
             User.find({ _id: game.likedBy }, (err, similarUsers) => {
                 if (err) throw err;
-                similarUsers.filter(similarUser => similarUser != myUserId);
-                console.log(similarUsers)
+
+                res.render('pages/like/like.njk', { similarUsers });
             })
         });
 

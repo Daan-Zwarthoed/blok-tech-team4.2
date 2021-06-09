@@ -7,12 +7,14 @@
         <title>
             {% block title %}{% endblock %}
         </title>
-        <link href="/css/style.css" rel="stylesheet">
-        <!-- Material icons -->
+        <link
+        href="/css/style.css" rel="stylesheet"> <!-- Material icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
-    <body>
+    <body
+        class="bodyPaddingTop">
         <!-- Content -->
         {% include "partials/header.njk"%}
         <main>
@@ -20,5 +22,7 @@
         </main>
         {% include "partials/footer.njk"%}
     </body>
+    <script src='/js/partials/header.js'></script>
+    <script src='/js/partials/footer.js'></script>
     {% block scripts %}{% endblock %}
 </html>

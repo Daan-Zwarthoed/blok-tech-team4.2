@@ -1,4 +1,6 @@
 .register, .login {
+    margin-top: -3rem;
+
     .information {
         height: 100vh;
 
@@ -9,15 +11,62 @@
 
         form {
             margin: 0 0 2rem 0;
+            position: relative;
+            height: 30rem;
 
-            div {
+            h2 {
+                font-size: 1rem;
+            }
+            
+            .next-step {
+                width: calc(100% - 4rem);
+                display: block;
+                text-align: center;
+                border-radius: 0.25rem;
+                border: none;
+                background-color: dodgerblue;
+                font-weight: bold;
+                letter-spacing: 0.025rem;
+                font-size: 1rem;
+                color: #EFEFF1;
+                padding: 0.75rem 0;
+                margin: 0 2rem 2rem;
+            }
+
+            section {
+                max-width: 22.5rem;
+            }
+
+            #general-information {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+            }
+
+            #visual-information {
+                position: absolute;
+                top: 0;
+                left: 30rem;
+                width: 100%;
+            }
+
+            #onboard-information {
                 overflow-x: scroll;
+                position: absolute;
+                top: 0;
+                left: 60rem;
+
+                button {
+                    position: sticky;
+                    left: 2rem;
+                }
 
                 ul {
                     display: flex;
                     width: fit-content;
                     gap: 2rem 1rem;
-                    margin: 0 0 0 2rem;
+                    margin: 0 0 1.5rem 2rem;
                     padding-right: 2rem;
         
                     &>li {
@@ -76,7 +125,7 @@
                 font-size: 1rem;
                 color: #EFEFF1;
                 padding: 0.75rem 0;
-                margin: 0 2rem;
+                margin: 0 2rem 2rem;
             }
         }
     }

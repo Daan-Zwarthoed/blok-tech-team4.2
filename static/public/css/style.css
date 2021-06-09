@@ -400,6 +400,10 @@
   width: 100%;
 }
 
+.register, .login {
+  margin-top: -3rem;
+}
+
 .register .information, .login .information {
   height: 100vh;
 }
@@ -411,13 +415,61 @@
 
 .register .information form, .login .information form {
   margin: 0 0 2rem 0;
+  position: relative;
+  height: 30rem;
 }
 
-.register .information form div, .login .information form div {
+.register .information form h2, .login .information form h2 {
+  font-size: 1rem;
+}
+
+.register .information form .next-step, .login .information form .next-step {
+  width: calc(100% - 4rem);
+  display: block;
+  text-align: center;
+  border-radius: 0.25rem;
+  border: none;
+  background-color: dodgerblue;
+  font-weight: bold;
+  letter-spacing: 0.025rem;
+  font-size: 1rem;
+  color: #EFEFF1;
+  padding: 0.75rem 0;
+  margin: 0 2rem 2rem;
+}
+
+.register .information form section, .login .information form section {
+  max-width: 22.5rem;
+}
+
+.register .information form #general-information, .login .information form #general-information {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.register .information form #visual-information, .login .information form #visual-information {
+  position: absolute;
+  top: 0;
+  left: 30rem;
+  width: 100%;
+}
+
+.register .information form #onboard-information, .login .information form #onboard-information {
   overflow-x: scroll;
+  position: absolute;
+  top: 0;
+  left: 60rem;
 }
 
-.register .information form div ul, .login .information form div ul {
+.register .information form #onboard-information button, .login .information form #onboard-information button {
+  position: -webkit-sticky;
+  position: sticky;
+  left: 2rem;
+}
+
+.register .information form #onboard-information ul, .login .information form #onboard-information ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -425,16 +477,16 @@
   width: -moz-fit-content;
   width: fit-content;
   gap: 2rem 1rem;
-  margin: 0 0 0 2rem;
+  margin: 0 0 1.5rem 2rem;
   padding-right: 2rem;
 }
 
-.register .information form div ul > li, .login .information form div ul > li {
+.register .information form #onboard-information ul > li, .login .information form #onboard-information ul > li {
   width: 12rem;
   position: relative;
 }
 
-.register .information form div ul > li input, .login .information form div ul > li input {
+.register .information form #onboard-information ul > li input, .login .information form #onboard-information ul > li input {
   position: absolute;
   top: 0;
   left: 0;
@@ -442,12 +494,12 @@
   height: 0;
 }
 
-.register .information form div ul > li img, .login .information form div ul > li img {
+.register .information form #onboard-information ul > li img, .login .information form #onboard-information ul > li img {
   height: 21rem;
   width: 100%;
 }
 
-.register .information form div ul > li h2, .login .information form div ul > li h2 {
+.register .information form #onboard-information ul > li h2, .login .information form #onboard-information ul > li h2 {
   margin-top: 0.5rem;
 }
 
@@ -485,7 +537,7 @@
   font-size: 1rem;
   color: #EFEFF1;
   padding: 0.75rem 0;
-  margin: 0 2rem;
+  margin: 0 2rem 2rem;
 }
 
 .register a, .login a {
@@ -548,6 +600,10 @@
   list-style: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 h1,
 h2,
 h3,
@@ -574,7 +630,7 @@ body {
 }
 
 .bodyPaddingTop {
-  margin-top: 3em;
+  margin-top: 3rem;
 }
 
 input, textarea {
@@ -607,7 +663,7 @@ input::placeholder, input::focus, textarea::placeholder, textarea::focus {
 }
 
 p {
-  letter-spacing: 0.0125em;
+  letter-spacing: 0.0125rem;
 }
 
 img {

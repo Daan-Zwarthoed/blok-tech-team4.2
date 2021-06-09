@@ -7,29 +7,36 @@
     <section class='information'>
       <h1>Register</h1>
       <form action='/register' method='post' enctype='multipart/form-data'>
-        <div class='wrapper'>
-          <label for='username'>Username</label>
-          <input id='username' type='text' name='username' required maxlength='20' placeholder='Your username...'>
-        </div>
-        <div class='wrapper'>
-          <label for='password'>Password</label>
-          <input id='password' type='password' name='password' required maxlength='25' placeholder='Your password...'>
-        </div>
-        <div class='wrapper'>
-          <label for='email'>Email</label>
-          <input id='email' type='email' name='email' required maxlength='35' placeholder='Your email...'>
-        </div>
-        <div class='wrapper'>
-          <label for='avatar'>Avatar</label>
-          <input id='avatar' type='file' name='avatar' accept='image/*' required>
-        </div>
-        <div class='wrapper'>
-          <label for='banner'>Banner</label>
-          <input id='banner' type='file' name='banner' accept='image/*' required>
-        </div>
+        <section class='general-information' id='general-information'>
+          <div class='wrapper'>
+            <label for='username'>Username</label>
+            <input id='username' type='text' name='username' required maxlength='20' placeholder='Your username...'>
+          </div>
+          <div class='wrapper'>
+            <label for='password'>Password</label>
+            <input id='password' type='password' name='password' required maxlength='25' placeholder='Your password...'>
+          </div>
+          <div class='wrapper'>
+            <label for='email'>Email</label>
+            <input id='email' type='email' name='email' required maxlength='35' placeholder='Your email...'>
+          </div>
+          <a href='#visual-information' class='next-step'>Next step</a>
+          <a href='/login'>Already have an account?</a>
+        </section>
+        <section class='visual-information' id='visual-information'>
+          <div class='wrapper'>
+            <label for='avatar'>Avatar</label>
+            <input id='avatar' type='file' name='avatar' accept='image/*' required>
+          </div>
+          <div class='wrapper'>
+            <label for='banner'>Banner</label>
+            <input id='banner' type='file' name='banner' accept='image/*' required>
+          </div>
+          <a href='#onboard-information' class='next-step'>Next step</a>
+        </section>
 
         {% if games %}
-          <div>
+          <section class='onboard-information' id='onboard-information'>
             <ul>
               {% for game in games %}
                 <li class='onboard-games'>
@@ -48,12 +55,14 @@
                 </li>
               {% endfor %}
             </ul>
-          </div>
+            <button type='submit'>Register</button>
+          </section>
         {% endif %}
-
-        <button type='submit'>Register</button>
       </form>
-      <a href='/login'>Already have an account?</a>
     </section>
   </section>
+{% endblock %}
+
+{% block scripts %}
+  <script src='/js/register/scroll.js'></script>
 {% endblock %}

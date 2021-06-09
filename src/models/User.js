@@ -30,6 +30,18 @@ const UserSchema = mongoose.Schema({
     description: {
         type: String,
     },
+    topGame: {
+        type: String,
+        required: true,
+    },
+    time: {
+        type: String,
+        required: true,
+    },
+    playstyle: {
+        type: String,
+        required: true,
+    },
 });
 
 const User = mongoose.model('User', UserSchema);

@@ -136,7 +136,7 @@
 .chatSelf #messages {
   list-style-type: none;
   margin: 0;
-  margin-bottom: 2em;
+  margin-bottom: 3em;
   padding: 0 1em 0 1em;
 }
 
@@ -245,8 +245,6 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
 }
 
 .profile .input-avatar input {
@@ -429,6 +427,15 @@
 
 .register .information form div ul > li, .login .information form div ul > li {
   width: 12rem;
+  position: relative;
+}
+
+.register .information form div ul > li input, .login .information form div ul > li input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
 }
 
 .register .information form div ul > li img, .login .information form div ul > li img {

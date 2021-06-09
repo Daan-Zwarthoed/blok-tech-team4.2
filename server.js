@@ -11,6 +11,7 @@ const { Server } = require('socket.io');
 const homeRoutes = require('./src/routes/homeRoutes.js');
 const chatRoutes = require('./src/routes/chatRoutes.js');
 const profileRoutes = require('./src/routes/profileRoutes');
+const filterRoutes = require('./src/routes/filterRoutes.js');
 
 // Configuration
 const connectToDB = require('./src/config/mongoose.js');
@@ -20,9 +21,7 @@ require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 3000;
-
 const server = http.createServer(app);
-
 const io = new Server(server);
 
 nunjucks.configure('src/views/', {
@@ -57,16 +56,19 @@ checkUser();
 app.use('/', homeRoutes);
 app.use('/chat', chatRoutes);
 app.use('/profiles', profileRoutes);
+app.use('/filter', filterRoutes);
 
 const chatHandler = require('./src/controllers/chatHandler.js');
 
 io.on('connection', (socket) => {
+    chatHandler.defineIo(io);
+
     socket.on('join room', (message) => {
-        chatHandler.joinRoom(socket, message);
+        chatHandler.joinRoom(message, socket);
     });
 
     socket.on('chat message', (message) => {
-        chatHandler.messagesSend(io, message);
+        chatHandler.messagesSend(message, io);
     });
 });
 

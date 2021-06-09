@@ -4,8 +4,6 @@
 {% endblock %}
 {% block content %}
   <div class="chatSelf">
-    <div id="userSelf" class="hidden">{{ userSelf }}</div>
-    <div id="userOther" class="hidden">{{ userOther }}</div>
     <div class="chatHeader">
       <a href="/chat/{{ userId }}">&#8592;</a>
       <div>{{ userOther }}</div>
@@ -16,6 +14,8 @@
       {% endfor %}
     </ul>
     <form id="form" method="post" action="chatMessageReceived/{{ userId }}">
+      <input id="userSelf" class="hidden" name="userSelf" value="{{ userSelf }}"/>
+      <input id="userOther" class="hidden" name="userOther" value="{{ userOther }}"/>
       <input id="input" name="message" autocomplete="off" required/>
       <button>Send</button>
     </form>
@@ -23,6 +23,4 @@
 {% endblock %}
 {% block scripts %}
   <script src="/socket.io/socket.io.js"></script>
-  <script>
-    {% include "pages/chat/chatSelf/chatSelf.js" %}</script>
-{% endblock %}
+  <script src='/js/chat/chatSelf.js'>}</script>{% endblock %}

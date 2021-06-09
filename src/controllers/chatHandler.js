@@ -8,12 +8,20 @@ const sortAlphabetsString = function (text) {
 
 const Conversation = require('../models/Conversation');
 
+let ioCopy;
+
 module.exports = {
-    joinRoom(socket, message) {
-        socket.join(sortAlphabetsString(`${message.userSelf}${message.userOther}`));
+    defineIo(io) {
+        ioCopy = io;
     },
 
-    messagesSend(io, message) {
+    joinRoom(message, socket) {
+        if (socket) {
+            socket.join(sortAlphabetsString(`${message.userSelf}${message.userOther}`));
+        }
+    },
+
+    messagesSend(message, io) {
         Conversation.findOneAndUpdate(
             {
                 users: sortAlphabets([message.userOther, message.userSelf]),
@@ -30,10 +38,13 @@ module.exports = {
                 upsert: true,
             }
         ).then(() => {
-            io.to(sortAlphabetsString(`${message.userSelf}${message.userOther}`)).emit('chat message', {
-                message: message.message,
-                userSender: message.userSelf,
-            });
+            if (io) ioCopy = io;
+            if (ioCopy) {
+                ioCopy.to(sortAlphabetsString(`${message.userSelf}${message.userOther}`)).emit('chat message', {
+                    message: message.message,
+                    userSender: message.userSelf,
+                });
+            }
         });
     },
 };

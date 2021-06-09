@@ -137,6 +137,9 @@
 .chatSelf #messages {
     list-style-type: none;
     margin: 0;
+    margin-bottom: 3em;
+    padding: 0 1em 0 1em; }
+  .chatSelf #messages > li {
     margin-bottom: 2em;
     padding: 0 1em 0 1em;
 }

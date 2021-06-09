@@ -27,6 +27,30 @@
           <label for='banner'>Banner</label>
           <input id='banner' type='file' name='banner' accept='image/*' required>
         </div>
+
+        {% if games %}
+          <div>
+            <ul>
+              {% for game in games %}
+                <li class='onboard-games'>
+                  <input type='checkbox' id='{{game.titleSlug}}' name='{{game.titleSlug}}' value='liked'>
+                  <label for='{{game.titleSlug}}'>
+                    <img src='/images/games/{{game.image}}'>
+                    <h2>{{game.title}}</h2>
+                    {% if games.genres %}
+                      <ul>
+                        {% for genre in game.genres %}
+                          <li>{{genre}}</li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+                  </label>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+
         <button type='submit'>Register</button>
       </form>
       <a href='/login'>Already have an account?</a>

@@ -2,7 +2,8 @@
 @import url("./_fonts.scss");
 .chatList form {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  padding-bottom: 4em; }
   .chatList form button {
     width: 100%;
     height: 70px;
@@ -17,19 +18,21 @@
     align-items: center;
     padding-left: 1em; }
     .chatList form button .imgDiv {
-      height: 60px;
-      width: 60px;
-      clip-path: circle(50% at 50% 50%);
+      height: 55px;
+      width: 55px;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
       margin-right: 1em; }
       .chatList form button .imgDiv img {
-        height: 60px;
-        min-width: 60px; }
+        height: 55px;
+        min-width: 55px; }
     .chatList form button p {
       font-size: 1.5em; }
+  .chatList form button:last-of-type {
+    border-bottom: none !important; }
 
 .chatSelf {
   margin-top: 3.5em; }

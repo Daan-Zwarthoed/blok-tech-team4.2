@@ -13,7 +13,10 @@ const saltRounds = 10;
  * This function renders the register page.
  */
 const getRegister = (req, res) => {
-    res.render('pages/home/register.njk');
+    Game.find({}).then((games) => {
+        shuffle(games);
+        res.render('pages/home/register.njk', { games });
+    });
 };
 
 /**
@@ -22,8 +25,30 @@ const getRegister = (req, res) => {
 const registerUser = (req, res) => {
     const { username, email, password } = req.body;
     const displayname = req.body.username;
-    const avatar = req.files.avatar[0].filename;
-    const banner = req.files.banner[0].filename;
+    let avatar;
+    let banner;
+
+    if (!banner) {
+        banner = 'defaultBanner.jpg';
+    } else {
+        banner = req.files.banner[0].filename;
+    }
+
+    if (!avatar) {
+        avatar = 'defaultUser.png';
+    } else {
+        avatar = req.files.avatar[0].filename;
+    }
+
+    Game.find({}).then((games) => {
+        games.forEach((game) => {
+            if (req.body[game.titleSlug]) {
+                Game.updateOne({ title: game.title }, { $push: { likedBy: username } }, (err) => {
+                    if (err) throw err;
+                });
+            }
+        });
+    });
 
     User.findOne({ username }).then((result) => {
         // If username is already registered redirect back to register
@@ -50,7 +75,7 @@ const registerUser = (req, res) => {
                 // https://www.passportjs.org/docs/login/
                 req.login(addUser, (err) => {
                     if (err) throw err;
-                    res.redirect('/onboarding');
+                    res.redirect('/');
                 });
             });
         }

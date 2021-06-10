@@ -1,90 +1,10 @@
 .profile {
     padding-bottom: 4rem;
 
-    header,
-    .input-banner {
+    header {
         position: relative;
         height: 12rem;
         overflow: hidden;
-    }
-
-    .input-banner {
-        span {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            color: white;
-            transform: translate(-50%, -50%);
-            z-index: 10;
-            border-radius: 50%;
-            padding: 0.5rem;
-        }
-
-        label {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        input {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 0;
-        }
-    }
-
-    .input-avatar {
-        transform: translateY(-2rem);
-        margin: 0 1rem;
-        overflow: visible;
-        overflow: hidden;
-        width: 5.5rem;
-        height: 5.5rem;
-
-        img {
-            width: 5.5rem;
-            height: 5.5rem;
-            border-radius: 50%;
-            border: 0.1875rem solid #0f0f11;
-            z-index: 100;
-        }
-
-        .overlay {
-            width: 5.5rem;
-            height: 5.5rem;
-            background-color: #0f0f11;
-            border-radius: 50%;
-            opacity: 0.3;
-        }
-
-        span {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            color: white;
-            transform: translate(-50%, -50%);
-            z-index: 10;
-            border-radius: 50%;
-            padding: 0.5rem;
-        }
-
-        label {
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-
-        input {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 0;
-        }
     }
 
     form {
@@ -217,5 +137,105 @@
                 }
             }
         }
+    }
+}
+
+.input-banner {
+    position: relative;
+    height: 12rem;
+    overflow: hidden;
+
+    .overlay {
+        background: linear-gradient(
+            0deg,
+            rgba(15, 15, 17, 1) 0%,
+            rgba(15, 15, 17, 0.8) 25%,
+            rgba(255, 255, 255, 0) 100%
+        );
+        width: 100%;
+        height: 12rem;
+        position: absolute;
+        bottom: 0;
+    }
+    
+    span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        color: white;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        border-radius: 50%;
+        padding: 0.5rem;
+    }
+
+    label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+    }
+}
+
+.input-avatar {
+    transform: translateY(-2rem);
+    margin: 0 1rem;
+    overflow: visible;
+    overflow: hidden;
+    width: 5.5rem;
+    height: 5.5rem;
+    position: relative;
+
+    img {
+        width: 5.5rem;
+        height: 5.5rem;
+        border-radius: 50%;
+        border: 0.1875rem solid #0f0f11;
+        z-index: 100;
+    }
+
+    .overlay {
+        width: 5.5rem;
+        height: 5.5rem;
+        background-color: #0f0f11;
+        border-radius: 50%;
+        opacity: 0.3;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        color: white;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        border-radius: 50%;
+        padding: 0.5rem;
+    }
+
+    label {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
     }
 }

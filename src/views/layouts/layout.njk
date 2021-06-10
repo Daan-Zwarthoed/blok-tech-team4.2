@@ -13,7 +13,7 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     </head>
     <body
-        class="bodyPaddingTop">
+        class="bodyPaddingTop preload">
         <!-- Content -->
         {% include "partials/header.njk"%}
         <main>
@@ -23,5 +23,6 @@
     </body>
     <script src='/js/partials/header.js'></script>
     <script src='/js/partials/footer.js'></script>
+    <script src='/js/removePreload.js'></script>
     {% block scripts %}{% endblock %}
 </html>

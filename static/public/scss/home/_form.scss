@@ -4,6 +4,12 @@
     .information {
         height: 100vh;
 
+        .info {
+            margin: 0 2rem 1.5rem;
+            position: sticky;
+            left: 2rem;
+        }
+
         h1 {
             font-size: 2rem;
             margin: 5.75rem 2rem 1.5rem;
@@ -45,6 +51,7 @@
 
                 input {
                     height: 2.625rem;
+                    transition: .25s;
                 }
             }
 
@@ -72,11 +79,13 @@
                     gap: 2rem 1rem;
                     margin: 0 0 1.5rem 2rem;
                     padding-right: 2rem;
+                    transition: .25s;
         
                     &>li {
                         width: 12rem;
+                        height: 23.125rem;
                         position: relative;
-
+                        transition: .25s;
 
                         input {
                             position: absolute;
@@ -93,6 +102,7 @@
 
                         h2 {
                             margin-top: 0.5rem;
+                            transition: .25s;
                         }
                     }
                 }    
@@ -131,6 +141,7 @@
                 color: #EFEFF1;
                 padding: 0.75rem 0;
                 margin: 0 2rem 2rem;
+                transition: .5s;
             }
         }
     }
@@ -138,5 +149,6 @@
     a {
         margin: 0 2rem;
         color: dodgerblue;
+        transition: .5s;
     }
 }

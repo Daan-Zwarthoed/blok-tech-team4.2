@@ -71,15 +71,35 @@ img {
 
 input:focus {
     outline: none;
-    border: 2px solid dodgerblue!important;
+    border: 0.125rem solid dodgerblue!important;
 }
 
 input.warning {
-    border: 2px solid red!important;
-    transition: .25s;
+    border: 0.125rem solid red!important;
+}
+
+button.warning {
+    background-color: red!important;
 }
 
 a.warning {
     background-color: red!important;
-    transition: .5s;
 }
+
+li.clicked {
+    border: 0.125rem solid dodgerblue!important;
+
+    h2 {
+        margin-top: 0.375rem!important;
+        padding-left: .25rem;
+    }
+}
+
+// https://css-tricks.com/transitions-only-after-page-load/
+.preload * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+    transiton: none !important;
+   }

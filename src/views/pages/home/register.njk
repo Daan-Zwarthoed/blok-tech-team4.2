@@ -37,6 +37,7 @@
 
         {% if games %}
           <section class='onboard-information' id='onboard-information'>
+            <p class='info'>Select some games that you like.</p>
             <ul>
               {% for game in games %}
                 <li class='onboard-games'>
@@ -64,5 +65,5 @@
 {% endblock %}
 
 {% block scripts %}
-  <script src='/js/register/scroll.js'></script>
+  <script src='/js/register/registerValidation.js'></script>
 {% endblock %}

@@ -1,11 +1,11 @@
 // eslint-disable-next-line no-undef
 const socket = io();
 
-const messages = document.getElementById('messages');
-const form = document.getElementById('form');
-const input = document.getElementById('input');
-const userOther = document.getElementById('userOther').value;
-const userSelf = document.getElementById('userSelf').value;
+const messages = document.querySelector('.chatMessages');
+const form = document.querySelector('.chatForm');
+const input = document.querySelector('.chatInput');
+const userOther = document.querySelector('.userOther').value;
+const userSelf = document.querySelector('.userSelf').value;
 
 window.scrollTo(0, document.body.scrollHeight);
 

@@ -449,6 +449,10 @@
   width: 100%;
 }
 
+.register .information form #general-information input, .login .information form #general-information input {
+  height: 2.625rem;
+}
+
 .register .information form #visual-information, .login .information form #visual-information {
   position: absolute;
   top: 0;
@@ -525,6 +529,7 @@
   border: none;
   padding: 0.75rem;
   border-radius: 0.25rem;
+  max-width: 100%;
 }
 
 .register .information form button, .login .information form button {
@@ -675,6 +680,23 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+input:focus {
+  outline: none;
+  border: 2px solid dodgerblue !important;
+}
+
+input.warning {
+  border: 2px solid red !important;
+  -webkit-transition: .25s;
+  transition: .25s;
+}
+
+a.warning {
+  background-color: red !important;
+  -webkit-transition: .5s;
+  transition: .5s;
 }
 
 .header {

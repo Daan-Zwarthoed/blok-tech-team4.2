@@ -68,3 +68,18 @@ img {
 .wrapper {
     display: flex;
 }
+
+input:focus {
+    outline: none;
+    border: 2px solid dodgerblue!important;
+}
+
+input.warning {
+    border: 2px solid red!important;
+    transition: .25s;
+}
+
+a.warning {
+    background-color: red!important;
+    transition: .5s;
+}

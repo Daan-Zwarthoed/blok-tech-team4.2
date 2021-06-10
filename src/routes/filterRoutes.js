@@ -2,8 +2,8 @@ const router = require('express').Router();
 const FilterController = require('../controllers/FilterController');
 
 // Filter routes
-router.get('/', FilterController.getFilter);
+router.get('/:userId', FilterController.getFilter);
 
-router.post('/', FilterController.useFilter);
+router.post('/:userId', FilterController.useFilter);
 
 module.exports = router;

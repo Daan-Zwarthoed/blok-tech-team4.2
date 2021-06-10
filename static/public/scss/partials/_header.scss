@@ -1,11 +1,27 @@
 .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
     height: 3rem;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    margin: 0 1rem;
-    background-color: #0F0F11;
+    padding: 0 1em 0 1em;
+    background: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
 
     a {
+        font-size: 1.5em;
         color: #EFEFF1;
     }
+
+    i{
+        font-size: 1.5em;
+    }
+}
+
+.headerUpwards{
+    top: -3em;
 }

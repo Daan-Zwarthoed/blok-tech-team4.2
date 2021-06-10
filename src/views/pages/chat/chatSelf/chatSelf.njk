@@ -8,15 +8,15 @@
       <a href="/chat/{{ userId }}">&#8592;</a>
       <div>{{ userOther }}</div>
     </div>
-    <ul id="messages">
+    <ul class="chatMessages">
       {% for message in messages %}
         <li class={{ "messageSelf" if message.userSender === userSelf }}>{{ message.message }}</li>
       {% endfor %}
     </ul>
-    <form id="form" method="post" action="chatMessageReceived/{{ userId }}">
-      <input id="userSelf" class="hidden" name="userSelf" value="{{ userSelf }}"/>
-      <input id="userOther" class="hidden" name="userOther" value="{{ userOther }}"/>
-      <input id="input" name="message" autocomplete="off" required/>
+    <form class="chatForm" method="post" action="chatMessageReceived/{{ userId }}">
+      <input class="userSelf hidden" name="userSelf" value="{{ userSelf }}"/>
+      <input class="userOther hidden" name="userOther" value="{{ userOther }}"/>
+      <input class="chatInput" name="message" autocomplete="off" required/>
       <button>Send</button>
     </form>
   </div>

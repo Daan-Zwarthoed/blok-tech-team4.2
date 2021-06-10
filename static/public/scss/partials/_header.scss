@@ -9,16 +9,17 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 1em 0 1em;
-    background: rgba(0, 0, 0, 0.15);
-    backdrop-filter: blur(10px);
+    background-color: #0F0F11;
+
+    p {
+        font-weight: 600;
+    }
 
     a {
         font-size: 1.5em;
         color: #EFEFF1;
-    }
-
-    i{
-        font-size: 1.5em;
+        display: flex;
+        align-items: center;
     }
 }
 

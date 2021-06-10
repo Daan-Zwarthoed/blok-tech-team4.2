@@ -6,6 +6,7 @@
         "no-console": "off",
         "new-cap": 0,
         "eqeqeq": "off",
+        "default-case": "off",
         "no-plusplus": [
             2,
             {

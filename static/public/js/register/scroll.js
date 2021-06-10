@@ -3,16 +3,15 @@ const formLinks = document.querySelectorAll('.next-step');
 const formInput = document.querySelectorAll('form input');
 const generalInformationInput = document.querySelectorAll('#general-information input');
 const visualInformation = document.querySelector('#visual-information');
-const visualInformationInput = document.querySelectorAll('#visual-information input');
 const onboardInformation = document.querySelector('#onboard-information');
 
 /**
  * This function checks if the user has filled in every input field to go
  * to the next sequence.
  *
- * @param {*} arr = the request array which contains (multiple) input fields
+ * @param {*} arr = the requested array which contains (multiple) input fields
  * @param {*} form = the form which is being used
- * @param {*} nextInfo = the next sequence of information
+ * @param {*} nextInfo = the next sequence in the registering process
  */
 const checkInput = (arr, form, nextInfo, event) => {
     const noInput = [];
@@ -42,6 +41,13 @@ const checkInput = (arr, form, nextInfo, event) => {
     }
 };
 
+const nextSequence = (form, nextInfo) => {
+    form.scroll({
+        left: nextInfo.offsetLeft,
+        behavior: 'smooth',
+    });
+};
+
 /**
  * This function checks which button is being clicked and summons the checkInput function.
  *
@@ -57,7 +63,7 @@ const scrollElement = (event) => {
         case formLinks[1]:
             // Prevent default behavior for smooth interactions when Javascript is enabled
             event.preventDefault();
-            checkInput(visualInformationInput, formElem, onboardInformation, event);
+            nextSequence(formElem, onboardInformation);
             break;
     }
 };

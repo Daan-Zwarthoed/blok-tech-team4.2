@@ -25,13 +25,25 @@ const getRegister = (req, res) => {
 const registerUser = (req, res) => {
     const { username, email, password } = req.body;
     const displayname = req.body.username;
-    const avatar = req.files.avatar[0].filename;
-    const banner = req.files.banner[0].filename;
+    let avatar;
+    let banner;
+
+    if (!banner) {
+        banner = 'defaultBanner.jpg';
+    } else {
+        banner = req.files.banner[0].filename;
+    }
+
+    if (!avatar) {
+        avatar = 'defaultUser.png';
+    } else {
+        avatar = req.files.avatar[0].filename;
+    }
 
     Game.find({}).then((games) => {
         games.forEach((game) => {
             if (req.body[game.titleSlug]) {
-                Game.updateOne({ title: game.title }, { $push: { likedBy: req.user._id } }, (err) => {
+                Game.updateOne({ title: game.title }, { $push: { likedBy: username } }, (err) => {
                     if (err) throw err;
                 });
             }

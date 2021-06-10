@@ -1,5 +1,4 @@
 // User Schema
-const { ObjectId } = require('bson');
 const mongoose = require('mongoose');
 
 const GameSchema = mongoose.Schema({
@@ -22,7 +21,7 @@ const GameSchema = mongoose.Schema({
         required: true,
     },
     likedBy: {
-        type: [ObjectId],
+        type: [String],
         unique: true,
     },
 });

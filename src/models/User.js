@@ -27,6 +27,14 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: true,
     },
+    likedBy: {
+        type: [String],
+        unique: true,
+    },
+    dislikedBy: {
+        type: [String],
+        unique: true,
+    },
     description: {
         type: String,
     },

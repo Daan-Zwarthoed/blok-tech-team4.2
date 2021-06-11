@@ -28,16 +28,16 @@ const registerUser = (req, res) => {
     let avatar;
     let banner;
 
-    if (!banner) {
-        banner = 'defaultBanner.jpg';
-    } else {
+    if (req.files.banner) {
         banner = req.files.banner[0].filename;
+    } else {
+        banner = 'defaultBanner.jpg';
     }
 
-    if (!avatar) {
-        avatar = 'defaultUser.png';
-    } else {
+    if (req.files.avatar) {
         avatar = req.files.avatar[0].filename;
+    } else {
+        avatar = 'defaultUser.png';
     }
 
     Game.find({}).then((games) => {

@@ -7,12 +7,13 @@
         <title>
             {% block title %}{% endblock %}
         </title>
-        <link href="/css/style.css" rel="stylesheet">
+        <link href="/css/style.css" rel="stylesheet"> 
         <!-- Material icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     </head>
-    <body>
+    <body
+        class="bodyPaddingTop preload">
         <!-- Content -->
         {% include "partials/header.njk"%}
         <main>
@@ -20,5 +21,8 @@
         </main>
         {% include "partials/footer.njk"%}
     </body>
+    <script src='/js/partials/header.js'></script>
+    <script src='/js/partials/footer.js'></script>
+    <script src='/js/removePreload.js'></script>
     {% block scripts %}{% endblock %}
 </html>

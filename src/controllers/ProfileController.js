@@ -15,7 +15,7 @@ const getProfile = (req, res) => {
         if (err) throw err;
 
         // Find all games that are liked by the user that owns this profile.
-        Game.find({ likedBy: userId }, (err, games) => {
+        Game.find({ likedBy: profile.username }, (err, games) => {
             if (err) throw err;
 
             // Look for the current session user. This is necessary for displaying the correct header data.

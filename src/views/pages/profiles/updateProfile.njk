@@ -21,11 +21,15 @@
             </div>
             <div class='wrapper'>
                 <label for='displayname'>Displayname</label>
-                <input id='displayname' type='text' name='displayname' required maxlength='20' placeholder='Your displayname...'>
+                <input id='displayname' type='text' name='displayname' required maxlength='20' value='{{user.displayname}}'>
             </div>
             <div class='wrapper'>
                 <label for='description'>Beschrijving</label>
-                <textarea id='description' type='text' name='description' required maxlength='150' placeholder='Your description...'></textarea>
+                {% if user.description %}
+                    <textarea id='description' type='text' name='description' required maxlength='150'>{{user.description}}</textarea>
+                    {% else %}
+                    <textarea id='description' type='text' name='description' required maxlength='150' placeholder='Your description...'></textarea>
+                {% endif %}
             </div>
 
             <button type='submit'>Save profile</button>
@@ -33,5 +37,5 @@
     </section>
 {% endblock %}
 {% block scripts %}
-    <script src='/js/show-input.js'></script>
+    <script src='/js/showUserInput.js'></script>
 {% endblock %}

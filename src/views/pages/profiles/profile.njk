@@ -1,6 +1,6 @@
 {% extends "layouts/layout.njk" %}
 {% block title %}
-    {{ user.username }}
+    {{ profile.username }}
 {% endblock %}
 {% block content %}
     <section class='profile view-profile'>
@@ -24,7 +24,7 @@
         </section>
         <section class='profile-extra'>
             {% if games %}
-                <h2>Liked Games</h2>
+                <h2>Your Games</h2>
                 <ul>
                     {% for game in games %}
                         <li>

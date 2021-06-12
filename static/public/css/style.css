@@ -1,9 +1,12 @@
 /* Imports */
+
 @import url("./_fonts.scss");
 .chatList form {
-  display: flex;
-  flex-direction: column; }
-  .chatList form button {
+    display: flex;
+    flex-direction: column;
+}
+
+.chatList form button {
     width: 100%;
     height: 70px;
     margin: 0;
@@ -14,25 +17,34 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-left: 1em; }
-    .chatList form button .imgDiv {
-      height: 60px;
-      width: 60px;
-      clip-path: circle(50% at 50% 50%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      margin-right: 1em; }
-      .chatList form button .imgDiv img {
-        height: 60px;
-        min-width: 60px; }
-    .chatList form button p {
-      font-size: 1.5em; }
+    padding-left: 1em;
+}
+
+.chatList form button .imgDiv {
+    height: 60px;
+    width: 60px;
+    clip-path: circle(50% at 50% 50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-right: 1em;
+}
+
+.chatList form button .imgDiv img {
+    height: 60px;
+    min-width: 60px;
+}
+
+.chatList form button p {
+    font-size: 1.5em;
+}
 
 .chatSelf {
-  margin-top: 3.5em; }
-  .chatSelf .chatHeader {
+    margin-top: 3.5em;
+}
+
+.chatSelf .chatHeader {
     background-color: grey;
     position: fixed;
     top: 3em;
@@ -41,13 +53,19 @@
     color: white;
     display: flex;
     flex-direction: row;
-    padding: 0.3em; }
-    .chatSelf .chatHeader a {
-      text-decoration: none;
-      color: white; }
-    .chatSelf .chatHeader div {
-      margin-left: 1em; }
-  .chatSelf #form {
+    padding: 0.3em;
+}
+
+.chatSelf .chatHeader a {
+    text-decoration: none;
+    color: white;
+}
+
+.chatSelf .chatHeader div {
+    margin-left: 1em;
+}
+
+.chatSelf #form {
     background: rgba(0, 0, 0, 0.15);
     padding: 0.25rem;
     position: fixed;
@@ -57,31 +75,43 @@
     display: flex;
     height: 3rem;
     box-sizing: border-box;
-    backdrop-filter: blur(10px); }
-  .chatSelf .hidden {
-    display: none; }
-  .chatSelf #input {
+    backdrop-filter: blur(10px);
+}
+
+.chatSelf .hidden {
+    display: none;
+}
+
+.chatSelf #input {
     border: none;
     padding: 0 1rem;
     flex-grow: 1;
     border-radius: 2rem;
-    margin: 0.25rem; }
-  .chatSelf #input:focus {
-    outline: none; }
-  .chatSelf #form > button {
+    margin: 0.25rem;
+}
+
+.chatSelf #input:focus {
+    outline: none;
+}
+
+.chatSelf #form>button {
     background: #333;
     border: none;
     padding: 0 1rem;
     margin: 0.25rem;
     border-radius: 3px;
     outline: none;
-    color: #fff; }
-  .chatSelf #messages {
+    color: #fff;
+}
+
+.chatSelf #messages {
     list-style-type: none;
     margin: 0;
     margin-bottom: 3em;
-    padding: 0 1em 0 1em; }
-  .chatSelf #messages > li {
+    padding: 0 1em 0 1em;
+}
+
+.chatSelf #messages>li {
     padding: 0.5rem 1rem;
     margin-bottom: 0.3em;
     width: fit-content;
@@ -92,18 +122,25 @@
     height: fit-content;
     display: flex;
     word-wrap: break-word;
-    word-break: break-all; }
-  .chatSelf .messageSelf {
+    word-break: break-all;
+}
+
+.chatSelf .messageSelf {
     margin-left: auto;
-    background-color: #343480 !important; }
+    background-color: #343480 !important;
+}
 
 .profile {
-  padding-bottom: 4rem; }
-  .profile header,
-  .profile .input-banner {
+    padding-bottom: 4rem;
+}
+
+.profile header,
+.profile .input-banner {
     position: relative;
-    height: 12rem; }
-  .profile .input-banner span {
+    height: 12rem;
+}
+
+.profile .input-banner span {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -111,76 +148,101 @@
     transform: translate(-50%, -50%);
     z-index: 10;
     border-radius: 50%;
-    padding: 0.5rem; }
-  .profile .input-banner label {
+    padding: 0.5rem;
+}
+
+.profile .input-banner label {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%; }
-  .profile .input-banner input {
+    height: 100%;
+}
+
+.profile .input-banner input {
     position: absolute;
     top: 0;
     left: 0;
     width: 0;
-    height: 0; }
-  .profile .input-avatar {
+    height: 0;
+}
+
+.profile .input-avatar {
     transform: translateY(-2rem);
     margin: 0 1rem;
     overflow: visible;
     overflow: hidden;
     width: 5.5rem;
-    height: 5.5rem; }
-    .profile .input-avatar img {
-      width: 5.5rem;
-      height: 5.5rem;
-      border-radius: 50%;
-      border: 0.1875rem solid #0f0f11;
-      z-index: 100; }
-    .profile .input-avatar .overlay {
-      width: 5.5rem;
-      height: 5.5rem;
-      background-color: #0f0f11;
-      border-radius: 50%;
-      opacity: 0.3; }
-    .profile .input-avatar span {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      color: white;
-      transform: translate(-50%, -50%);
-      z-index: 10;
-      border-radius: 50%;
-      padding: 0.5rem; }
-    .profile .input-avatar label {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%; }
-    .profile .input-avatar input {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 0;
-      height: 0; }
-  .profile form .wrapper {
+    height: 5.5rem;
+}
+
+.profile .input-avatar img {
+    width: 5.5rem;
+    height: 5.5rem;
+    border-radius: 50%;
+    border: 0.1875rem solid #0f0f11;
+    z-index: 100;
+}
+
+.profile .input-avatar .overlay {
+    width: 5.5rem;
+    height: 5.5rem;
+    background-color: #0f0f11;
+    border-radius: 50%;
+    opacity: 0.3;
+}
+
+.profile .input-avatar span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: white;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    border-radius: 50%;
+    padding: 0.5rem;
+}
+
+.profile .input-avatar label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.profile .input-avatar input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+}
+
+.profile form .wrapper {
     margin-bottom: 1.5rem;
     margin: 0 1rem 1.5rem;
-    flex-direction: column; }
-    .profile form .wrapper label {
-      margin-bottom: 0.5rem;
-      font-size: 0.7rem;
-      letter-spacing: 0.025rem;
-      color: #efeff1;
-      text-transform: uppercase;
-      font-weight: 500; }
-    .profile form .wrapper input, .profile form .wrapper textarea {
-      font-size: 1rem;
-      border: none;
-      padding: 0.75rem;
-      border-radius: 0.25rem; }
-  .profile form button {
+    flex-direction: column;
+}
+
+.profile form .wrapper label {
+    margin-bottom: 0.5rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.025rem;
+    color: #efeff1;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.profile form .wrapper input,
+.profile form .wrapper textarea {
+    font-size: 1rem;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+}
+
+.profile form button {
     width: calc(100% - 2rem);
     border-radius: 0.25rem;
     border: none;
@@ -190,134 +252,198 @@
     font-size: 1rem;
     color: #EFEFF1;
     padding: 0.75rem 0;
-    margin: 0 1rem; }
-  .profile .overlay {
+    margin: 0 1rem;
+}
+
+.profile .overlay {
     background: linear-gradient(0deg, #0f0f11 0%, rgba(15, 15, 17, 0.8) 25%, rgba(255, 255, 255, 0) 100%);
     width: 100%;
     height: 12rem;
     position: absolute;
-    bottom: 0; }
-  .profile .profile-banner {
+    bottom: 0;
+}
+
+.profile .profile-banner {
     width: 100%;
-    height: 12rem; }
-  .profile .profile-info {
+    height: 12rem;
+}
+
+.profile .profile-info {
     margin-top: -2rem;
     padding: 0 1rem 2rem;
-    border-bottom: 0.0625rem solid #6e767d; }
-    .profile .profile-info h2 {
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 0.5rem;
-      font-size: 1.25rem; }
-      .profile .profile-info h2 span {
-        color: #6e767d;
-        font-size: 0.9375rem;
-        font-weight: 400; }
-    .profile .profile-info p {
-      font-size: 0.9375rem;
-      letter-spacing: 0.025rem;
-      line-height: 1.1875rem; }
-    .profile .profile-info .wrapper {
-      align-items: flex-end;
-      margin-bottom: 0.75rem; }
-      .profile .profile-info .wrapper a {
-        margin: 0 0 0.25rem auto;
-        padding: 0.5625rem 1.125rem;
-        background: dodgerblue;
-        color: white;
-        font-size: 0.9rem;
-        border-radius: 0.25rem; }
-    .profile .profile-info .profile-avatar {
-      width: 5.5rem;
-      height: 5.5rem;
-      border-radius: 50%;
-      border: 0.1875rem solid #0f0f11;
-      z-index: 100; }
-  .profile .profile-extra {
+    border-bottom: 0.0625rem solid #6e767d;
+}
+
+.profile .profile-info h2 {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.profile .profile-info h2 span {
+    color: #6e767d;
+    font-size: 0.9375rem;
+    font-weight: 400;
+}
+
+.profile .profile-info p {
+    font-size: 0.9375rem;
+    letter-spacing: 0.025rem;
+    line-height: 1.1875rem;
+}
+
+.profile .profile-info .wrapper {
+    align-items: flex-end;
+    margin-bottom: 0.75rem;
+}
+
+.profile .profile-info .wrapper a {
+    margin: 0 0 0.25rem auto;
+    padding: 0.5625rem 1.125rem;
+    background: dodgerblue;
+    color: white;
+    font-size: 0.9rem;
+    border-radius: 0.25rem;
+}
+
+.profile .profile-info .profile-avatar {
+    width: 5.5rem;
+    height: 5.5rem;
+    border-radius: 50%;
+    border: 0.1875rem solid #0f0f11;
+    z-index: 100;
+}
+
+.profile .profile-extra {
     overflow-x: scroll;
-    margin: 1rem; }
-    .profile .profile-extra h2 {
-      position: sticky;
-      margin: 1rem 0;
-      left: 0; }
-    .profile .profile-extra > ul {
-      display: flex;
-      width: fit-content;
-      gap: 2rem 1rem; }
-      .profile .profile-extra > ul > li {
-        width: 8rem; }
-        .profile .profile-extra > ul > li img {
-          height: 14rem;
-          width: 100%; }
+    margin: 1rem;
+}
 
-.register .information, .login .information {
-  height: 100vh; }
-  .register .information h1, .login .information h1 {
-    font-size: 2rem;
-    margin: 5.75rem 2rem 1.5rem; }
-  .register .information form, .login .information form {
-    margin: 0 2rem 1rem; }
-    .register .information form .wrapper, .login .information form .wrapper {
-      margin-bottom: 1.5rem;
-      flex-direction: column; }
-      .register .information form .wrapper label, .login .information form .wrapper label {
-        margin-bottom: 0.5rem;
-        font-size: 0.7rem;
-        letter-spacing: 0.025rem;
-        color: #EFEFF1;
-        text-transform: uppercase;
-        font-weight: 500; }
-      .register .information form .wrapper input, .login .information form .wrapper input {
-        font-size: 1rem;
-        border: none;
-        padding: 0.75rem;
-        border-radius: 0.25rem; }
-    .register .information form button, .login .information form button {
-      width: 100%;
-      border-radius: 0.25rem;
-      border: none;
-      background-color: dodgerblue;
-      font-weight: bold;
-      letter-spacing: 0.025rem;
-      font-size: 1rem;
-      color: #EFEFF1;
-      padding: 0.75rem 0; }
-
-.register a, .login a {
-  margin: 0 2rem;
-  color: dodgerblue; }
-
-.onboarding {
-  max-height: 100vh;
-  height: 100vh; }
-
-.onboarding {
-  margin-left: 1rem; }
-  .onboarding h1 {
+.profile .profile-extra h2 {
     position: sticky;
-    margin: 1rem 0; }
-  .onboarding form {
-    overflow-x: scroll; }
-    .onboarding form > ul {
-      display: flex;
-      width: fit-content;
-      gap: 2rem 1rem;
-      padding-right: 1rem; }
-      .onboarding form > ul > li {
-        width: 12rem; }
-        .onboarding form > ul > li img {
-          height: 21rem;
-          width: 100%; }
+    margin: 1rem 0;
+    left: 0;
+}
+
+.profile .profile-extra>ul {
+    display: flex;
+    width: fit-content;
+    gap: 2rem 1rem;
+}
+
+.profile .profile-extra>ul>li {
+    width: 8rem;
+}
+
+.profile .profile-extra>ul>li img {
+    height: 14rem;
+    width: 100%;
+}
+
+.register .information,
+.login .information {
+    height: 100vh;
+}
+
+.register .information h1,
+.login .information h1 {
+    font-size: 2rem;
+    margin: 5.75rem 2rem 1.5rem;
+}
+
+.register .information form,
+.login .information form {
+    margin: 0 2rem 1rem;
+}
+
+.register .information form .wrapper,
+.login .information form .wrapper {
+    margin-bottom: 1.5rem;
+    flex-direction: column;
+}
+
+.register .information form .wrapper label,
+.login .information form .wrapper label {
+    margin-bottom: 0.5rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.025rem;
+    color: #EFEFF1;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.register .information form .wrapper input,
+.login .information form .wrapper input {
+    font-size: 1rem;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+}
+
+.register .information form button,
+.login .information form button {
+    width: 100%;
+    border-radius: 0.25rem;
+    border: none;
+    background-color: dodgerblue;
+    font-weight: bold;
+    letter-spacing: 0.025rem;
+    font-size: 1rem;
+    color: #EFEFF1;
+    padding: 0.75rem 0;
+}
+
+.register a,
+.login a {
+    margin: 0 2rem;
+    color: dodgerblue;
+}
+
+.onboarding {
+    max-height: 100vh;
+    height: 100vh;
+}
+
+.onboarding {
+    margin-left: 1rem;
+}
+
+.onboarding h1 {
+    position: sticky;
+    margin: 1rem 0;
+}
+
+.onboarding form {
+    overflow-x: scroll;
+}
+
+.onboarding form>ul {
+    display: flex;
+    width: fit-content;
+    gap: 2rem 1rem;
+    padding-right: 1rem;
+}
+
+.onboarding form>ul>li {
+    width: 12rem;
+}
+
+.onboarding form>ul>li img {
+    height: 21rem;
+    width: 100%;
+}
 
 *,
 *::after,
 *::before {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  text-decoration: none;
-  list-style: none; }
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    text-decoration: none;
+    list-style: none;
+}
 
 h1,
 h2,
@@ -331,58 +457,145 @@ span,
 button,
 label,
 textarea {
-  font-family: "Graphik", "segoe ui", tahoma, sans-serif; }
+    font-family: "Graphik", "segoe ui", tahoma, sans-serif;
+}
 
 body {
-  background-color: #0F0F11;
-  color: #EFEFF1; }
+    background-color: #0F0F11;
+    color: #EFEFF1;
+}
 
-input, textarea {
-  background-color: #464649;
-  color: #C1C1C1; }
-  input::placeholder, input::focus, textarea::placeholder, textarea::focus {
+input,
+textarea {
+    background-color: #464649;
+    color: #C1C1C1;
+}
+
+input::placeholder,
+input::focus,
+textarea::placeholder,
+textarea::focus {
     color: #C1C1C1;
     background-color: #464649;
-    font-weight: 500; }
+    font-weight: 500;
+}
 
 p {
-  letter-spacing: 0.0125em; }
+    letter-spacing: 0.0125em;
+}
 
 img {
-  object-fit: cover; }
+    object-fit: cover;
+}
 
 .wrapper {
-  display: flex; }
+    display: flex;
+}
 
 .header {
-  height: 3rem;
-  display: flex;
-  align-items: center;
-  margin: 0 1rem;
-  background-color: #0F0F11; }
-  .header a {
-    color: #EFEFF1; }
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    margin: 0 1rem;
+    background-color: #0F0F11;
+}
+
+.header a {
+    color: #EFEFF1;
+}
 
 .bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100vw;
-  height: 4rem;
-  display: flex;
-  align-items: center;
-  background-color: #0F0F11; }
-  .bottom-nav nav {
-    width: 100%; }
-    .bottom-nav nav ul {
-      display: flex;
-      justify-content: space-evenly; }
-      .bottom-nav nav ul li a {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        color: #EFEFF1;
-        font-size: 0.85rem; }
-        .bottom-nav nav ul li a span {
-          margin-bottom: 0.25rem;
-          font-size: 1.5rem; }
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    background-color: #0F0F11;
+}
+
+.bottom-nav nav {
+    width: 100%;
+}
+
+.bottom-nav nav ul {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.bottom-nav nav ul li a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #EFEFF1;
+    font-size: 0.85rem;
+}
+
+.bottom-nav nav ul li a span {
+    margin-bottom: 0.25rem;
+    font-size: 1.5rem;
+}
+
+
+/* --------------Filter-------------- */
+
+.filter form {
+    margin-top: 30px;
+}
+
+.filter form fieldset {
+    margin-bottom: 30px;
+    border: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.filter form fieldset select {
+    padding: 10px;
+    width: 40%;
+    margin-top: 10px;
+}
+
+.filter form fieldset:nth-of-type(2),
+.filter form fieldset:nth-of-type(3) {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter form input[type="submit"] {
+    padding: 5px 15px;
+}
+
+
+/* --------------Matches-------------- */
+
+.matches>section {
+    border: 1px solid;
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    padding: 10px;
+    margin: 20px auto;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.matches>section p {
+    margin: 0 0 5px;
+}
+
+.matches>section p:nth-of-type(1) {
+    flex-basis: 100%;
+    margin: 5px 0px 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.matches>section a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    border: 1px solid;
+    padding: 8px 18px;
+}

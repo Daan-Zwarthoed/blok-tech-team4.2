@@ -1,17 +1,22 @@
-const gameList = ["CSGO", "CoD", "Tetris", "WoW"];
-const User = require("../models/User");
+const gameList = require('../models/Game');
+const User = require('../models/User');
 
-//Filter controller
+// Filter controller
 
-//Render filter form
-const getFilter = (req, res) => {
-    res.render("pages/filter/filter.njk", { title: "Filter", gameList, User });
+// Render filter form
+const chooseGame = (req, res) => {
+    res.render('pages/filter/chooseGame.njk', { title: 'Filter', gameList, User });
 };
 
-//Apply filter to userlist
+const getFilter = async(req, res) => {
+    res.render('pages/filter/matches.njk', { title: 'Matches', filteredUsers });
+};
+
+
+
 const useFilter = async(req, res) => {
-    const filteredUsers = await User.find(req.body);
-    res.render("pages/filter/matches.njk", { title: "Matches", filteredUsers });
+    const filteredUsers = User.filter(user => user.games = req.body.game);
+    res.render('pages/filter/matches.njk', { title: 'Matches', filteredUsers });
 };
 
-module.exports = { getFilter, useFilter };
+module.exports = { chooseGame, getFilter, useFilter };

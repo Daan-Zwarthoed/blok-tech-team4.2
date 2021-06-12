@@ -4,7 +4,6 @@
 
 const Game = require('../models/Game');
 const User = require('../models/User');
-const { shuffle } = require('../tools/shuffle');
 
 // functie getSimilarUsers, deze functie zoekt naar gebruikers die dezelfde spelletjes als jou hebben geliked
 const getSimilarUsers = (req, res) => {
@@ -26,28 +25,30 @@ const getSimilarUsers = (req, res) => {
             return like !== myUser.username;
         });
 
-        uniqueLikeArr.forEach(like => {
-            User.find({ username: like }, (err, similarUsers) => {
-                if (err) throw err;
+        User.find({}, (err, users) => {
+            if (err) throw err;
 
+            const similarUsers = [];
 
-                similarUsers.filter((user) => {
-                    return user.likedBy.includes(myUser.username);
-                })
-                shuffle(similarUsers);
-                console.log(similarUsers);
+            users.forEach(user => {
+                if (uniqueLikeArr.includes(user.username)) {
+                    similarUsers.push(user);
+                }
             });
-        });
 
+            const unknownUsers = similarUsers.filter((user) => {
+                return !user.likedBy.includes(myUser.username) && !user.dislikedBy.includes(myUser.username)
+            });
 
-        if (req.user._id) {
+            const displayedUser = unknownUsers[Math.floor(Math.random() * unknownUsers.length)];
+
+            console.log(displayedUser)
+
             User.findById(req.user._id, (err, user) => {
                 if (err) throw err;
-                res.render('pages/home/index.njk', { user });
+                res.render('pages/home/index.njk', { user, displayedUser });
             });
-        } else {
-            res.render('pages/home/index.njk');
-        }
+        })
     });
 };
 

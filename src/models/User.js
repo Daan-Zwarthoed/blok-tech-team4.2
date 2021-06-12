@@ -38,10 +38,7 @@ const UserSchema = mongoose.Schema({
     description: {
         type: String,
     },
-    topGame: {
-        type: String,
-    },
-    time: {
+    playtime: {
         type: String,
     },
     playstyle: {

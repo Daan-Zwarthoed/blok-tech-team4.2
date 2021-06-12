@@ -1,7 +1,54 @@
 {% extends "layouts/layout.njk" %}
+{% set playtime = displayedUser.playtime %}
 {% block title %}
-    {{ profile.username }}
+    {{ displayedUser.username }}
 {% endblock %}
 {% block content %}
-    
+    <section class='likeCard'>
+        <img src='/uploads/{{displayedUser.avatar}}'>
+
+        <div>
+            <h2>{{displayedUser.displayname}}
+                <span>@{{displayedUser.username}}</span></h2>
+            {% if displayedUser.description %}
+                <p>{{displayedUser.description}}</p>
+            {% endif %}
+            <ul>
+                <li>
+                    {% switch playtime %}
+                    {% case '5plushours' %}
+                        <span class="material-icons">schedule</span>5+ hours a day</li>
+                    {% case '5minushours' %}
+                        <span class="material-icons">schedule</span>-5 hours a day</li>
+                    {% case 'fewtimes' %}
+                        <span class="material-icons">schedule</span>A few times per week</li>
+                    {% case 'onetime' %}
+                        <span class="material-icons">schedule</span>Once per week
+            </li>
+                    {% endswitch %}
+                    <li>
+                        <span class="material-icons">style</span>{{displayedUser.playstyle}} player
+            </li>
+                </ul>
+                <form action='/' method='post'>
+                    <div>
+                        <input type="radio" id="dislike" name="preference" value="dislike" required>
+                        <label for="dislike">
+                            <span class="material-icons dislike">thumb_down_alt</span>
+                        </label>
+                    </div>
+                    <div>
+                        <input type="radio" id="like" name="preference" value="like">
+                        <label for="like">
+                            <span class="material-icons like">thumb_up_alt</span>
+                        </label>
+                    </div>
+                    <input class="verzend" type='submit'>
+                </form>
+
+            </div>
+        </section>
+    {% endblock %}
+{% block scripts %}
+    <script src='/js/like/like.js'></script>
 {% endblock %}

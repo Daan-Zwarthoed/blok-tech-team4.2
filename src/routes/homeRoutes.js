@@ -21,8 +21,4 @@ router.get('/register', auth.isLoggedOut, RegisterController.getRegister);
 
 router.post('/register', upload.profileUpload, RegisterController.registerUser);
 
-router.get('/onboarding', auth.isLoggedIn, RegisterController.getOnboarding);
-
-router.post('/onboarding', RegisterController.onboardUser);
-
 module.exports = router;

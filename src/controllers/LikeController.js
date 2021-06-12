@@ -42,13 +42,11 @@ const getSimilarUsers = (req, res) => {
 
             const displayedUser = unknownUsers[Math.floor(Math.random() * unknownUsers.length)];
 
-            console.log(displayedUser)
-
             User.findById(req.user._id, (err, user) => {
                 if (err) throw err;
-                res.render('pages/home/index.njk', { user, displayedUser });
+                res.render('pages/like/like.njk', { user, displayedUser });
             });
-        })
+        });
     });
 };
 

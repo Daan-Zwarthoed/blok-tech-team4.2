@@ -20,6 +20,41 @@
             <label for='email'>Email</label>
             <input id='email' type='email' name='email' required maxlength='35' placeholder='Your email...'>
           </div>
+          <div class='wrapper'>
+            <p>Playstyle</p>
+            <ul>
+              <li>
+                <label for='casual'>Casual</label>
+                <input id='casual' type='radio' name='playstyle' value='casual' required>
+              </li>
+              <li>
+                <label for='competitive'>Competitive</label>
+                <input id='competitive' type='radio' name='playstyle' value='competitive' required>
+              </li>
+            </ul>
+          </div>
+
+          <div class='wrapper'>
+            <p>Playtime</p>
+            <ul class='playtime'>
+              <li>
+                <label for='5plushours'>5+ hours a day</label>
+                <input id='5plushours' type='radio' name='playtime' value='5plushours' required>
+              </li>
+              <li>
+                <label for='5minushours'>-5 hours a day</label>
+                <input id='5minushours' type='radio' name='playtime' value='5minushours' required>
+              </li>
+              <li>
+                <label for='fewtimes'>A few times per week</label>
+                <input id='fewtimes' type='radio' name='playtime' value='fewtimes' required>
+              </li>
+              <li>
+                <label for='onetime'>Once per week</label>
+                <input id='onetime' type='radio' name='playtime' value='onetime' required>
+              </li>
+            </ul>
+          </div>
           <a href='#visual-information' class='next-step'>Next step</a>
           <a href='/login'>Already have an account?</a>
         </section>

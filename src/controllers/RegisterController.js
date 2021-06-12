@@ -14,6 +14,7 @@ const saltRounds = 10;
  */
 const getRegister = (req, res) => {
     Game.find({}).then((games) => {
+        // Shuffle the order of the games array
         shuffle(games);
         res.render('pages/home/register.njk', { games });
     });
@@ -23,17 +24,19 @@ const getRegister = (req, res) => {
  * This function handles the registering process. It will take a number of user inputs and store / encrypt (where neccessary) them.
  */
 const registerUser = (req, res) => {
-    const { username, email, password } = req.body;
+    const { username, email, password, playstyle, playtime } = req.body;
     const displayname = req.body.username;
     let avatar;
     let banner;
 
+    // Check if banner has input
     if (req.files.banner) {
         banner = req.files.banner[0].filename;
     } else {
         banner = 'defaultBanner.jpg';
     }
 
+    // Check if avatar has input
     if (req.files.avatar) {
         avatar = req.files.avatar[0].filename;
     } else {
@@ -51,7 +54,7 @@ const registerUser = (req, res) => {
     });
 
     User.findOne({ username }).then((result) => {
-        // If username is already registered redirect back to register
+        // If username is already registered, redirect the user back to register
         if (result) {
             res.redirect('/register');
         } else {
@@ -63,6 +66,8 @@ const registerUser = (req, res) => {
                 password,
                 avatar,
                 banner,
+                playstyle,
+                playtime,
             });
 
             // Hash the password
@@ -82,24 +87,4 @@ const registerUser = (req, res) => {
     });
 };
 
-const getOnboarding = (req, res) => {
-    Game.find({}).then((games) => {
-        shuffle(games);
-        res.render('pages/profiles/addGames.njk', { games });
-    });
-};
-
-const onboardUser = (req, res) => {
-    Game.find({}).then((games) => {
-        games.forEach((game) => {
-            if (req.body[game.titleSlug]) {
-                Game.updateOne({ title: game.title }, { $push: { likedBy: req.user._id } }, (err) => {
-                    if (err) throw err;
-                });
-            }
-        });
-    });
-    res.redirect('/');
-};
-
-module.exports = { getRegister, registerUser, getOnboarding, onboardUser };
+module.exports = { getRegister, registerUser };

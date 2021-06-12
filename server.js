@@ -21,7 +21,7 @@ const checkUser = require('./src/config/passport.js');
 require('dotenv').config();
 
 const app = express();
-const port = 2000;
+const port = process.env.PORT || 3000;
 const server = http.createServer(app);
 const io = new Server(server);
 

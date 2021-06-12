@@ -9,11 +9,11 @@ submit.hidden = true;
  * Functie
  */
 like.addEventListener('click', function () {
-      formulier.submit();
-      console.log('test');
+    formulier.submit();
+    console.log('test');
 });
 
 dislike.addEventListener('click', function () {
-      formulier.submit();
-      console.log('test');
+    formulier.submit();
+    console.log('test');
 });

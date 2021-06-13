@@ -2,6 +2,8 @@ const gameList = require('../models/Game');
 const User = require('../models/User');
 const { shuffle } = require('../tools/shuffle');
 
+let header;
+
 // Filter controller
 
 // Render filter form
@@ -34,20 +36,29 @@ const getFilterCold = (req, res) => {
 
 const useFilter = async (req, res) => {
     gameList.find().then((games) => {
-        const filteredUsers = games.filter((game) => game.titleSlug == req.body.games)[0].likedBy;
-        console.log(filteredUsers);
+        const chosenGame = req.body.games;
+        const filteredUsers = games.filter((game) => game.titleSlug == chosenGame)[0].likedBy;
+
         User.find().then((userList) => {
-            const filteredProfiles = userList.filter(
-                (user) =>
-                    user.username == filteredUsers[0] ||
-                    user.username == filteredUsers[1] ||
-                    user.username == filteredUsers[2] ||
-                    user.username == filteredUsers[3] ||
-                    user.username == filteredUsers[4] ||
-                    user.username == filteredUsers[5]
+            const profiles = [];
+
+            userList.forEach((user) => {
+                if (filteredUsers.includes(user.username)) {
+                    profiles.push(user);
+                }
+            });
+            const filteredProfiles = profiles.filter(
+                (profile) => profile.playstyle == req.body.playstyle && profile.playtime == req.body.playtime
             );
-            console.log(filteredProfiles);
-            res.render('pages/filter/matches.njk', { title: 'Matches', filteredProfiles });
+
+            if (filteredProfiles == 0) {
+                header = 'No users matched the criteria.';
+            } else {
+                header = 'Matches';
+            }
+
+            console.log(header);
+            res.render('pages/filter/matches.njk', { filteredProfiles, chosenGame, header });
         });
     });
 };

@@ -57,7 +57,6 @@ const useFilter = async (req, res) => {
                 header = 'Matches';
             }
 
-            console.log(header);
             res.render('pages/filter/matches.njk', { filteredProfiles, chosenGame, header });
         });
     });

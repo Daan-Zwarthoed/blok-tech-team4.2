@@ -5,33 +5,33 @@
         <form action="/filter/{% block chosenGame %}{{ chosenGame }}{% endblock %}" method="post">
             <input type="text" name="games" value={{ chosenGame }}>
             <fieldset>
-                <legend>What playstyle should your match have in {{ chosenGame }}</legend>
+                <legend>What playstyle should your match have?</legend>
                 <label>
                     <input type="radio" name="playstyle" value="competitive" required>
-                    Competitive
+                    <span>Competitive</span>
                 </label>
                 <label>
                     <input type="radio" name="playstyle" value="casual" required>
-                    Casual
+                    <span>Casual</span>
                 </label>
             </fieldset>
             <fieldset>
-                <legend>How often should your match play {{ chosenGame }}</legend>
+                <legend>How often should your match play?</legend>
                 <label>
                     <input type="radio" name="playtime" value="5plushours" required>
-                    5+ hours per day
+                    <span>5+ hours per day</span>
                 </label>
                 <label>
                     <input type="radio" name="playtime" value="5minushours" required>
-                    -5 hours per day
+                    <span>-5 hours per day</span>
                 </label>
                 <label>
                     <input type="radio" name="playtime" value="fewtimes" required>
-                    A few times per week
+                    <span>A few times per week</span>
                 </label>
                 <label>
                     <input type="radio" name="playtime" value="onetime" required>
-                    Once per week
+                    <span>Once per week</span>
                 </label>
             </fieldset>
             <input type="submit" value="Match">

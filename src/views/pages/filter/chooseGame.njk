@@ -1,9 +1,14 @@
 {% extends "layouts/layout.njk" %}
 {% block title %} Filter games {% endblock %}
 {% block content %}
-    <div class="filter">
+    <div class="games">
         {% for game in games %}
-            <a href="/filter/{{ game.titleSlug }}">{{ game.title }} <img src="" alt=""> </a>
+            <span>
+                <a href="/filter/{{ game.titleSlug }}">
+                    <img src="/images/games/{{ game.image }}" alt="Game image">
+                    <p>{{ game.title }}</p>
+                </a>
+            </span>
         {% endfor %}
     </div>
 {% endblock %}

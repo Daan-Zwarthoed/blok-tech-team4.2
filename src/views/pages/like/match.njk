@@ -1,0 +1,21 @@
+{% extends "layouts/layout.njk" %}
+{% block title %}
+    {{ displayedUser.username }}
+{% endblock %}
+{% block content %}
+    <section class='match'>
+        <h1 class='match-text'>🔥 It's a match!</h1>
+        <p class='bottom-match-text'>You and <span>{{displayedUser.username}}</span> have liked each other. Let's play!</p>
+
+        <div class='images'>
+            <img src='/uploads/{{myUser.avatar}}'>
+            <img src='/uploads/{{displayedUser.avatar}}'>
+        </div>
+
+        <div class='buttons-match'>
+            <a href='/' class='view-contacts'>View contacts</a>
+            <a href='/' class='keep-swiping'>Keep swiping</a>
+        </div>
+    </section>
+
+{% endblock %}

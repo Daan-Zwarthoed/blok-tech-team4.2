@@ -1,0 +1,40 @@
+{% extends "layouts/layout.njk" %}
+{% block title %}Filter game{% endblock %}
+{% block content %}
+    <div class="filter">
+        <form action="/filter/{% block chosenGame %}{{ chosenGame }}{% endblock %}" method="post">
+            <input type="text" name="games" value={{ chosenGame }}>
+            <fieldset>
+                <legend>What playstyle should your match have in {{ chosenGame }}</legend>
+                <label>
+                    <input type="radio" name="playstyle" value="Competitive">
+                    Competitive
+                </label>
+                <label>
+                    <input type="radio" name="playstyle" value="Casual">
+                    Casual
+                </label>
+            </fieldset>
+            <fieldset>
+                <legend>How often should your match play {{ chosenGame }}</legend>
+                <label>
+                    <input type="radio" name="playtime" value="5+ hours a day">
+                    5+ hours per day
+                </label>
+                <label>
+                    <input type="radio" name="playtime" value="-5 hours a day">
+                    -5 hours per day
+                </label>
+                <label>
+                    <input type="radio" name="playtime" value="A few times a week">
+                    A few times per week
+                </label>
+                <label>
+                    <input type="radio" name="playtime" value="Once a week">
+                    Once per week
+                </label>
+            </fieldset>
+            <input type="submit" value="Match">
+        </form>
+    </div>
+{% endblock %}

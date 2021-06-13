@@ -33,7 +33,7 @@ const UserSchema = mongoose.Schema({
     topGame: {
         type: String,
     },
-    time: {
+    playtime: {
         type: String,
     },
     playstyle: {

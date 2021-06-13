@@ -43,7 +43,13 @@ const checkInput = (arr, form, nextInfo, event) => {
     }
 };
 
+/**
+ * This checks if at least one game is checked before you can register.
+ * @param {*} arr = the requested array which contains checkboxes
+ * @param {*} event = event
+ */
 const checkGames = (arr, event) => {
+    // Declare a boolean to check if checkboxes are checked.
     let boolChecked = false;
 
     arr.forEach((input) => {
@@ -53,7 +59,9 @@ const checkGames = (arr, event) => {
     });
 
     if (!boolChecked) {
+        // Prevent the user from submitting
         event.preventDefault();
+
         const button = event.target;
         button.classList.add('warning');
 
@@ -106,6 +114,9 @@ formLinks.forEach((formLink) => {
     formLink.addEventListener('click', goNextSequence);
 });
 
+/**
+ * Eventlistener for adding active state to the game cards.
+ */
 onboardInformationInput.forEach((input) => {
     input.addEventListener('click', (event) => {
         const card = event.target.parentNode;

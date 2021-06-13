@@ -119,7 +119,8 @@
       color: #efeff1;
       text-transform: uppercase;
       font-weight: 500; }
-    .profile form .wrapper input, .profile form .wrapper textarea {
+    .profile form .wrapper input,
+    .profile form .wrapper textarea {
       font-size: 1rem;
       border: none;
       padding: 0.75rem;
@@ -134,7 +135,7 @@
     font-weight: bold;
     letter-spacing: 0.025rem;
     font-size: 1rem;
-    color: #EFEFF1;
+    color: #efeff1;
     padding: 0.75rem 0;
     margin: 0 1rem;
 }
@@ -155,51 +156,51 @@
 .profile .profile-info {
     margin-top: -2rem;
     padding: 0 1rem 2rem;
-    border-bottom: 0.0625rem solid #6e767d;
-}
-
-.profile .profile-info h2 {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 0.5rem;
-    font-size: 1.25rem;
-}
-
-.profile .profile-info h2 span {
-    color: #6e767d;
-    font-size: 0.9375rem;
-    font-weight: 400;
-}
-
-.profile .profile-info p {
-    font-size: 0.9375rem;
-    letter-spacing: 0.025rem;
-    line-height: 1.1875rem;
-}
-
-.profile .profile-info .wrapper {
-    align-items: flex-end;
-    margin-bottom: 0.75rem;
-}
-
-.profile .profile-info .wrapper a {
-    margin: 0 0 0.25rem auto;
-    padding: 0.5625rem 1.125rem;
-    background: dodgerblue;
-    color: white;
-    font-size: 0.9rem;
-    border-radius: 0.25rem;
-}
-
-.profile .profile-info .profile-avatar {
-    width: 5.5rem;
-    height: 5.5rem;
-    border-radius: 50%;
-    border: 0.1875rem solid #0f0f11;
-    z-index: 100;
-}
-
-.profile .profile-extra {
+    border-bottom: 0.0625rem solid #6e767d; }
+    .profile .profile-info ul {
+      display: flex;
+      margin-top: 1rem; }
+      .profile .profile-info ul li {
+        width: 50%;
+        flex-wrap: wrap;
+        display: flex;
+        align-items: center;
+        color: #6e767d;
+        font-family: "Graphik", "segoe ui", tahoma, sans-serif;
+        font-size: 0.9375rem;
+        text-transform: capitalize; }
+        .profile .profile-info ul li span {
+          margin-right: .5rem; }
+    .profile .profile-info h2 {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0.5rem;
+      font-size: 1.25rem; }
+      .profile .profile-info h2 span {
+        color: #6e767d;
+        font-size: 0.9375rem;
+        font-weight: 400; }
+    .profile .profile-info p {
+      font-size: 0.9375rem;
+      letter-spacing: 0.025rem;
+      line-height: 1.1875rem; }
+    .profile .profile-info .wrapper {
+      align-items: flex-end;
+      margin-bottom: 0.75rem; }
+      .profile .profile-info .wrapper a {
+        margin: 0 0 0.25rem auto;
+        padding: 0.5625rem 1.125rem;
+        background: dodgerblue;
+        color: white;
+        font-size: 0.9rem;
+        border-radius: 0.25rem; }
+    .profile .profile-info .profile-avatar {
+      width: 5.5rem;
+      height: 5.5rem;
+      border-radius: 50%;
+      border: 0.1875rem solid #0f0f11;
+      z-index: 100; }
+  .profile .profile-extra {
     overflow-x: scroll;
     margin: 1rem; }
     .profile .profile-extra h2 {
@@ -283,7 +284,10 @@
   .input-avatar label {
     position: absolute;
     top: 0;
-    left: 0; }
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; }
   .input-avatar input {
     position: absolute;
     top: 0;
@@ -291,24 +295,31 @@
     width: 0;
     height: 0; }
 
-.register, .login {
+.register,
+.login {
   margin-top: -3rem; }
-  .register .information, .login .information {
+  .register .information,
+  .login .information {
     height: 100vh; }
-    .register .information .info, .login .information .info {
+    .register .information .info,
+    .login .information .info {
       margin: 0 2rem 1.5rem;
       position: sticky;
       left: 2rem; }
-    .register .information h1, .login .information h1 {
+    .register .information h1,
+    .login .information h1 {
       font-size: 2rem;
       margin: 5.75rem 2rem 1.5rem; }
-    .register .information form, .login .information form {
+    .register .information form,
+    .login .information form {
       margin: 0 0 2rem 0;
       position: relative;
-      height: 30rem; }
-      .register .information form h2, .login .information form h2 {
+      height: 36rem; }
+      .register .information form h2,
+      .login .information form h2 {
         font-size: 1rem; }
-      .register .information form .next-step, .login .information form .next-step {
+      .register .information form .next-step,
+      .login .information form .next-step {
         width: calc(100% - 4rem);
         display: block;
         text-align: center;
@@ -318,73 +329,119 @@
         font-weight: bold;
         letter-spacing: 0.025rem;
         font-size: 1rem;
-        color: #EFEFF1;
+        color: #efeff1;
         padding: 0.75rem 0;
         margin: 0 2rem 2rem; }
-      .register .information form section, .login .information form section {
-        max-width: 22.5rem; }
-      .register .information form #general-information, .login .information form #general-information {
+      .register .information form section,
+      .login .information form section {
+        max-width: 100vw; }
+      .register .information form #general-information,
+      .login .information form #general-information {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%; }
-        .register .information form #general-information input, .login .information form #general-information input {
+        .register .information form #general-information input,
+        .login .information form #general-information input {
           height: 2.625rem;
-          transition: .25s; }
-      .register .information form #visual-information, .login .information form #visual-information {
+          transition: 0.25s; }
+      .register .information form #visual-information,
+      .login .information form #visual-information {
         position: absolute;
         top: 0;
         left: 30rem;
         width: 100%; }
-      .register .information form #onboard-information, .login .information form #onboard-information {
+      .register .information form #onboard-information,
+      .login .information form #onboard-information {
         overflow-x: scroll;
         position: absolute;
         top: 0;
         left: 60rem; }
-        .register .information form #onboard-information button, .login .information form #onboard-information button {
+        .register .information form #onboard-information button,
+        .login .information form #onboard-information button {
           position: sticky;
           left: 2rem; }
-        .register .information form #onboard-information ul, .login .information form #onboard-information ul {
+        .register .information form #onboard-information ul,
+        .login .information form #onboard-information ul {
           display: flex;
           width: fit-content;
           gap: 2rem 1rem;
           margin: 0 0 1.5rem 2rem;
           padding-right: 2rem;
-          transition: .25s; }
-          .register .information form #onboard-information ul > li, .login .information form #onboard-information ul > li {
+          transition: 0.25s; }
+          .register .information form #onboard-information ul > li,
+          .login .information form #onboard-information ul > li {
             width: 12rem;
             height: 23.125rem;
             position: relative;
-            transition: .25s; }
-            .register .information form #onboard-information ul > li input, .login .information form #onboard-information ul > li input {
+            transition: 0.25s; }
+            .register .information form #onboard-information ul > li input,
+            .login .information form #onboard-information ul > li input {
               position: absolute;
               top: 0;
               left: 0;
               width: 0;
               height: 0; }
-            .register .information form #onboard-information ul > li img, .login .information form #onboard-information ul > li img {
+            .register .information form #onboard-information ul > li img,
+            .login .information form #onboard-information ul > li img {
               height: 21rem;
               width: 100%; }
-            .register .information form #onboard-information ul > li h2, .login .information form #onboard-information ul > li h2 {
+            .register .information form #onboard-information ul > li h2,
+            .login .information form #onboard-information ul > li h2 {
               margin-top: 0.5rem;
-              transition: .25s; }
-      .register .information form .wrapper, .login .information form .wrapper {
+              transition: 0.25s; }
+      .register .information form .wrapper,
+      .login .information form .wrapper {
         margin: 0 2rem 1.5rem;
         flex-direction: column; }
-        .register .information form .wrapper label, .login .information form .wrapper label {
+        .register .information form .wrapper label,
+        .register .information form .wrapper p,
+        .login .information form .wrapper label,
+        .login .information form .wrapper p {
           margin-bottom: 0.5rem;
           font-size: 0.7rem;
           letter-spacing: 0.025rem;
-          color: #EFEFF1;
+          color: #efeff1;
           text-transform: uppercase;
           font-weight: 500; }
-        .register .information form .wrapper input, .login .information form .wrapper input {
+        .register .information form .wrapper ul,
+        .login .information form .wrapper ul {
+          display: flex;
+          flex-wrap: wrap; }
+          .register .information form .wrapper ul.playtime li:nth-of-type(1), .register .information form .wrapper ul.playtime li:nth-of-type(2),
+          .login .information form .wrapper ul.playtime li:nth-of-type(1),
+          .login .information form .wrapper ul.playtime li:nth-of-type(2) {
+            margin-bottom: 1rem; }
+          .register .information form .wrapper ul li,
+          .login .information form .wrapper ul li {
+            display: flex;
+            align-items: center;
+            width: calc(50% - 1.5rem); }
+            .register .information form .wrapper ul li label,
+            .login .information form .wrapper ul li label {
+              margin-bottom: 0;
+              font-size: 1rem;
+              text-transform: none;
+              font-weight: normal; }
+            .register .information form .wrapper ul li input,
+            .login .information form .wrapper ul li input {
+              margin-left: 0.75rem;
+              height: fit-content !important; }
+            .register .information form .wrapper ul li + li,
+            .login .information form .wrapper ul li + li {
+              margin-left: 0; }
+            .register .information form .wrapper ul li:nth-of-type(2n),
+            .login .information form .wrapper ul li:nth-of-type(2n) {
+              margin-left: 1.5rem; }
+        .register .information form .wrapper input,
+        .login .information form .wrapper input {
           font-size: 1rem;
           border: none;
           padding: 0.75rem;
           border-radius: 0.25rem;
           max-width: 100%; }
-      .register .information form button, .login .information form button {
+      .register .information form button,
+      .login .information form button {
         width: calc(100% - 4rem);
         border-radius: 0.25rem;
         border: none;
@@ -392,14 +449,15 @@
         font-weight: bold;
         letter-spacing: 0.025rem;
         font-size: 1rem;
-        color: #EFEFF1;
+        color: #efeff1;
         padding: 0.75rem 0;
         margin: 0 2rem 2rem;
-        transition: .5s; }
-  .register a, .login a {
+        transition: 0.5s; }
+  .register a,
+  .login a {
     margin: 0 2rem;
     color: dodgerblue;
-    transition: .5s; }
+    transition: 0.5s; }
 
 .onboarding {
     max-height: 100vh;

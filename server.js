@@ -9,6 +9,7 @@ const MongoStore = require('connect-mongo');
 const http = require('http');
 const { Server } = require('socket.io');
 const homeRoutes = require('./src/routes/homeRoutes.js');
+const likeRoutes = require('./src/routes/likeRoutes.js');
 const chatRoutes = require('./src/routes/chatRoutes.js');
 const profileRoutes = require('./src/routes/profileRoutes');
 const filterRoutes = require('./src/routes/filterRoutes.js');
@@ -54,6 +55,7 @@ app.use(passport.session());
 checkUser();
 
 app.use('/', homeRoutes);
+app.use('/like', likeRoutes);
 app.use('/chat', chatRoutes);
 app.use('/profiles', profileRoutes);
 app.use('/filter', filterRoutes);

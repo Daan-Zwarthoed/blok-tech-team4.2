@@ -1,101 +1,101 @@
 {% extends "layouts/layout.njk" %}
 {% block title %}
-  Register
+    Register
 {% endblock %}
 {% block content %}
-  <section class='register'>
-    <section class='information'>
-      <h1>Register</h1>
-      <form action='/register' method='post' enctype='multipart/form-data'>
-        <section class='general-information' id='general-information'>
-          <div class='wrapper'>
-            <label for='username'>Username</label>
-            <input id='username' type='text' name='username' required maxlength='20' placeholder='Your username...'/>
-          </div>
-          <div class='wrapper'>
-            <label for='password'>Password</label>
-            <input id='password' type='password' name='password' required maxlength='25' placeholder='Your password...'/>
-          </div>
-          <div class='wrapper'>
-            <label for='email'>Email</label>
-            <input id='email' type='email' name='email' required maxlength='35' placeholder='Your email...'/>
-          </div>
-          <div class='wrapper'>
-            <p>Playstyle</p>
-            <ul>
-              <li>
-                <label for='casual'>Casual</label>
-                <input id='casual' type='radio' name='playstyle' value='casual' required/>
-              </li>
-              <li>
-                <label for='competitive'>Competitive</label>
-                <input id='competitive' type='radio' name='playstyle' value='competitive' required/>
-              </li>
-            </ul>
-          </div>
-          <div class='wrapper'>
-            <p>Playtime</p>
-            <ul class='playtime'>
-              <li>
-                <label for='5plushours'>5+ hours a day</label>
-                <input id='5plushours' type='radio' name='playtime' value='5plushours' required/>
-              </li>
-              <li>
-                <label for='5minushours'>-5 hours a day</label>
-                <input id='5minushours' type='radio' name='playtime' value='5minushours' required/>
-              </li>
-              <li>
-                <label for='fewtimes'>A few times per week</label>
-                <input id='fewtimes' type='radio' name='playtime' value='fewtimes' required/>
-              </li>
-              <li>
-                <label for='onetime'>Once per week</label>
-                <input id='onetime' type='radio' name='playtime' value='onetime' required/>
-              </li>
-            </ul>
-          </div>
-          <a href='#visual-information' class='next-step'>Next step</a>
-          <a href='/login'>Already have an account?</a>
-        </section>
-        <section class='visual-information' id='visual-information'>
-          <div class='wrapper'>
-            <label for='avatar'>Avatar</label>
-            <input id='avatar' type='file' name='avatar' accept='image/*'/>
-          </div>
-          <div class='wrapper'>
-            <label for='banner'>Banner</label>
-            <input id='banner' type='file' name='banner' accept='image/*'/>
-          </div>
-          <a href='#onboard-information' class='next-step'>Next step</a>
-        </section>
-        {% if games %}
-          <section class='onboard-information' id='onboard-information'>
-            <p class='info'>Select some games that you like.</p>
-            <ul>
-              {% for game in games %}
-                <li class='onboard-games'>
-                  <input type='checkbox' id='{{ game.titleSlug }}' name='{{ game.titleSlug }}' value='liked'>
-                    <label for='{{ game.titleSlug }}'>
-                      <img src='/images/games/{{ game.image }}'>
-                        <h2>{{ game.title }}</h2>
-                        {% if games.genres %}
-                          <ul>
-                            {% for genre in game.genres %}
-                              <li>{{ genre }}</li>
-                            {% endfor %}
-                          </ul>
-                        {% endif %}
-                      </label>
-                    </li>
-                  {% endfor %}
-                </ul>
-                <button type='submit'>Register</button>
-              </section>
-            {% endif %}
-          </form>
-        </section>
-      </section>
-    {% endblock %}
-    {% block scripts %}
-      <script src='/js/register/registerValidation.js'></script>
-    {% endblock %}
+    <section class='register'>
+        <section class='information'>
+            <h1>Register</h1>
+            <form action='/register' method='post' enctype='multipart/form-data'>
+                <section class='general-information' id='general-information'>
+                    <div class='wrapper'>
+                        <label for='username'>Username <span class='char-count'></span></label>
+                        <input id='username' type='text' name='username' required maxlength='20' placeholder='Your username...'/>
+                    </div>
+                    <div class='wrapper'>
+                        <label for='password'>Password</label>
+                        <input id='password' type='password' name='password' required maxlength='25' placeholder='Your password...'/>
+                    </div>
+                    <div class='wrapper'>
+                        <label for='email'>Email</label>
+                        <input id='email' type='email' name='email' required maxlength='35' placeholder='Your email...'/>
+                    </div>
+                    <div class='wrapper'>
+                        <p>Playstyle</p>
+                        <ul>
+                            <li>
+                                <label for='casual'>Casual</label>
+                                <input id='casual' type='radio' name='playstyle' value='casual' required/>
+                            </li>
+                            <li>
+                                <label for='competitive'>Competitive</label>
+                                <input id='competitive' type='radio' name='playstyle' value='competitive' required/>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class='wrapper'>
+                        <p>Playtime</p>
+                        <ul class='playtime'>
+                            <li>
+                                <label for='5plushours'>5+ hours a day</label>
+                                <input id='5plushours' type='radio' name='playtime' value='5plushours' required/>
+                            </li>
+                            <li>
+                                <label for='5minushours'>-5 hours a day</label>
+                                <input id='5minushours' type='radio' name='playtime' value='5minushours' required/>
+                            </li>
+                            <li>
+                                <label for='fewtimes'>A few times per week</label>
+                                <input id='fewtimes' type='radio' name='playtime' value='fewtimes' required/>
+                            </li>
+                            <li>
+                                <label for='onetime'>Once per week</label>
+                                <input id='onetime' type='radio' name='playtime' value='onetime' required/>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href='#visual-information' class='next-step'>Next step</a>
+                    <a href='/login'>Already have an account?</a>
+                </section>
+                <section class='visual-information' id='visual-information'>
+                    <div class='wrapper'>
+                        <label for='avatar'>Avatar</label>
+                        <input id='avatar' type='file' name='avatar' accept='image/*'/>
+                    </div>
+                    <div class='wrapper'>
+                        <label for='banner'>Banner</label>
+                        <input id='banner' type='file' name='banner' accept='image/*'/>
+                    </div>
+                    <a href='#onboard-information' class='next-step'>Next step</a>
+                </section>
+                {% if games %}
+                <section class='onboard-information' id='onboard-information'>
+                    <p class='info'>Select some games that you like.</p>
+                    <ul>
+                        {% for game in games %}
+                        <li class='onboard-games'>
+                            <input type='checkbox' id='{{ game.titleSlug }}' name='{{ game.titleSlug }}' value='liked'>
+                            <label for='{{ game.titleSlug }}'>
+                                <img src='/images/games/{{ game.image }}'>
+                                <h2>{{ game.title }}</h2>
+                                {% if games.genres %}
+                                <ul>
+                                    {% for genre in game.genres %}
+                                    <li>{{ genre }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </label>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <button type='submit'>Register</button>
+                </section>
+                {% endif %}
+            </section>
+        </form>
+    </section>
+{% endblock %}
+{% block scripts %}
+  <script src='/js/register/registerValidation.js'></script>
+{% endblock %}

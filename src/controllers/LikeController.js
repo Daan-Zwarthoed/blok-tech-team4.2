@@ -16,7 +16,10 @@ const getSimilarUsers = (req, res) => {
         if (req.body.games) {
             chosenGame = req.body.games;
         }
-        const filteredUsers = games.filter((game) => game.titleSlug == chosenGame)[0].likedBy;
+        let filteredUsers;
+        if (games.filter((game) => game.titleSlug == chosenGame)) {
+            filteredUsers = games.filter((game) => game.titleSlug == chosenGame)[0].likedBy;
+        }
 
         User.find().then((userList) => {
             const profiles = [];
@@ -40,7 +43,11 @@ const getSimilarUsers = (req, res) => {
             if (filteredProfiles.length > 0) {
                 filteredProfiles.shift();
             }
-            res.render('pages/like/like.njk', { user: myUser, displayedUser, chosenGame });
+            res.render('pages/like/like.njk', {
+                user: myUser,
+                displayedUser,
+                chosenGame,
+            });
         });
     });
 };

@@ -2,6 +2,8 @@
 // https://browserify.org/
 
 const SwipeListener = require('swipe-listener');
+const card = document.querySelector('.likeCard');
+const listener = SwipeListener(card);
 const dislike = document.querySelector('#dislike');
 const like = document.querySelector('#like');
 const submit = document.querySelector('.verzend');
@@ -13,16 +15,17 @@ submit.hidden = true;
  * Functie
  */
 
-card.addEventListener('swipe', (event) => {
+card.addEventListener('swipe', function (event) {
     const directions = event.detail.directions;
-    switch (directions) {
-        case directions.left:
-            dislike.checked = true;
-            formulier.submit();
-        case directions.right:
-            like.checked = true;
-            formulier.submit();
-    }
+    if (directions.left) {
+        dislike.checked = true;
+        formulier.submit();
+  }
+
+  if (directions.right) {
+        like.checked = true;
+        formulier.submit();
+  }
 });
 
 like.addEventListener('click', function () {

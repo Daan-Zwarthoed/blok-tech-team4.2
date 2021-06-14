@@ -45,7 +45,7 @@ Example app listening at http://localhost:3000
 
 ## Documentation
 
-You can find the documentation on [the wiki](https://github.com/Daan-Zwarthoed/Blok-Tech-Daan-Zwarthoed/wiki).
+You can find the documentation on [the wiki](https://github.com/Daan-Zwarthoed/blok-tech-team4.2/wiki).
 
 ## Contributors
 - [Akshay Kumar](https://github.com/akshay197)

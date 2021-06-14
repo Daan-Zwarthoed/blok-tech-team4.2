@@ -1,78 +1,82 @@
-.games a {
-    margin: auto;
-    width: 90%;
-    height: 185px;
-    overflow: hidden;
-    display: block;
+.games {
+    a {
+        margin: auto;
+        width: 90%;
+        height: 185px;
+        overflow: hidden;
+        display: block;
+    }
+
+    a img {
+        width: 100%;
+        height: auto;
+    }
+
+    span {
+        display: block;
+        position: relative;
+        margin-bottom: 30px;
+    }
+
+    span p {
+        position: absolute;
+        width: 90%;
+        z-index: 2;
+        top: 40%;
+        font-size: 23px;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+        text-shadow: 2px 3px 3px #000000;
+    }
 }
 
-.games a img {
-    width: 100%;
-    height: auto;
-}
+.filter {
+    form {
+        width: 90%;
+        margin: auto;
 
-.games span {
-    display: block;
-    position: relative;
-    margin-bottom: 30px;
-}
+        input {
+            display: none;
+        }
 
-.games span p {
-    position: absolute;
-    width: 90%;
-    z-index: 2;
-    top: 40%;
-    font-size: 23px;
-    font-weight: bold;
-    color: white;
-    text-align: center;
-    text-shadow: 2px 3px 3px #000000;
-}
+        fieldset {
+            border: none;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 25px;
+        }
 
-.filter form {
-  width: 90%;
-  margin: auto;
-}
+        fieldset legend {
+            margin-bottom: 15px;
+        }
 
-.filter form input {
-  display: none;
-}
+        fieldset label span {
+            display: block;
+            border: 1px solid dodgerblue;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
 
-.filter form fieldset {
-  border: none;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 25px;
-}
+        fieldset label input:checked + span {
+            background-color: dodgerblue;
+            color: black;
+        }
 
-.filter form fieldset legend {
-  margin-bottom: 15px;
-}
-
-.filter form fieldset label span {
-  display: block;
-  border: 1px solid dodgerblue;
-  border-radius: 10px;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-
-.filter form fieldset label input:checked +span {
-  background-color: dodgerblue;
-  color: black;
-}
-
-.filter form input[type="submit"] {
-  display: block;
-  margin: auto;
-  padding: 10px 40px;
-  border: none;
-  border-radius: 3px;
-  font-size: 19px;
+        input[type="submit"] {
+            display: block;
+            margin: auto;
+            padding: 10px 40px;
+            border: none;
+            border-radius: 3px;
+            font-size: 19px;
+        }
+    }
 }
 
 .matches h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 23px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 23px;
 }

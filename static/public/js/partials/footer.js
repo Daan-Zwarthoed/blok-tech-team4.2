@@ -2,6 +2,7 @@ const currentPage = window.location.pathname.split('/')[1];
 const footerList = document.querySelector('.bottom-nav > nav > ul');
 
 switch (currentPage) {
+    case 'like':
     case 'filter':
         footerList.children[0].classList.add('currentPage');
         break;

@@ -10,10 +10,8 @@ submit.hidden = true;
  */
 like.addEventListener('click', function () {
     formulier.submit();
-    console.log('test');
 });
 
 dislike.addEventListener('click', function () {
     formulier.submit();
-    console.log('test');
 });

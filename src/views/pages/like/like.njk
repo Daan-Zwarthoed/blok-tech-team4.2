@@ -10,7 +10,7 @@
 {% block content %}
     {% if displayedUser %}
         <section class='likeCard'>
-            <img src='/uploads/{{ displayedUser.avatar }}'>
+            <img src='/uploads/{{ displayedUser.avatar }}'/>
             <div>
                 <h2>{{ displayedUser.displayname }}
                     <span>@{{ displayedUser.username }}</span>
@@ -22,16 +22,21 @@
                     <li>
                         {% switch playtime %}
                             {% case '5plushours' %}
-                                <span class="material-icons">schedule</span>5+ hours a day</li>
+                                <span class="material-icons">schedule</span>5+ hours a day
                             {% case '5minushours' %}
-                                <span class="material-icons">schedule</span>-5 hours a day</li>
+                                <span class="material-icons">schedule</span>-5 hours a day
                             {% case 'fewtimes' %}
-                                <span class="material-icons">schedule</span>A few times per week</li>
+                                <span class="material-icons">schedule</span>A few times per week
                             {% case 'onetime' %}
                                 <span class="material-icons">schedule</span>Once per week
+                            {% default %}
+                                <span class="material-icons">schedule</span>Niet gespecificeerd
                         {% endswitch %}
                     </li>
-                    <li><span class="material-icons">style</span>{{ displayedUser.playstyle }} player</li>
+                    <li>
+                        <span class="material-icons">style</span>
+                        {{ displayedUser.playstyle }} player
+                    </li>
                 </ul>
                 <form action='/like/likeDislike' method='post'>
                     <input type="text" class="hidden" name="games" value="{{ chosenGame }}"/>

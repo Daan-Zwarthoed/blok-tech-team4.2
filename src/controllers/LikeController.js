@@ -14,16 +14,17 @@ const getSimilarUsers = (req, res) => {
     const myUser = req.user; // dit is de ingelogd gebruiker
     Game.find().then((games) => {
         if (req.body.games) {
-            chosenGame = req.body.games;
+            chosenGame = req.body.games; // Gekozen spel om op te filteren
         }
         let filteredUsers;
+        // Haalt gebruikersnamen op van gebruikers die het gekozen spel geliked hebben
         if (games.filter((game) => game.titleSlug == chosenGame).length > 0) {
             filteredUsers = games.filter((game) => game.titleSlug == chosenGame)[0].likedBy;
         }
 
         User.find().then((userList) => {
             const profiles = [];
-
+            // Filtert de gebruikerscollectie op de gebruikersnamen in filteredUsers en pushed the matchende profielen naar profiles
             userList.forEach((user) => {
                 if (filteredUsers) {
                     if (filteredUsers.includes(user.username)) {
@@ -31,6 +32,7 @@ const getSimilarUsers = (req, res) => {
                     }
                 }
             });
+            // Filtert profielen van gebruikers op playtime, playstyle, likes, dislikes en verwijdert eigen naam van de lijst.
             const filteredProfiles = [...new Set(profiles)].filter(
                 (profile) =>
                     profile.playstyle === req.body.playstyle &&
@@ -40,6 +42,7 @@ const getSimilarUsers = (req, res) => {
                     !myUser.dislikedBy.includes(profile.username)
             );
 
+            // Kiest 1 random gebruiker uit de lijst
             displayedUser = filteredProfiles[Math.floor(Math.random() * filteredProfiles.length)];
 
             if (filteredProfiles.length > 0) {

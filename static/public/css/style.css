@@ -1,4 +1,5 @@
 /* Imports */
+
 @import url("./_fonts.scss");
 .chatList form {
   display: flex;
@@ -513,8 +514,10 @@ a,
 span,
 button,
 label,
-textarea {
-  font-family: 'Graphik', 'segoe ui', tahoma, sans-serif; }
+textarea,
+legend {
+  font-family: "Graphik", "segoe ui", tahoma, sans-serif;
+}
 
 body {
   background-color: #0f0f11;
@@ -712,32 +715,50 @@ li.clicked {
 
 .filter form {
   width: 90%;
-  margin: auto; }
-  .filter form input {
-    display: none; }
-  .filter form fieldset {
-    border: none;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 25px; }
-  .filter form fieldset legend {
-    margin-bottom: 15px; }
-  .filter form fieldset label span {
-    display: block;
-    border: 1px solid dodgerblue;
-    border-radius: 10px;
-    padding: 10px;
-    margin-bottom: 10px; }
-  .filter form fieldset label input:checked + span {
-    background-color: dodgerblue;
-    color: black; }
-  .filter form input[type="submit"] {
-    display: block;
-    margin: auto;
-    padding: 10px 40px;
-    border: none;
-    border-radius: 3px;
-    font-size: 19px; }
+  margin: auto;
+}
+
+.filter form input {
+  opacity: 0;
+}
+
+.filter form fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+}
+
+.filter form fieldset legend {
+  margin-bottom: 15px;
+}
+
+.filter form fieldset label span {
+  display: block;
+  border: 1px solid dodgerblue;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.filter form fieldset label input:checked+span {
+  background-color: dodgerblue;
+  color: black;
+}
+
+.filter form input[type="submit"] {
+  opacity: 1;
+  margin: auto;
+  padding: 10px 40px;
+  border: none;
+  border-radius: 3px;
+  font-size: 19px;
+}
+
+.filter form fieldset label .warning+span {
+  border: 1px solid red;
+  transition-delay: 350ms;
+  transition-duration: 350ms;
+}
 
 .matches h2 {
   text-align: center;
@@ -776,21 +797,46 @@ li.clicked {
   width: 100vw;
   height: 4rem;
   display: flex;
-  align-items: center;
-  background-color: #0F0F11; }
-  .bottom-nav nav {
-    width: 100%; }
-    .bottom-nav nav ul {
-      display: flex;
-      justify-content: space-evenly; }
-      .bottom-nav nav ul li a {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        color: #efeff1;
-        font-size: 0.85rem; }
-        .bottom-nav nav ul li a span {
-          margin-bottom: 0.25rem;
-          font-size: 1.5rem; }
-      .bottom-nav nav ul .currentPage a {
-        color: dodgerblue; }
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #0F0F11;
+}
+
+.bottom-nav nav {
+  width: 100%;
+}
+
+.bottom-nav nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.bottom-nav nav ul li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #efeff1;
+  font-size: 0.85rem;
+}
+
+.bottom-nav nav ul li a span {
+  margin-bottom: 0.25rem;
+  font-size: 1.5rem;
+}
+
+.bottom-nav nav ul .currentPage a {
+  color: dodgerblue;
+}
+/*# sourceMappingURL=style.css.map */

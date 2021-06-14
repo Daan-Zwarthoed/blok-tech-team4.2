@@ -20,11 +20,11 @@
                 <input id='avatar' type='file' name='avatar' accept='image/*' required/>
             </div>
             <div class='wrapper'>
-                <label for='displayname'>Displayname</label>
+                <label for='displayname'>Displayname <span class='char-count'></span></label>
                 <input id='displayname' type='text' name='displayname' required maxlength='20' value='{{ user.displayname }}'/>
             </div>
             <div class='wrapper'>
-                <label for='description'>Beschrijving</label>
+                <label for='description'>Beschrijving <span class='char-count'></span></label>
                 {% if user.description %}
                     <textarea id='description' type='text' name='description' required maxlength='150'>{{ user.description }}</textarea>
                 {% else %}

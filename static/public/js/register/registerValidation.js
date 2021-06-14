@@ -6,40 +6,91 @@ const visualInformation = document.querySelector('#visual-information');
 const onboardInformation = document.querySelector('#onboard-information');
 const onboardInformationInput = document.querySelectorAll('#onboard-information input');
 const submitBtn = document.querySelector('button[type="submit"]');
+const playstyle = document.querySelector('input[name="playstyle"]');
+const playtime = document.querySelector('input[name="playtime"]');
+const radioArr = [playstyle, playtime];
+
+/**
+ * This function checks if a set of radio buttons have been checked.
+ *
+ * @param {*} arr = the request array of radio elements
+ * @param {*} counter = the counter which keeps track of the not filled in input fields
+ */
+const checkRadio = (arr, counter) => {
+    arr.forEach((input) => {
+        if (!input.checked) {
+            counter.push(input);
+        }
+    });
+};
+
+/**
+ * This function checks if input fields have been checked.
+ *
+ * @param {*} arr = the request array of input elements
+ * @param {*} counter = the counter which keeps track of the not filled in input fields
+ */
+const checkInput = (arr, counter) => {
+    // Loop through every input to find the fields that haven't been filled in yet
+    arr.forEach((input) => {
+        if (input.value.length === 0) {
+            // Push the input to the array which contains every input field that has no input yet
+            counter.push(input);
+            input.classList.add('warning');
+        }
+    });
+};
+
+/**
+ * This function goes to the next sequence (applied when input isn't necessarily required).
+ *
+ * @param {*} form = the form which is being used
+ * @param {*} nextInfo = the next sequence in the registering process
+ */
+const nextSequence = (form, nextInfo) => {
+    form.scroll({
+        left: nextInfo.offsetLeft,
+        behavior: 'smooth',
+    });
+};
+
+/**
+ * This function adds a warning to the targeted element.
+ *
+ * @param {*} event = event
+ */
+const addWarning = (event) => {
+    const element = event.target;
+
+    element.classList.add('warning');
+
+    setTimeout(() => {
+        element.classList.remove('warning');
+    }, 3000);
+};
 
 /**
  * This function checks if the user has filled in every input field to go
  * to the next sequence.
  *
  * @param {*} arr = the requested array which contains (multiple) input fields
+ * @param {*} radio = the requested array which contains (multiple) radio fields
  * @param {*} form = the form which is being used
  * @param {*} nextInfo = the next sequence in the registering process
+ * @param {*} event = event
  */
-const checkInput = (arr, form, nextInfo, event) => {
+const validate = (input, radio, form, nextInfo, event) => {
     const noInput = [];
 
-    // Loop through every input to find the fields that haven't been filled in yet
-    arr.forEach((input) => {
-        if (input.value.length === 0) {
-            // Push the input to the array which contains every input field that has no input yet
-            noInput.push(input);
-            input.classList.add('warning');
-        }
-    });
+    checkRadio(radio, noInput);
+
+    checkInput(input, noInput);
 
     // If there are no input fields, go to the next sequence
     if (noInput.length === 0) {
-        form.scroll({
-            left: nextInfo.offsetLeft,
-            behavior: 'smooth',
-        });
+        nextSequence(form, nextInfo);
     } else {
-        const button = event.target;
-        button.classList.add('warning');
-
-        setTimeout(() => {
-            button.classList.remove('warning');
-        }, 3000);
+        addWarning(event);
     }
 };
 
@@ -61,27 +112,8 @@ const checkGames = (arr, event) => {
     if (!boolChecked) {
         // Prevent the user from submitting
         event.preventDefault();
-
-        const button = event.target;
-        button.classList.add('warning');
-
-        setTimeout(() => {
-            button.classList.remove('warning');
-        }, 3000);
+        addWarning(event);
     }
-};
-
-/**
- * This function goes to the next sequence (applied when input isn't necessarily required).
- *
- * @param {*} form = the form which is being used
- * @param {*} nextInfo = the next sequence in the registering process
- */
-const nextSequence = (form, nextInfo) => {
-    form.scroll({
-        left: nextInfo.offsetLeft,
-        behavior: 'smooth',
-    });
 };
 
 /**
@@ -94,7 +126,7 @@ const goNextSequence = (event) => {
         case formLinks[0]:
             // Prevent default behavior for smooth interactions when Javascript is enabled
             event.preventDefault();
-            checkInput(generalInformationInput, formElem, visualInformation, event);
+            validate(generalInformationInput, radioArr, formElem, visualInformation, event);
             break;
         case formLinks[1]:
             // Prevent default behavior for smooth interactions when Javascript is enabled

@@ -27,10 +27,8 @@ card.addEventListener('swipe', (event) => {
 
 like.addEventListener('click', function () {
     formulier.submit();
-    console.log('test');
 });
 
 dislike.addEventListener('click', function () {
     formulier.submit();
-    console.log('test');
 });

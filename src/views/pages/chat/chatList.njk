@@ -4,8 +4,9 @@
 {% endblock %}
 {% block content %}
     <div class="chatList">
-        <img class="hiddenImage">
-            <form action="chatSelf/{{ userId }}" method="post">
+        <img class="hiddenImage"/>
+        {% if users.length > 0 %}
+            <form action="chat/chatSelf" method="post">
                 {% for user in users %}
                     <button name="userOther" value={{ user.username }}>
                         <div class="imgDiv"><img class="imgSelf" src="/uploads/{{ user.avatar }}"/>
@@ -14,9 +15,15 @@
                     </button>
                 {% endfor %}
             </form>
-        </div>
-    {% endblock %}
-    {% block scripts %}
-        <script src="/socket.io/socket.io.js"></script>
-        <script src='/js/chat/chatList.js'></script>
-    {% endblock %}
+        {% else %}
+            <div class="geenMatches">
+                <p>Je hebt nog geen matches</p>
+                <a href="/filter">Naar liken</a>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script src="/socket.io/socket.io.js"></script>
+    <script src='/js/chat/chatList.js'></script>
+{% endblock %}

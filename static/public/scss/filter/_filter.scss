@@ -1,0 +1,78 @@
+.games a {
+    margin: auto;
+    width: 90%;
+    height: 185px;
+    overflow: hidden;
+    display: block;
+}
+
+.games a img {
+    width: 100%;
+    height: auto;
+}
+
+.games span {
+    display: block;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.games span p {
+    position: absolute;
+    width: 90%;
+    z-index: 2;
+    top: 40%;
+    font-size: 23px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    text-shadow: 2px 3px 3px #000000;
+}
+
+.filter form {
+  width: 90%;
+  margin: auto;
+}
+
+.filter form input {
+  display: none;
+}
+
+.filter form fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+}
+
+.filter form fieldset legend {
+  margin-bottom: 15px;
+}
+
+.filter form fieldset label span {
+  display: block;
+  border: 1px solid dodgerblue;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.filter form fieldset label input:checked +span {
+  background-color: dodgerblue;
+  color: black;
+}
+
+.filter form input[type="submit"] {
+  display: block;
+  margin: auto;
+  padding: 10px 40px;
+  border: none;
+  border-radius: 3px;
+  font-size: 19px;
+}
+
+.matches h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 23px;
+}

@@ -16,7 +16,7 @@
   height: 70px;
   margin: 0;
   padding: 0;
-  background-color: #0F0F11;
+  background-color: #0f0f11;
   color: white;
   border: none;
   border-bottom: solid white 1px;
@@ -73,7 +73,7 @@
 }
 
 .geenMatches a {
-  padding: .2em;
+  padding: 0.2em;
   background: dodgerblue;
   color: white;
   border-radius: 0.25rem;
@@ -97,8 +97,8 @@
       -ms-flex-direction: row;
           flex-direction: row;
   padding: 0.3em;
-  -webkit-transition: .5s;
-  transition: .5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
   background: rgba(0, 0, 0, 0.15);
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
@@ -284,7 +284,7 @@
 }
 
 .profile .profile-info ul li span {
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 
 .profile .profile-info h2 {
@@ -790,44 +790,53 @@ textarea {
 }
 
 body {
-  background-color: #0F0F11;
-  color: #EFEFF1;
+  background-color: #0f0f11;
+  color: #efeff1;
 }
 
 .transition {
-  -webkit-transition: .5s;
-  transition: .5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .bodyPaddingTop {
   margin-top: 3rem;
 }
 
-input, textarea {
+input,
+textarea {
   background-color: #464649;
-  color: #C1C1C1;
+  color: #c1c1c1;
 }
 
-input::-webkit-input-placeholder, input::focus, textarea::-webkit-input-placeholder, textarea::focus {
-  color: #C1C1C1;
-  background-color: #464649;
-  font-weight: 500;
-}
-
-input:-ms-input-placeholder, input::focus, textarea:-ms-input-placeholder, textarea::focus {
-  color: #C1C1C1;
+input::-webkit-input-placeholder, input::focus,
+textarea::-webkit-input-placeholder,
+textarea::focus {
+  color: #c1c1c1;
   background-color: #464649;
   font-weight: 500;
 }
 
-input::-ms-input-placeholder, input::focus, textarea::-ms-input-placeholder, textarea::focus {
-  color: #C1C1C1;
+input:-ms-input-placeholder, input::focus,
+textarea:-ms-input-placeholder,
+textarea::focus {
+  color: #c1c1c1;
   background-color: #464649;
   font-weight: 500;
 }
 
-input::placeholder, input::focus, textarea::placeholder, textarea::focus {
-  color: #C1C1C1;
+input::-ms-input-placeholder, input::focus,
+textarea::-ms-input-placeholder,
+textarea::focus {
+  color: #c1c1c1;
+  background-color: #464649;
+  font-weight: 500;
+}
+
+input::placeholder, input::focus,
+textarea::placeholder,
+textarea::focus {
+  color: #c1c1c1;
   background-color: #464649;
   font-weight: 500;
 }
@@ -870,7 +879,7 @@ li.clicked {
 
 li.clicked h2 {
   margin-top: 0.375rem !important;
-  padding-left: .25rem;
+  padding-left: 0.25rem;
 }
 
 .preload * {
@@ -1016,7 +1025,7 @@ li.clicked h2 {
   color: darkblue;
 }
 
-.likeCard form div input[type='radio'] {
+.likeCard form div input[type="radio"] {
   position: absolute;
   top: 0;
   left: 0;
@@ -1029,11 +1038,11 @@ li.clicked h2 {
 }
 
 .geenMatches p {
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
 }
 
 .geenMatches a {
-  padding: .2em;
+  padding: 0.2em;
   background: dodgerblue;
   color: white;
   font-size: 0.9rem;
@@ -1152,7 +1161,7 @@ li.clicked h2 {
 
 .header a {
   font-size: 1.5em;
-  color: #EFEFF1;
+  color: #efeff1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1205,7 +1214,7 @@ li.clicked h2 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: #EFEFF1;
+  color: #efeff1;
   font-size: 0.85rem;
 }
 

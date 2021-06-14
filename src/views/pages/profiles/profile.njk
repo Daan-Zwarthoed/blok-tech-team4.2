@@ -7,49 +7,53 @@
     <section class='profile view-profile'>
         <header>
             <div class='overlay'></div>
-            <img src='/uploads/{{profile.banner}}' class='profile-banner'>
+            <img src='/uploads/{{ profile.banner }}' class='profile-banner'/>
         </header>
         <section class='profile-info'>
             <div class='wrapper'>
-                <img src='/uploads/{{profile.avatar}}' class='profile-avatar'>
+                <img src='/uploads/{{ profile.avatar }}' class='profile-avatar'/>
                 {% if userId == user._id %}
-                    <a href='/profiles/{{profile._id}}/update'>Profiel bewerken</a>
+                    <a href='/profiles/{{ profile._id }}/update'>Profiel bewerken</a>
                 {% endif %}
             </div>
-
-            <h2>{{profile.displayname}}
-                <span>@{{profile.username}}</span></h2>
+            <h2>{{ profile.displayname }}
+                <span>@{{ profile.username }}</span>
+            </h2>
             {% if profile.description %}
-                <p>{{profile.description}}</p>
+                <p>{{ profile.description }}</p>
             {% endif %}
             <ul>
                 <li>
                     {% switch playtime %}
-                    {% case '5plushours' %}
-                        <span class="material-icons">schedule</span>5+ hours a day</li>
-                    {% case '5minushours' %}
-                        <span class="material-icons">schedule</span>-5 hours a day</li>
-                    {% case 'fewtimes' %}
-                        <span class="material-icons">schedule</span>A few times per week</li>
-                    {% case 'onetime' %}
-                        <span class="material-icons">schedule</span>Once per week</li>
+                        {% case '5plushours' %}
+                            <span class="material-icons">schedule</span>5+ hours a day
+                        {% case '5minushours' %}
+                            <span class="material-icons">schedule</span>-5 hours a day
+                        {% case 'fewtimes' %}
+                            <span class="material-icons">schedule</span>A few times per week
+                        {% case 'onetime' %}
+                            <span class="material-icons">schedule</span>Once per week
+                        {% default %}
+                            <span class="material-icons">schedule</span>Niet gespecificeerd
                     {% endswitch %}
-                    <li>
-                        <span class="material-icons">style</span>{{profile.playstyle}} player
                 </li>
-                </ul>
-            </section>
-            <section class='profile-extra'>
-                {% if games %}
-                    <h2>Your Games</h2>
-                    <ul>
-                        {% for game in games %}
-                            <li>
-                                <img src='/images/games/{{game.image}}'>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
-            </section>
+                <li>
+                    <span class="material-icons">style</span>
+                    {{ profile.playstyle }} player
+                </li>
+            </ul>
         </section>
-    {% endblock %}
+        <section class='profile-extra'>
+            {% if games %}
+                <h2>Your Games</h2>
+                <ul>
+                    {% for game in games %}
+                        <li>
+                            <img src='/images/games/{{ game.image }}'/>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </section>
+    </section>
+{% endblock %}

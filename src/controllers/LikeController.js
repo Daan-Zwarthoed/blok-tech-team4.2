@@ -17,7 +17,7 @@ const getSimilarUsers = (req, res) => {
             chosenGame = req.body.games;
         }
         let filteredUsers;
-        if (games.filter((game) => game.titleSlug == chosenGame)) {
+        if (games.filter((game) => game.titleSlug == chosenGame).length > 0) {
             filteredUsers = games.filter((game) => game.titleSlug == chosenGame)[0].likedBy;
         }
 
@@ -25,8 +25,10 @@ const getSimilarUsers = (req, res) => {
             const profiles = [];
 
             userList.forEach((user) => {
-                if (filteredUsers.includes(user.username)) {
-                    profiles.push(user);
+                if (filteredUsers) {
+                    if (filteredUsers.includes(user.username)) {
+                        profiles.push(user);
+                    }
                 }
             });
             const filteredProfiles = [...new Set(profiles)].filter(

@@ -10,58 +10,60 @@
 {% block content %}
     {% if displayedUser %}
         <section class='likeCard'>
-            <img src='/uploads/{{ displayedUser.avatar }}'>
-                <div>
-                    <h2>{{ displayedUser.displayname }}
-                        <span>@{{ displayedUser.username }}</span>
-                    </h2>
-                    {% if displayedUser.description %}
-                        <p>{{ displayedUser.description }}</p>
-                    {% endif %}
-                    <ul>
-                        <li>
-                            {% switch playtime %}
-                                {% case '5plushours' %}
-                                    <span class="material-icons">schedule</span>5+ hours a day</li>
-                                {% case '5minushours' %}
-                                    <span class="material-icons">schedule</span>-5 hours a day</li>
-                                {% case 'fewtimes' %}
-                                    <span class="material-icons">schedule</span>A few times per week</li>
-                                {% case 'onetime' %}
-                                    <span class="material-icons">schedule</span>Once per week
-                                {% endswitch %}
-                            </li>
-                            <li>
-                                <span class="material-icons">style</span>
-                                {{ displayedUser.playstyle }} player
-                            </li>
-                        </ul>
-                        <form action='/like/likeDislike' method='post'>
-                            <input type="text" class="hidden" name="games" value="{{ chosenGame }}"/>
-                            <input type="text" class="hidden" name="displayedUserUsername" value="{{ displayedUser.username }}"/>
-                            <div>
-                                <input type="radio" id="dislike" name="preference" value="dislike"/>
-                                <label for="dislike">
-                                    <span class="material-icons dislike">thumb_down_alt</span>
-                                </label>
-                            </div>
-                            <div>
-                                <input type="radio" id="like" name="preference" value="like"/>
-                                <label for="like">
-                                    <span class="material-icons like">thumb_up_alt</span>
-                                </label>
-                            </div>
-                            <input class="verzend" type='submit'/>
-                        </form>
+            <img src='/uploads/{{ displayedUser.avatar }}'/>
+            <div>
+                <h2>{{ displayedUser.displayname }}
+                    <span>@{{ displayedUser.username }}</span>
+                </h2>
+                {% if displayedUser.description %}
+                    <p>{{ displayedUser.description }}</p>
+                {% endif %}
+                <ul>
+                    <li>
+                        {% switch playtime %}
+                            {% case '5plushours' %}
+                                <span class="material-icons">schedule</span>5+ hours a day
+                            {% case '5minushours' %}
+                                <span class="material-icons">schedule</span>-5 hours a day
+                            {% case 'fewtimes' %}
+                                <span class="material-icons">schedule</span>A few times per week
+                            {% case 'onetime' %}
+                                <span class="material-icons">schedule</span>Once per week
+                            {% default %}
+                                <span class="material-icons">schedule</span>Niet gespecificeerd
+                        {% endswitch %}
+                    </li>
+                    <li>
+                        <span class="material-icons">style</span>
+                        {{ displayedUser.playstyle }} player
+                    </li>
+                </ul>
+                <form action='/like/likeDislike' method='post'>
+                    <input type="text" class="hidden" name="games" value="{{ chosenGame }}"/>
+                    <input type="text" class="hidden" name="displayedUserUsername" value="{{ displayedUser.username }}"/>
+                    <div>
+                        <input type="radio" id="dislike" name="preference" value="dislike"/>
+                        <label for="dislike">
+                            <span class="material-icons dislike">thumb_down_alt</span>
+                        </label>
                     </div>
-                </section>
-            {% else %}
-                <div class="geenMatches">
-                    <p>Er zijn geen users voor de criteria</p>
-                    <a href="/filter">Nieuwe filters instellen</a>
-                </div>
-            {% endif %}
-        {% endblock %}
-        {% block scripts %}
-            <script src='/js/like/like.js'></script>
-        {% endblock %}
+                    <div>
+                        <input type="radio" id="like" name="preference" value="like"/>
+                        <label for="like">
+                            <span class="material-icons like">thumb_up_alt</span>
+                        </label>
+                    </div>
+                    <input class="verzend" type='submit'/>
+                </form>
+            </div>
+        </section>
+    {% else %}
+        <div class="geenMatches">
+            <p>Er zijn geen users voor de criteria</p>
+            <a href="/filter">Nieuwe filters instellen</a>
+        </div>
+    {% endif %}
+{% endblock %}
+{% block scripts %}
+    <script src='/js/like/like.js'></script>
+{% endblock %}

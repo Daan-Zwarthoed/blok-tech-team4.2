@@ -5,7 +5,7 @@
 {% block content %}
   <div class="chatSelf">
     <div class="chatHeader">
-      <a href="/chat/{{ userId }}">&#8592;</a>
+      <a href="/chat">&#8592;</a>
       <div>{{ userOther }}</div>
     </div>
     <ul class="chatMessages">
@@ -13,7 +13,7 @@
         <li class={{ "messageSelf" if message.userSender === userSelf }}>{{ message.message }}</li>
       {% endfor %}
     </ul>
-    <form class="chatForm" method="post" action="chatMessageReceived/{{ userId }}">
+    <form class="chatForm" method="post" action="chatMessageReceived">
       <input class="userSelf hidden" name="userSelf" value="{{ userSelf }}"/>
       <input class="userOther hidden" name="userOther" value="{{ userOther }}"/>
       <input class="chatInput" name="message" autocomplete="off" required/>

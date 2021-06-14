@@ -3,12 +3,12 @@ const router = require('express').Router();
 const ChatController = require('../controllers/ChatController');
 const auth = require('../config/auth');
 
-router.get('/:userId', auth.isLoggedIn, ChatController.chatHome);
+router.get('/', auth.isLoggedIn, ChatController.chatHome);
 
-router.get('/chatSelf/:userId', auth.isLoggedIn, ChatController.chatSelf);
+router.get('/chatSelf', auth.isLoggedIn, ChatController.chatSelf);
 
-router.post('/chatSelf/:userId', auth.isLoggedIn, ChatController.chatSelf);
+router.post('/chatSelf', auth.isLoggedIn, ChatController.chatSelf);
 
-router.post('/chatSelf/chatMessageReceived/:userId', ChatController.chatMessageReceived);
+router.post('/chatMessageReceived', ChatController.chatMessageReceived);
 
 module.exports = router;

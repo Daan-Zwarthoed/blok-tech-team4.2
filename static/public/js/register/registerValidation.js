@@ -9,6 +9,8 @@ const submitBtn = document.querySelector('button[type="submit"]');
 const playstyle = document.querySelector('input[name="playstyle"]');
 const playtime = document.querySelector('input[name="playtime"]');
 const radioArr = [playstyle, playtime];
+const username = document.querySelector('#username');
+const charCount = document.querySelectorAll('.char-count');
 
 /**
  * This function checks if a set of radio buttons have been checked.
@@ -171,3 +173,54 @@ formInput.forEach((input) => {
         input.classList.remove('warning');
     });
 });
+
+/**
+ * This function checks the character count of an input field and also shows the maxLength attribute.
+ * https://css-tricks.com/build-word-counter-app/
+ */
+const getCharCount = (input) => `${input.value.length} / ${input.maxLength}`;
+
+/**
+ * This function gets the parent of an element.
+ * @param {*} element = the requested element
+ * @returns = the parent
+ */
+const getParentFromElement = (element) => element.parentNode;
+
+/**
+ * This function checks if an element is a sibling from another element
+ * @param {*} element = the requested element
+ * @param {*} sibling = the sibling
+ * @returns = the sibling (if true)
+ */
+const checkSiblingFromElement = (element, sibling) => {
+    const parent = getParentFromElement(element);
+    // Loop through sibling.length for if the sibling is an array
+    for (let i = 0; i < sibling.length; i++) {
+        if (parent.contains(sibling[i])) {
+            return sibling[i];
+        }
+    }
+};
+
+/**
+ * This function inserts the value of the getCharCount function to the right
+ * sibling from the checkSiblingFromElement function.
+ * @param {*} element = the requested element
+ * @param {*} sibling = the sibling
+ */
+const insertCharCount = (element, sibling) => {
+    const counter = checkSiblingFromElement(element, sibling);
+    counter.innerHTML = getCharCount(element);
+};
+
+username.addEventListener('keyup', () => {
+    insertCharCount(username, charCount);
+});
+
+/**
+ * Fire the functions when the window is loaded for instant feedback.
+ */
+window.onload = () => {
+    insertCharCount(username, charCount);
+};

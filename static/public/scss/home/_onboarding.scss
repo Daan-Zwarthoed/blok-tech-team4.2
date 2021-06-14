@@ -14,13 +14,13 @@
     form {
         overflow-x: scroll;
 
-        &>ul {
+        & > ul {
             display: flex;
             width: fit-content;
             gap: 2rem 1rem;
             padding-right: 1rem;
 
-            &>li {
+            & > li {
                 width: 12rem;
 
                 img {

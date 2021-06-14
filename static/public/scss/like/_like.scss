@@ -99,10 +99,9 @@
 
                         &:hover {
                             color: darkred;
-
                         }
                     }
-                    
+
                     &.like {
                         color: dodgerblue;
 
@@ -113,7 +112,7 @@
                 }
             }
 
-            input[type='radio'] {
+            input[type="radio"] {
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -124,13 +123,13 @@
     }
 }
 
-.geenMatches{
+.geenMatches {
     margin-left: 1em;
-    p{
-        margin-bottom: .5em;
+    p {
+        margin-bottom: 0.5em;
     }
-    a{
-        padding: .2em;
+    a {
+        padding: 0.2em;
         background: dodgerblue;
         color: white;
         font-size: 0.9rem;

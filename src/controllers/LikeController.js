@@ -14,15 +14,13 @@ const getSimilarUsers = (req, res) => {
     const myUser = req.user; // dit is de ingelogd gebruiker
     Game.find().then((games) => {
         if (req.body.games) {
-            chosenGame = req.body.games; // Gekozen game door de gebruiker om op te filteren
+            chosenGame = req.body.games;
         }
-        // Filtert gebruikersnamen van de gebruikers die de gekozen game geliked hebben
         const filteredUsers = games.filter((game) => game.titleSlug == chosenGame)[0].likedBy;
 
         User.find().then((userList) => {
             const profiles = [];
 
-            // Pushed de profielen van de gebruikers wiens gebruikernamen in filteredUsers staan
             userList.forEach((user) => {
                 if (filteredUsers.includes(user.username)) {
                     profiles.push(user);

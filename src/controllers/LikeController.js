@@ -16,14 +16,19 @@ const getSimilarUsers = (req, res) => {
         if (req.body.games) {
             chosenGame = req.body.games;
         }
-        const filteredUsers = games.filter((game) => game.titleSlug == chosenGame)[0].likedBy;
+        let filteredUsers;
+        if (games.filter((game) => game.titleSlug == chosenGame).length > 0) {
+            filteredUsers = games.filter((game) => game.titleSlug == chosenGame)[0].likedBy;
+        }
 
         User.find().then((userList) => {
             const profiles = [];
 
             userList.forEach((user) => {
-                if (filteredUsers.includes(user.username)) {
-                    profiles.push(user);
+                if (filteredUsers) {
+                    if (filteredUsers.includes(user.username)) {
+                        profiles.push(user);
+                    }
                 }
             });
             // Filtert profielen van gebruikers op playtime, playstyle, likes, dislikes en verwijdert eigen naam van de lijst.
@@ -42,7 +47,11 @@ const getSimilarUsers = (req, res) => {
             if (filteredProfiles.length > 0) {
                 filteredProfiles.shift();
             }
-            res.render('pages/like/like.njk', { user: myUser, displayedUser, chosenGame });
+            res.render('pages/like/like.njk', {
+                user: myUser,
+                displayedUser,
+                chosenGame,
+            });
         });
     });
 };

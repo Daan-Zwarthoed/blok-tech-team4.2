@@ -33,15 +33,23 @@ Example app listening at http://localhost:3000
 ```
 
 ## Packages used
+- bcrypt
+- bson
+- connect-mongo
 - dotenv
 - eslint
 - express
+- express-session
 - mongodb
 - mongoose
+- multer
 - node-sass
 - nodemon
 - nunjucks
+- passport
+- passport-local
 - prettier
+- socket.io
 
 ## Documentation
 

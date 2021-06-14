@@ -13,7 +13,7 @@ const User = require('../models/User');
 const chatHandler = require('./chatHandler');
 
 function updateUsers(req) {
-    return User.findById(req.params.userId, (err, user) => {
+    return User.findById(req.user.id, (err, user) => {
         if (err) throw err;
         userObject = user;
         userSelf = user.username;
@@ -24,13 +24,12 @@ function updateUsers(req) {
 const chatHome = async (req, res) => {
     await updateUsers(req);
     User.find().then((results) => {
-        filteredUsers = results.filter((user) => user.id !== req.params.userId);
+        filteredUsers = results.filter((user) => user.id !== req.user.id);
         filteredUsers = filteredUsers.filter(
             (user) => userObject.likedBy.includes(user.username) && user.likedBy.includes(userSelf)
         );
         res.render('pages/chat/chatList.njk', {
             user: userObject,
-            userId: req.params.userId,
             users: filteredUsers,
         });
     });
@@ -38,7 +37,7 @@ const chatHome = async (req, res) => {
 
 const chatSelf = async (req, res) => {
     await updateUsers(req);
-    if (!userOther || userOther === userSelf) return res.redirect(`/chat/${req.params.userId}`);
+    if (!userOther || userOther === userSelf) return res.redirect('/chat');
     Conversation.findOne({
         users: sortAlphabets([userOther, userSelf]),
     })
@@ -56,7 +55,6 @@ const chatSelf = async (req, res) => {
         .then(() => {
             res.render('pages/chat/chatSelf/chatSelf.njk', {
                 user: userObject,
-                userId: req.params.userId,
                 userSelf,
                 userOther,
                 messages,
@@ -67,7 +65,7 @@ const chatSelf = async (req, res) => {
 const chatMessageReceived = async (req, res) => {
     await updateUsers(req);
     chatHandler.messagesSend({ userSelf, userOther, message: req.body.message });
-    res.redirect(`/chat/chatSelf/${req.params.userId}`);
+    res.redirect('/chat/chatSelf');
 };
 
 module.exports = { chatHome, chatSelf, chatMessageReceived };

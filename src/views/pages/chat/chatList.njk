@@ -6,7 +6,7 @@
     <div class="chatList">
         <img class="hiddenImage"/>
         {% if users.length > 0 %}
-            <form action="chatSelf/{{ userId }}" method="post">
+            <form action="chat/chatSelf" method="post">
                 {% for user in users %}
                     <button name="userOther" value={{ user.username }}>
                         <div class="imgDiv"><img class="imgSelf" src="/uploads/{{ user.avatar }}"/>

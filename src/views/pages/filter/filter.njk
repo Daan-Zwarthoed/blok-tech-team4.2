@@ -3,37 +3,38 @@
 {% block content %}
     <div class="filter">
         <form action="/like" method="post">
-            <input type="text" name="games" value={{ chosenGame }}>
-                <fieldset>
-                    <legend>What playstyle should your match have?</legend>
-                    <label>
-                        <input type="radio" name="playstyle" value="competitive" required>
-                            <span>Competitive</span>
-                        </label>
-                        <label>
-                            <input type="radio" name="playstyle" value="casual" required>
-                                <span>Casual</span>
-                            </label>
-                        </fieldset>
-                        <fieldset>
-                            <legend>How often should your match play?</legend>
-                            <label>
-                                <input type="radio" name="playtime" value="5plushours" required>
-                                    <span>5+ hours per day</span>
-                                </label>
-                                <label>
-                                    <input type="radio" name="playtime" value="5minushours" required>
-                                        <span>-5 hours per day</span>
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="playtime" value="fewtimes" required>
-                                            <span>A few times per week</span>
-                                        </label>
-                                        <label>
-                                            <input type="radio" name="playtime" value="onetime" required>
-                                                <span>Once per week</span>
-                                            </label>
-                                        </fieldset>
-                                        <input type="submit" value="Match"></form>
-                                    </div>
-                                {% endblock %}
+            <input type="text" name="games" value={{ chosenGame }}/>
+            <fieldset>
+                <legend>What playstyle should your match have?</legend>
+                <label>
+                    <input type="radio" name="playstyle" value="competitive" required/>
+                    <span>Competitive</span>
+                </label>
+                <label>
+                    <input type="radio" name="playstyle" value="casual" required/>
+                    <span>Casual</span>
+                </label>
+            </fieldset>
+            <fieldset>
+                <legend>How often should your match play?</legend>
+                <label>
+                    <input type="radio" name="playtime" value="5plushours" required/>
+                    <span>5+ hours per day</span>
+                </label>
+                <label>
+                    <input type="radio" name="playtime" value="5minushours" required/>
+                    <span>-5 hours per day</span>
+                </label>
+                <label>
+                    <input type="radio" name="playtime" value="fewtimes" required/>
+                    <span>A few times per week</span>
+                </label>
+                <label>
+                    <input type="radio" name="playtime" value="onetime" required/>
+                    <span>Once per week</span>
+                </label>
+            </fieldset>
+            <input type="submit" value="Match"/>
+        </form>
+    </div>
+{% endblock %}

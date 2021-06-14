@@ -8,7 +8,8 @@
     height: 4rem;
     display: flex;
     align-items: center;
-    background-color: #0F0F11;
+    background: #00000026;
+    backdrop-filter: blur(10px);
 
     nav {
         width: 100%;

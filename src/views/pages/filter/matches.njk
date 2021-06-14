@@ -2,13 +2,14 @@
 {% block title %}Filter {% endblock %}
 {% block content %}
     <div class="matches">
-        {% for user in filteredUsers %}
+        <h2>{{ header }}</h2>
+        {% for user in filteredProfiles %}
             <section>
                 <article>
                     <p>{{ user.username }}</p>
-                    <p>Top game: {{ user.topGame }}</p>
-                    <p>Playstyle: {{ user.playstyle }}</p>
-                    <p>Time: {{ user.time }}</p>
+                    <p><strong>Top game:</strong> {{ chosenGame }}</p>
+                    <p><strong>Playstyle:</strong> {{ user.playstyle }}</p>
+                    <p><strong>Playtime:</strong> {{ user.playtime }}</p>
                 </article>
                 <a href="#" class="like">Like</a>
             </section>

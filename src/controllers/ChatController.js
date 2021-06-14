@@ -25,6 +25,9 @@ const chatHome = async (req, res) => {
     await updateUsers(req);
     User.find().then((results) => {
         filteredUsers = results.filter((user) => user.id !== req.params.userId);
+        filteredUsers = filteredUsers.filter(
+            (user) => userObject.likedBy.includes(user.username) && user.likedBy.includes(userSelf)
+        );
         res.render('pages/chat/chatList.njk', {
             user: userObject,
             userId: req.params.userId,

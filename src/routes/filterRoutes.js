@@ -14,6 +14,4 @@ router.get('/minecraft', FilterController.getFilterMine);
 
 router.get('/cold-war', FilterController.getFilterCold);
 
-// router.post('/', FilterController.useFilter);
-
 module.exports = router;

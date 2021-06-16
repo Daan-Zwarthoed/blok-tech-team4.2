@@ -686,6 +686,11 @@ li.clicked {
     font-size: 0.9rem;
     border-radius: 0.25rem; }
 
+.games h2 {
+  width: 90%;
+  margin: 10px auto 20px;
+    }
+
 .games a {
   margin: auto;
   width: 90%;

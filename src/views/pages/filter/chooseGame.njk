@@ -4,6 +4,7 @@
 {% endblock %}
 {% block content %}
     <div class="games">
+    <h2>What game should your match play?</h2>
         {% for game in games %}
             <span>
                 <a href="/filter/{{ game.titleSlug }}">

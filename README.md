@@ -1,13 +1,30 @@
-<img src="static/public/images/logo.png" alt="logo" width="240px"/>
+<p align="center">
+<img src="static/public/images/logo.png" alt="logo" width="400px"/>
+  <br>
+  <i>Game match is a matching app that lets you connect with other players from around the world. Match with players based on your games, playstyle and playtime.
+  <br>
+</p>
 
- &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+<p align="center">
+  <a href="https://matching-app-games-team4-2.herokuapp.com/login"><strong>https://matching-app-games-team4-2.herokuapp.com/login</strong></a>
+  <br>
+</p>
 
-## Description
-Game match is a matching app that lets you connect with other players from around the world. Match with players based on your games, playstyle and playtime.
+<p align="center">
+      <a href="https://github.com/Daan-Zwarthoed/blok-tech-team4.2/blob/main/LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg"/>
+  </a>&middot;
+        <a href="https://github.com/Daan-Zwarthoed/blok-tech-team4.2/issues">
+    <img src="https://img.shields.io/github/issues-closed/Daan-Zwarthoed/blok-tech-team4.2"/>
+  </a>&middot; 
+          <a href="https://github.com/Daan-Zwarthoed/blok-tech-team4.2">
+    <img src="https://img.shields.io/github/commit-activity/m/Daan-Zwarthoed/blok-tech-team4.2"/>
+  </a>
+</p>
 
-The application is deployed here: https://matching-app-games-team4-2.herokuapp.com/login.
 
 ## Features
+
 - Login and registering
 - Filtering users
 - Liking/Disliking users
@@ -41,6 +58,7 @@ Example app listening at http://localhost:3000
 ```
 
 ## Packages used
+
 - bcrypt
 - bson
 - connect-mongo
@@ -64,6 +82,7 @@ Example app listening at http://localhost:3000
 You can find the documentation on [the wiki](https://github.com/Daan-Zwarthoed/blok-tech-team4.2/wiki).
 
 ## Contributors
+
 - [Akshay Kumar](https://github.com/akshay197)
 - [Daan Zwarthoed](https://github.com/Daan-Zwarthoed)
 - [Maylinn Kwakman](https://github.com/maylinnk)

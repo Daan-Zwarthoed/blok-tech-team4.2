@@ -1,4 +1,6 @@
-# blok-tech-team4.2
+<img src="images/logo.png" alt="logo" width="240px"/>
+
+ &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
 ## Description
 Game match is a matching app that lets you connect with other players from around the world. Match with players based on your games, playstyle and playtime.

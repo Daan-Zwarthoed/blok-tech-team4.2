@@ -1,7 +1,7 @@
 # blok-tech-team4.2
 
 ## Description
-name-of-app is a matching app that lets you connect with other players from around the world. Match with players based on your games, playstyle and playtime.
+Game match is a matching app that lets you connect with other players from around the world. Match with players based on your games, playstyle and playtime.
 
 The application is deployed here: https://matching-app-games-team4-2.herokuapp.com/login.
 

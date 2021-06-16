@@ -97,8 +97,8 @@ li.clicked {
 	}
 }
 
-// https://css-tricks.com/transitions-only-after-page-load/
-.preload * {
+// Coyier, C. (2015, 24 augustus). Transitions Only After Page Load. CSS-Tricks. https://css-tricks.com/transitions-only-after-page-load/
+body.preload {
 	-webkit-transition: none !important;
 	-moz-transition: none !important;
 	-ms-transition: none !important;

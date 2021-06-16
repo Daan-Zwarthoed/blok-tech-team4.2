@@ -13,7 +13,7 @@
             <div class='wrapper'>
                 <img src='/uploads/{{ profile.avatar }}' class='profile-avatar'/>
                 {% if userId == user._id %}
-                    <a href='/profiles/{{ profile._id }}/update'>Profiel bewerken</a>
+                    <a href='/profiles/{{ profile._id }}/update'>Edit profile</a>
                 {% endif %}
             </div>
             <h2>{{ profile.displayname }}

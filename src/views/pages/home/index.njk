@@ -1,7 +1,14 @@
 {% extends "layouts/layout.njk" %}
 {% block title %}
-  Home
+Home
 {% endblock %}
 {% block content %}
-  This is the homepage
+  <div class="home">
+    <h1>Welcome {{ user.username }}!</h1>
+    <article>
+      <a href="/chat">Start a chat</a>
+      <a href="/profiles">Check profile</a>
+      <a href="/filter">Find a match</a>
+    </article>
+  </div>
 {% endblock %}

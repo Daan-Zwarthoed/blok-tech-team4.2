@@ -1,4 +1,4 @@
-<img src="images/logo.png" alt="logo" width="240px"/>
+<img src="static/public/images/logo.png" alt="logo" width="240px"/>
 
  &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 

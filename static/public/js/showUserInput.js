@@ -11,7 +11,7 @@ const charCount = document.querySelectorAll('.char-count');
  * This function shows the user input of an image file when inserting it in an input field.
  */
 const showUserImage = (image, event) => {
-    // https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL
+    // Mozilla. (2021, 31 mei). URL.createObjectURL() - Web APIs | MDN. MDN Docs. https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL
     image.src = URL.createObjectURL(event.target.files[0]);
 };
 
@@ -48,10 +48,10 @@ const checkSiblingFromElement = (element, sibling) => {
  * This function inserts the value of the getCharCount function to the right
  * sibling from the checkSiblingFromElement function.
  * @param {*} element = the requested element
- * @param {*} sibling = the sibling
+ * @param {*} count = the counter
  */
-const insertCharCount = (element, sibling) => {
-    const counter = checkSiblingFromElement(element, sibling);
+const insertCharCount = (element, count) => {
+    const counter = checkSiblingFromElement(element, count);
     counter.innerHTML = getCharCount(element);
 };
 

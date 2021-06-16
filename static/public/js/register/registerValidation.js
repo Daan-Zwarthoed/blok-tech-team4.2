@@ -43,6 +43,18 @@ const checkInput = (arr, counter) => {
     });
 };
 
+const checkCheckbox = (arr, event) => {
+    let boolChecked = false;
+
+    arr.forEach((input) => {
+        if (input.checked) {
+            boolChecked = true;
+        }
+    });
+
+    return boolChecked;
+};
+
 /**
  * This function goes to the next sequence (applied when input isn't necessarily required).
  *
@@ -103,15 +115,7 @@ const validate = (input, radio, form, nextInfo, event) => {
  */
 const checkGames = (arr, event) => {
     // Declare a boolean to check if checkboxes are checked.
-    let boolChecked = false;
-
-    arr.forEach((input) => {
-        if (input.checked) {
-            boolChecked = true;
-        }
-    });
-
-    if (!boolChecked) {
+    if (!checkCheckbox(arr, event)) {
         // Prevent the user from submitting
         event.preventDefault();
         addWarning(event);
@@ -176,7 +180,7 @@ formInput.forEach((input) => {
 
 /**
  * This function checks the character count of an input field and also shows the maxLength attribute.
- * https://css-tricks.com/build-word-counter-app/
+ * Lalwani, V. (2017, 4 maart). How To Build a Word Counter App. CSS-Tricks. https://css-tricks.com/build-word-counter-app/
  */
 const getCharCount = (input) => `${input.value.length} / ${input.maxLength}`;
 

@@ -2,10 +2,7 @@
 // https://browserify.org/
 
 const SwipeListener = require('swipe-listener');
-<<<<<<< HEAD
 
-=======
->>>>>>> f5572cb67b01c0414c5f0dd366123d8e6dfc40df
 const card = document.querySelector('.likeCard');
 const listener = SwipeListener(card);
 const dislike = document.querySelector('#dislike');
@@ -20,7 +17,6 @@ submit.hidden = true;
  */
 
 card.addEventListener('swipe', function (event) {
-<<<<<<< HEAD
     const { directions } = event.detail;
     if (directions.left) {
         dislike.checked = true;
@@ -31,18 +27,6 @@ card.addEventListener('swipe', function (event) {
         like.checked = true;
         formulier.submit();
     }
-=======
-    const directions = event.detail.directions;
-    if (directions.left) {
-        dislike.checked = true;
-        formulier.submit();
-  }
-
-  if (directions.right) {
-        like.checked = true;
-        formulier.submit();
-  }
->>>>>>> f5572cb67b01c0414c5f0dd366123d8e6dfc40df
 });
 
 like.addEventListener('click', function () {

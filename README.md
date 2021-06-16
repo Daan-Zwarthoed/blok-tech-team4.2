@@ -1,8 +1,8 @@
 <br>
 <p align="center">
 <img src="static/public/images/logo.png" alt="logo" width="400px"/>
-  <br>
-  <i>Game match is a matching app that lets you connect with other players from around the world. Match with players based on your games, playstyle and playtime.</i>
+  <br><br>
+  <i width="50%">Game match is a matching app that lets you connect with other players from around the world. Match with players based on your games, playstyle and playtime.</i>
   <br>
 </p>
 <br>

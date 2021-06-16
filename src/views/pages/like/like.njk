@@ -4,7 +4,7 @@
     {% if displayedUser %}
         {{ displayedUser.username }}
     {% else %}
-        no matches
+        No matches
     {% endif %}
 {% endblock %}
 {% block content %}
@@ -30,7 +30,7 @@
                             {% case 'onetime' %}
                                 <span class="material-icons">schedule</span>Once per week
                             {% default %}
-                                <span class="material-icons">schedule</span>Niet gespecificeerd
+                                <span class="material-icons">schedule</span>Not specified
                         {% endswitch %}
                     </li>
                     <li>
@@ -59,8 +59,8 @@
         </section>
     {% else %}
         <div class="geenMatches">
-            <p>Er zijn geen users voor de criteria</p>
-            <a href="/filter">Nieuwe filters instellen</a>
+            <p>There are no users for these criteria</p>
+            <a href="/filter">Set new filters</a>
         </div>
     {% endif %}
 {% endblock %}

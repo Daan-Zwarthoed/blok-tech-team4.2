@@ -6,24 +6,22 @@
     <br>Match with players based on your games, playstyle and playtime.</i>
   <br>
 </p>
-<br>
 <p align="center">
   <a href="https://matching-app-games-team4-2.herokuapp.com/login"><strong>https://matching-app-games-team4-2.herokuapp.com/login</strong></a>
   <br>
 </p>
 <br>
 <p align="center">
-      <a href="https://github.com/Daan-Zwarthoed/blok-tech-team4.2/blob/main/LICENSE">
-    <img src="https://img.shields.io/badge/license-MIT-blue.svg"/>
-  </a>&nbsp;
-        <a href="https://github.com/Daan-Zwarthoed/blok-tech-team4.2/issues">
-    <img src="https://img.shields.io/github/issues-closed/Daan-Zwarthoed/blok-tech-team4.2"/>
-  </a>&nbsp;
-          <a href="https://github.com/Daan-Zwarthoed/blok-tech-team4.2">
-    <img src="https://img.shields.io/david/dev/Daan-Zwarthoed/blok-tech-team4.2"/>
-  </a>
+    <a href="https://github.com/Daan-Zwarthoed/blok-tech-team4.2/blob/main/LICENSE">
+        <img src="https://img.shields.io/badge/license-MIT-blue.svg"/>
+    </a>&nbsp;
+    <a href="https://github.com/Daan-Zwarthoed/blok-tech-team4.2/issues">
+        <img src="https://img.shields.io/github/issues-closed/Daan-Zwarthoed/blok-tech-team4.2"/>
+    </a>&nbsp;
+    <a href="https://github.com/Daan-Zwarthoed/blok-tech-team4.2/pulls">
+        <img src="https://img.shields.io/github/issues-pr-closed/Daan-Zwarthoed/blok-tech-team4.2"/>
+    </a>
 </p>
-
 
 ## Features
 

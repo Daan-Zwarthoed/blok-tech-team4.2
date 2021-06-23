@@ -6,38 +6,41 @@
             <input type="text" name="games" value="{{ chosenGame }}"/>
             <fieldset>
                 <legend>What playstyle should your match have?</legend>
+                    <span class="alert">
+                        {{ alert[0].msg }}
+                    </span>
                 <label>
-                    <input type="radio" name="playstyle" value="competitive" required/>
+                    <input type="radio" name="playstyle" value="competitive"/>
                     <span>Competitive</span>
                 </label>
                 <label>
-                    <input type="radio" name="playstyle" value="casual" required/>
+                    <input type="radio" name="playstyle" value="casual"/>
                     <span>Casual</span>
                 </label>
             </fieldset>
             <fieldset>
                 <legend>How often should your match play?</legend>
+                <span class="alert">
+                        {{ alert[1].msg }}
+                </span>
                 <label>
-                    <input type="radio" name="playtime" value="5plushours" required/>
+                    <input type="radio" name="playtime" value="5plushours"/>
                     <span>5+ hours per day</span>
                 </label>
                 <label>
-                    <input type="radio" name="playtime" value="5minushours" required/>
+                    <input type="radio" name="playtime" value="5minushours"/>
                     <span>-5 hours per day</span>
                 </label>
                 <label>
-                    <input type="radio" name="playtime" value="fewtimes" required/>
+                    <input type="radio" name="playtime" value="fewtimes"/>
                     <span>A few times per week</span>
                 </label>
                 <label>
-                    <input type="radio" name="playtime" value="onetime" required/>
+                    <input type="radio" name="playtime" value="onetime"/>
                     <span>Once per week</span>
                 </label>
             </fieldset>
             <input type="submit" value="Match"/>
         </form>
     </div>
-{% endblock %}
-{% block scripts %}
-    <script src='/js/filter/filterValidation.js'></script>
 {% endblock %}

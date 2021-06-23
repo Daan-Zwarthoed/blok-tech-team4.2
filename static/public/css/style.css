@@ -695,7 +695,8 @@ a,
 span,
 button,
 label,
-textarea {
+textarea,
+legend {
     font-family: 'Graphik', 'segoe ui', tahoma, sans-serif;
 }
 
@@ -964,6 +965,10 @@ body.preload {
     text-shadow: 2px 3px 3px #000000;
 }
 
+.filter {
+    height: 700px;
+}
+
 .filter form {
     width: 90%;
     margin: auto;
@@ -978,6 +983,11 @@ body.preload {
     display: flex;
     flex-direction: column;
     margin-bottom: 25px;
+}
+
+.filter form fieldset>span {
+    color: red;
+    font-style: italic;
 }
 
 .filter form fieldset legend {

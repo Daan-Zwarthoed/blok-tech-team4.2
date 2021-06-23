@@ -42,18 +42,17 @@
                     <input type="text" class="hidden" name="games" value="{{ chosenGame }}"/>
                     <input type="text" class="hidden" name="displayedUserUsername" value="{{ displayedUser.username }}"/>
                     <div>
-                        <input type="radio" id="dislike" name="preference" value="dislike"/>
+                        <input type="submit" class="hidden" id="dislike" name="preference" value="dislike"/>
                         <label for="dislike">
                             <span class="material-icons dislike">thumb_down_alt</span>
                         </label>
                     </div>
                     <div>
-                        <input type="radio" id="like" name="preference" value="like"/>
+                        <input type="submit" class="hidden" id="like" name="preference" value="like"/>
                         <label for="like">
                             <span class="material-icons like">thumb_up_alt</span>
                         </label>
                     </div>
-                    <input class="verzend" type='submit'/>
                 </form>
             </div>
         </section>

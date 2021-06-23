@@ -11,7 +11,6 @@ const playtime = document.querySelector('input[name="playtime"]');
 const radioArr = [playstyle, playtime];
 const username = document.querySelector('#username');
 const charCount = document.querySelectorAll('.char-count');
-
 /**
  * This function checks if a set of radio buttons have been checked.
  *

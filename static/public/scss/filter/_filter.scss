@@ -37,6 +37,8 @@
 }
 
 .filter {
+    height: 700px;
+    
     form {
         width: 90%;
         margin: auto;
@@ -50,6 +52,11 @@
             display: flex;
             flex-direction: column;
             margin-bottom: 25px;
+        }
+
+        fieldset>span {
+            color: red;
+            font-style: italic;
         }
 
         fieldset legend {
